@@ -1,0 +1,28 @@
+.o-font {
+  &-f1 {
+    &-main {
+      @include a-set($f1-main);
+    }
+    &-subtitle {
+      @include a-set($f1-subtitle);
+    }
+    &-section {
+      @include a-set($f1-section);
+    }
+    &-small {
+      @include a-set($f1-small);
+    }
+    &-smaller {
+      @include a-set($f1-smaller);
+    }
+  }
+
+  &-f2 {
+    &-normal {
+      @include a-set($f2-normal);
+    }
+    &-small {
+      @include a-set($f2-normal);
+    }
+  }
+}
