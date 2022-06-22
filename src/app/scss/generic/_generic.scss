@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// body {
+//   font-family: 'Manrope', sans-serif;
+// }
+
+// h1,
+// h2,
+// h3 {
+//   font-family: 'Jost', sans-serif;
+// }
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
