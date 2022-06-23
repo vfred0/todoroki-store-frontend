@@ -1,0 +1,36 @@
+html {
+  box-sizing: border-box;
+  --webkit-font-smoothing: antialiased;
+  --moz-osc-font-smoothing: grayscale;
+  background-color: $neutral-white;
+  color: $grey-900;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: inherit;
+  // font-family: 'Jost', sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+ol,
+li {
+  list-style: none;
+}
