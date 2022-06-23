@@ -8,20 +8,8 @@
   padding: 0;
 }
 
-// body {
-//   font-family: 'Manrope', sans-serif;
-// }
-
-// h1,
-// h2,
-// h3 {
-//   font-family: 'Jost', sans-serif;
-// }
-
-a {
-  text-decoration: none;
+::selection {   
+  background-color: $grey-500;
 }
 
-li {
-  list-style: none;
-}
+
