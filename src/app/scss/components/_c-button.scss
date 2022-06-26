@@ -1,0 +1,27 @@
+.c-button {
+  padding: em(12) em(36);
+  border-radius: em(6);
+  font-weight: 600;
+
+  &--default {
+    color: $grey-900;
+    background-color: $neutral-white;
+    border: em(0.8) solid $grey-900;
+    &:hover {
+      background-color: $neutral-black;
+      color: $neutral-white;
+      cursor: pointer;
+    }
+  }
+  &--contact {
+    color: $neutral-white;
+    background-color: $green-400;
+    display: flex;
+    gap: em(12);
+    border: none;
+    &:hover {
+      cursor: pointer;
+      background-color: $green-500;
+    }
+  }
+}
