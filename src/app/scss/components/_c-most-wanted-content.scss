@@ -1,5 +1,5 @@
 .c-most-wanted-content {
-  display: inline-grid;
+  display: grid;
   grid-gap: em(12);
   align-items: center;
   background-color: $grey-100;
@@ -8,7 +8,6 @@
   @include only-sm() {
     grid-template-columns: repeat(1, 1fr);
   }
-  
   &__container {
     display: grid;
     grid-gap: em(18);
