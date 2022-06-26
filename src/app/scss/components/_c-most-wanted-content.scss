@@ -1,6 +1,6 @@
-.c-most-wanted-content {  
+.c-most-wanted-content {
   display: inline-grid;
-  grid-gap: 0.8em;
+  grid-gap: em(12);
   align-items: center;
   background-color: $grey-100;
   grid-template-columns: repeat(2, 1fr);
@@ -8,13 +8,25 @@
   @include only-sm() {
     grid-template-columns: repeat(1, 1fr);
   }
-  gap: 0.5em;
+  
+  &__container {
+    display: grid;
+    grid-gap: em(18);
+    @include only-sm() {
+      order: 2;
+      background-color: $neutral-white;
+      width: 100%;
+      justify-items: center;
+    }
+  }
+
   &__title {
     color: $grey-700;
   }
   &__wrapper-texts {
+    display: grid;
+    grid-gap: em(6);
     @include only-sm() {
-      order: 2;
       text-align: center;
     }
   }
