@@ -1,0 +1,28 @@
+.c-modal {
+  height: 100%;
+  width: 60vmin;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  background-color: $neutral-white;
+  display: none;
+
+  &__main-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__buttons {
+    display: flex;
+    padding: em(16);
+  }
+
+  &.is-active {
+    display: block;
+    position: fixed;
+    top: 0;
+    z-index: $z-modal;
+  }
+}
