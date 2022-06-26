@@ -1,4 +1,4 @@
 export enum TypeButton {
-  Default = 'c-button-default',
-  Contact = 'c-button-contact',
+  Default = 'c-button c-button--default',
+  Contact = 'c-button c-button--contact',
 }
