@@ -1,25 +1,16 @@
-<!-- <div class="c-header">
-  <ul class="c-header__main-menu">
-    <li class="c-header__menu-item">
-      <a class="c-header__menu-link o-font-f1-subtitle" href="">Home</a>
-    </li>
-    <li class="c-header__menu-item">
-      <a class="c-header__menu-link o-font-f1-subtitle" href="">Shop</a>
-    </li>
-    <li class="c-header__menu-item">
-      <a class="c-header__menu-link o-font-f1-subtitle" href="">Products</a>
-    </li>
-    <li class="c-header__menu-item">
-      <a class="c-header__menu-link o-font-f1-subtitle" href="">Blogs</a>
-    </li>
-    <li class="c-header__menu-item">
-      <a class="c-header__menu-link o-font-f1-subtitle" href="">Pages</a>
-    </li>
-  </ul>
-</div> -->
 <div class="c-header">
   <ul class="c-header__menu">
-    <li class="c-header__menu-item" (click)="onToggle($event)">
+    <div class="c-header__menu-left">
+      <li class="c-header__menu-item">
+        <a class="c-header__menu-link o-font-f2-norma" href="">Inicio</a>
+      </li>
+      <li class="c-header__menu-item">
+        <a class="c-header__menu-link o-font-f2-normal" href="">Categorías</a>
+      </li>
+    </div>
+    <li
+      class="c-header__menu-item c-header__menu-item--toggle"
+      (click)="onToggle($event)">
       <a class="c-header__menu-link" href="">
         <svg
           class="c-header__menu-icon"
@@ -69,12 +60,12 @@
 </div>
 
 <div class="c-modal {{ activeModal }}">
-  <ul class="c-modal__main-menu">
+  <ul class="c-modal__menu">
     <li class="c-modal__menu-item">
-      <a class="c-modal__menu-link o-font-f1-subtitle" href="">Inicio</a>
+      <a class="c-modal__menu-link o-font-f1-main" href="">Inicio</a>
     </li>
     <li class="c-modal__menu-item">
-      <a class="c-modal__menu-link o-font-f1-subtitle" href="">Categorías</a>
+      <a class="c-modal__menu-link o-font-f1-main" href="">Categorías</a>
     </li>
   </ul>
 
