@@ -8,10 +8,16 @@
   background-color: $neutral-white;
   display: none;
 
-  &__main-menu {
+  &__menu {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: em(12);
+    &-link {
+      color: $grey-900;
+      font-weight: 500;
+    }
+    padding-top: em(18);
   }
 
   &__buttons {
@@ -20,7 +26,7 @@
   }
 
   &.is-active {
-    display: block;
+    display: flex;
     position: fixed;
     top: 0;
     z-index: $z-modal;
