@@ -136,20 +136,28 @@ $f1-smaller: (
 );
 $f2-normal: (
   sm: (
-    font-size: 1rem,
+    font-size: rem(15),
     line-height: 160%,
     font-family: $font-b,
-    font-weight: normal,
-    font-style: normal,
+  ),
+  md: (
+    font-size: rem(15.5),
+  ),
+  lg: (
+    font-size: rem(16),
   ),
 );
 $f2-small: (
   sm: (
-    font-size: 0.88rem,
+    font-size: rem(14),
     line-height: 160%,
     font-family: $font-b,
-    font-weight: normal,
-    font-style: normal,
+  ),
+  md: (
+    font-size: rem(14.5),
+  ),
+  lg: (
+    font-size: rem(15),
   ),
 );
 
@@ -182,3 +190,11 @@ $screen-sm: 320px;
 
 $break-tablet: 610px;
 $break-desktop: 1190px;
+
+//Z-index
+
+$z-back: -10;
+$z-normal: 1;
+$z-tooltip: 10;
+$z-fixed: 100;
+$z-modal: 100;
