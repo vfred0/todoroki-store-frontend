@@ -8,8 +8,18 @@
       display: flex;
       gap: em(16);
     }
+    &-left {
+      @include only-sm() {
+        display: none;
+      }
+      display: flex;
+      gap: em(16);
+    }    
   }
+
   &__menu-link {
+    color: $green-900;
+    font-weight: 600;
   }
   &__menu-icon {
     width: em(16);
@@ -25,6 +35,11 @@
     }
   }
   &__menu-item {
+    &--toggle {
+      @include md() {
+        display: none;
+      }
+    }
   }
   &__logo {
     width: em(32);
