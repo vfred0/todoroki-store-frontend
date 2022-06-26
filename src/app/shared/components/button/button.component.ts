@@ -7,4 +7,9 @@ import { TypeButton } from '@core/models/TypeButton';
 })
 export class ButtonComponent {
   @Input() typeButton: TypeButton | undefined;
+  @Input() description: string = 'Ver productos';
+
+  isDefault(): boolean {
+    return this.typeButton == TypeButton.Default;
+  }
 }
