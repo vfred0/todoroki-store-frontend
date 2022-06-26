@@ -30,8 +30,6 @@
     "**/.project": true,
     "**/.settings": true,
     "**/.factorypath": true,
-    "tsconfig.spec.json": true,
-    "tsconfig.json": true,
     ".browserslistrc": true,
     ".editorconfig": true,
     ".eslintrc.json": true,
@@ -55,8 +53,6 @@
   },
   "hidefiles.selectedProfile": "Show All Files",
   "hide-files.files": [
-    "tsconfig.spec.json",
-    "tsconfig.json",
     ".browserslistrc",
     ".editorconfig",
     ".eslintrc.json",
