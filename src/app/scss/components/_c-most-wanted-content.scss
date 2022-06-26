@@ -1,0 +1,27 @@
+.c-most-wanted-content {  
+  display: inline-grid;
+  grid-gap: 0.8em;
+  align-items: center;
+  background-color: $grey-100;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  @include only-sm() {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  gap: 0.5em;
+  &__title {
+    color: $grey-700;
+  }
+  &__wrapper-texts {
+    @include only-sm() {
+      order: 2;
+      text-align: center;
+    }
+  }
+  &__product-name {
+    color: $grey-900;
+  }
+  &__image {
+    width: 50%;
+  }
+}
