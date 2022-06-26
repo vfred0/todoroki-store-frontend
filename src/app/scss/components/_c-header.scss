@@ -1,0 +1,39 @@
+.c-header {
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: em(8);
+    &-right {
+      display: flex;
+      gap: em(16);
+    }
+  }
+  &__menu-link {
+  }
+  &__menu-icon {
+    width: em(16);
+
+    @include md {
+      width: em(20);
+    }
+    @include lg {
+      width: em(24);
+    }
+    & > path {
+      fill: $grey-900;
+    }
+  }
+  &__menu-item {
+  }
+  &__logo {
+    width: em(32);
+
+    @include md {
+      width: em(40);
+    }
+    @include lg {
+      width: em(48);
+    }
+  }
+}
