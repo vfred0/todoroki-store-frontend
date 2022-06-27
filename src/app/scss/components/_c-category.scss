@@ -18,24 +18,22 @@
     grid-gap: em(4);
     font-weight: $semibold;
   }
-  &__title{
-    color: $grey-800;
+
+  &__wrapper-icon {
+    background-color: $neutral-white;
+    border-radius: 50%;
+    padding: em(8);
   }
-  &__quantity{
+  &__title {
+    color: $grey-800;
+    font-weight: $semibold;
+  }
+  &__quantity {
     color: $grey-400;
   }
 
   &__icon {
-    background-color: $neutral-white;
-    border-radius: 50%;
-    width: em(35);
-    height: fit-content;
+    display: grid; // icon center??
     fill: $grey-900;
-    @include md {
-      width: em(45);
-    }
-    @include lg {
-      width: em(50);
-    }
   }
 }
