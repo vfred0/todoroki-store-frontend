@@ -1,0 +1,33 @@
+.c-card {
+  // display: flex;
+  // flex-direction: column;
+  // gap: em(12);
+  // background-color: $grey-100;
+  // border-radius: em(6);
+  // padding: em(16);
+  display: grid;
+  gap: 0.75em;
+  background-color: #e6e6e6;
+  border-radius: 0.375em;
+  padding: 1em;
+  align-items: end;
+  height: 100%;
+  &__image {
+    border-radius: em(6);
+  }
+  &__wrapper-texts {
+    display: flex;
+    flex-direction: column;
+    gap: em(4);
+    overflow: hidden;
+  }
+  &__price {
+    font-weight: $semibold;
+  }
+  &__title {
+    font-weight: $semibold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
