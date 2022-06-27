@@ -8,6 +8,7 @@ import { TypeButton } from '@core/models/TypeButton';
 export class HeaderComponent {
   activeModal: string = '';
   typeButton: TypeButton = TypeButton.Default;
+
   constructor() {}
 
   onToggle(event: any): void {
