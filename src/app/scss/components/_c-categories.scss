@@ -1,0 +1,11 @@
+.c-categories {
+  display: grid;
+  grid-gap: 0.8em;
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  margin: 0 50vmin;
+  justify-content: center;  
+  @include only-sm() {
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
+  }
+
+}
