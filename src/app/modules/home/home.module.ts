@@ -7,12 +7,14 @@ import { SwiperModule } from 'swiper/angular';
 import { SliderComponent } from './components/slider/slider.component';
 import { MostWantedContentComponent } from './components/most-wanted-content/most-wanted-content.component';
 import { SharedModule } from '@shared/shared.module';
+import { CategoryComponent } from './components/category/category.component';
 
 @NgModule({
   declarations: [
     HomePageComponent,
     SliderComponent,
     MostWantedContentComponent,
+    CategoryComponent,
   ],
   imports: [CommonModule, HomeRoutingModule, SwiperModule, SharedModule],
 })
