@@ -4,19 +4,19 @@
     src="https://imgs.search.brave.com/xdJkt4qVTDvvaCM2_6_aWyEu9FNODYJtDL4fu8TKGQc/rs:fit:893:1024:1/g:ce/aHR0cHM6Ly9wbmdp/bWcuY29tL3VwbG9h/ZHMvdHNoaXJ0L3Rz/aGlydF9QTkc1NDQ4/LnBuZw" />
   <div class="c-category__footer">
     <div class="c-category__wrapper-texts">
-      <span class="c-category__title o-font-f1-main">{{ nameCategory }}</span>
+      <span class="c-category__title o-font-f1-subtitle">{{
+        nameCategory
+      }}</span>
       <span class="c-category__quantity o-font-f1-section">
         {{ quantity }} productos</span
       >
     </div>
-    <svg
-      class="c-category__icon"
-      xmlns="http://www.w3.org/2000/svg"
-      width="100%"
-      height="100%"
-      viewBox="0 0 25 26">
-      <path
-        d="m16.235 11.601-4.114-4.114a1.042 1.042 0 0 1 1.473-1.473l5.892 5.892a1.039 1.039 0 0 1 0 1.473l-5.892 5.893a1.042 1.042 0 1 1-1.473-1.473l4.114-4.115H6.25a1.041 1.041 0 1 1 0-2.083h9.985Z" />
-    </svg>
+    <div class="c-category__wrapper-icon">
+      <svg-icon
+        src="/assets/icons/arrow.svg"
+        [class]="'o-icon-size-lg c-category__icon'"
+        [applyClass]="true">
+      </svg-icon>
+    </div>
   </div>
 </div>
