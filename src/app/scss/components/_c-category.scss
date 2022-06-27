@@ -18,6 +18,13 @@
     grid-gap: em(4);
     font-weight: $semibold;
   }
+  &__title{
+    color: $grey-800;
+  }
+  &__quantity{
+    color: $grey-400;
+  }
+
   &__icon {
     background-color: $neutral-white;
     border-radius: 50%;
