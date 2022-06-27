@@ -1,0 +1,33 @@
+.c-category {
+  display: grid;
+  grid-gap: 0.75em;
+  justify-items: center;
+  background-color: $green-100;
+  border-radius: em(6);
+  padding: em(32);
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__wrapper-texts {
+    display: grid;
+    grid-gap: em(4);
+    font-weight: $semibold;
+  }
+  &__icon {
+    background-color: $neutral-white;
+    border-radius: 50%;
+    width: em(25);
+    height: fit-content;
+    @include md {
+      width: em(35);
+    }
+    @include lg {
+      width: em(45);
+    }
+  }
+}
