@@ -4,7 +4,7 @@
   justify-items: center;
   background-color: $green-100;
   border-radius: em(6);
-  padding: em(32);
+  padding: em(16);
 
   &__footer {
     display: flex;
@@ -28,13 +28,14 @@
   &__icon {
     background-color: $neutral-white;
     border-radius: 50%;
-    width: em(25);
+    width: em(35);
     height: fit-content;
+    fill: $grey-900;
     @include md {
-      width: em(35);
+      width: em(45);
     }
     @include lg {
-      width: em(45);
+      width: em(50);
     }
   }
 }
