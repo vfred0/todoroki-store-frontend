@@ -8,6 +8,8 @@ import { SliderComponent } from './components/slider/slider.component';
 import { MostWantedContentComponent } from './components/most-wanted-content/most-wanted-content.component';
 import { SharedModule } from '@shared/shared.module';
 import { CategoryComponent } from './components/category/category.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,13 @@ import { CategoryComponent } from './components/category/category.component';
     MostWantedContentComponent,
     CategoryComponent,
   ],
-  imports: [CommonModule, HomeRoutingModule, SwiperModule, SharedModule],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    SwiperModule,
+    SharedModule,
+    HttpClientModule,
+    AngularSvgIconModule.forRoot(),
+  ],
 })
 export class HomeModule {}
