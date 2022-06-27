@@ -71,7 +71,7 @@ $f1-subtitle: (
     font-size: 1.5rem,
   ),
   lg: (
-    font-size: 2.5rem,
+    font-size: 1.6rem,
   ),
 );
 $f1-section: (
@@ -83,10 +83,10 @@ $f1-section: (
     font-style: normal,
   ),
   md: (
-    font-size: 1.25rem,
+    font-size: 1.15rem,
   ),
   lg: (
-    font-size: 1.5rem,
+    font-size: 1.2rem,
   ),
 );
 $f1-normal: (
@@ -128,10 +128,10 @@ $f1-smaller: (
     font-style: normal,
   ),
   md: (
-    font-size: .65rem,
+    font-size: 0.65rem,
   ),
   lg: (
-    font-size: .70rem,
+    font-size: 0.7rem,
   ),
 );
 $f2-normal: (
@@ -160,18 +160,6 @@ $f2-small: (
     font-size: rem(15),
   ),
 );
-
-$container__witdh: 1696px;
-$total-columns__lg: 12;
-$total-columns__md: 6;
-$total-columns__sm: 4;
-
-$grid-glutter: 20px;
-$container-padding: 16px;
-
-// $grid-glutter__lg: 20px;
-// $grid-glutter__md: 20px;
-// $grid-glutter__sm: 20px;
 
 // RESPONSIVE
 // screensiz.es
