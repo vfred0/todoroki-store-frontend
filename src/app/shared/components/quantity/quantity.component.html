@@ -1,0 +1,13 @@
+<div class="c-quantity">
+  <svg-icon
+    class="c-quantity__icon o-icon-size-md"
+    src="/assets/icons/minor.svg"
+    (click)="decreaseValue()"></svg-icon>
+  <input
+    class="c-quantity__input o-font-f2-normal"
+    [formControl]="this.value" />
+  <svg-icon
+    class="c-quantity__icon o-icon-size-sm"
+    src="/assets/icons/plus.svg"
+    (click)="increaseValue()"></svg-icon>
+</div>
