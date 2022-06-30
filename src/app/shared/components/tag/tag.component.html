@@ -1,1 +1,7 @@
-<p>tag works!</p>
+<button #etag class="c-tag {{ tag.typeTag }} {{ _selected }}">
+  <svg-icon
+    src="{{ tag.pathIcon }}"
+    [class]="'c-tag__icon o-icon-size-sm'"
+    [applyClass]="true"></svg-icon>
+  <span class="c-tag__text o-font-f2-small"> {{ tag.description }} </span>
+</button>
