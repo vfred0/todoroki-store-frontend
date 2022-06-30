@@ -1,5 +1,7 @@
 <div class="c-card">
   <img [src]="image" class="c-card__image" />
+  <app-tag class="c-card__likes" (selected)="tagSelected()" [tag]="_tag">
+  </app-tag>
   <div class="c-card__wrapper-texts">
     <span class="o-font-f2-normal c-card__title">
       {{ productName }}
