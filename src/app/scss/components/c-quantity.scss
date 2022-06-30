@@ -1,0 +1,32 @@
+.c-quantity {
+  background-color: $grey-100;
+  padding: em(12);
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  border-radius: em(6);
+  &__icon {
+    fill: $grey-700;
+    cursor: pointer;
+    display: grid;
+  }
+
+  &__input {
+    color: $grey-700;
+    background-color: $grey-100;
+    outline: none;
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    text-align: center;
+    width: em(64);
+    &::selection {   
+      background-color: transparent;
+    }
+    
+  }
+}
