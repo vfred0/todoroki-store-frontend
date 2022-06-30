@@ -1,0 +1,33 @@
+.c-color {
+  $color: &;
+
+  border-radius: 50%;
+  padding: em(6);
+  cursor: pointer;
+  outline: none;
+  border: none;
+ 
+  &--white {
+    background-color: $grey-100;
+    fill: $grey-100;
+
+    &.has-selected {
+      #{$color}__icon {
+        fill: $grey-900;
+      }
+    }
+  }
+
+  &--black {
+    background-color: $grey-900;    
+    &.has-selected {
+      #{$color}__icon {
+        fill: $grey-100;
+      }
+    }
+  }
+
+  &__icon{
+    display: grid;
+  }
+}
