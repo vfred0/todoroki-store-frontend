@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TypeButton } from '@core/models/TypeButton';
+import { TypeButton } from '@core/utils/TypeButton';
 
 @Component({
   selector: 'app-button',

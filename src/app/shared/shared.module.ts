@@ -6,10 +6,32 @@ import { CardComponent } from './components/card/card.component';
 import { TagComponent } from './components/tag/tag.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { ColorComponent } from './components/color/color.component';
+import { QuantityComponent } from './components/quantity/quantity.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [HeaderComponent, ButtonComponent, CardComponent, TagComponent],
-  imports: [CommonModule, HttpClientModule, AngularSvgIconModule.forRoot()],
-  exports: [HeaderComponent, ButtonComponent, CardComponent, TagComponent],
+  declarations: [
+    HeaderComponent,
+    ButtonComponent,
+    CardComponent,
+    TagComponent,
+    ColorComponent,
+    QuantityComponent,
+  ],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    AngularSvgIconModule.forRoot(),
+    ReactiveFormsModule,
+  ],
+  exports: [
+    HeaderComponent,
+    ButtonComponent,
+    CardComponent,
+    TagComponent,
+    ColorComponent,
+    QuantityComponent,
+  ],
 })
 export class SharedModule {}
