@@ -1,0 +1,54 @@
+.c-tag {
+  $tag: &;
+  padding: em(8);
+  border-radius: em(6);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: em(12);
+  border: none;
+  cursor: pointer;
+  outline: none;
+  &__text {
+    color: $grey-900;
+  }
+
+  &--price {
+    background: $green-200;
+    #{$tag}__icon {
+      fill: $grey-900;
+    }
+    &.has-selected {
+      background: $green-400;
+    }
+  }
+
+  &--likes {
+    background: $red-100;
+    #{$tag}__icon {
+      fill: $red-400;
+    }
+    cursor: default;
+  }
+
+  &--size {
+    background: $grey-200;
+
+    #{$tag}__text {
+      fill: $grey-100;
+    }
+    &.has-selected {
+      background: $grey-900;
+      #{$tag}__text {
+        color: $grey-100;
+      }
+      #{$tag}__icon {
+        fill: $grey-100;
+      }
+    }
+  }
+
+  &__icon {
+    display: grid;
+  }
+}
