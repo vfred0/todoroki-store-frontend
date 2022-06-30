@@ -24,4 +24,9 @@
       background-color: $green-500;
     }
   }
+
+  &__icon {
+    fill: $neutral-white;
+    display: grid;
+  }
 }
