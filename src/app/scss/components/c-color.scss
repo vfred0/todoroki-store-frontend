@@ -19,7 +19,8 @@
   }
 
   &--black {
-    background-color: $grey-900;    
+    background-color: $grey-900;  
+    fill: $grey-900;  
     &.has-selected {
       #{$color}__icon {
         fill: $grey-100;
