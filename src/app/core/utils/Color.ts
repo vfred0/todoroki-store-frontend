@@ -1,7 +1,7 @@
 export interface Color {
   typeColor: TypeColor;
   pathIcon: string;
-  isClickable: boolean;
+  isSelected: boolean;
 }
 
 export enum TypeColor {
