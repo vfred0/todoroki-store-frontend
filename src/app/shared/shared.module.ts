@@ -9,6 +9,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ColorComponent } from './components/color/color.component';
 import { QuantityComponent } from './components/quantity/quantity.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     HttpClientModule,
+    RouterModule,
     AngularSvgIconModule.forRoot(),
     ReactiveFormsModule,
   ],
