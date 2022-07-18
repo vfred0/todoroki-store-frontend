@@ -1,6 +1,10 @@
-<button #eColor class="c-color c-color--{{ color.typeColor }} {{ _selected }}">
+<button
+  #elementColor
+  class="c-color"
+  [class.has-selected]="this.isSelected"
+  [class]="'c-color--'.concat(this.color.typeColor)">
   <svg-icon
-    src="{{ color.pathIcon }}"
+    [src]="this.color.pathIcon"
     [class]="'c-color__icon o-icon-size-lg'"
     [applyClass]="true"></svg-icon>
 </button>
