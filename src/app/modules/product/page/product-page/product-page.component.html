@@ -1,0 +1,63 @@
+<swiper
+  [speed]="600"
+  swiper
+  [pagination]="true"
+  class="mySwiper"
+  class="c-product-slider"
+  [pagination]="{
+    type: 'bullets',
+    dynamicBullets: true
+  }">
+  <ng-template swiperSlide>
+    <img
+      class="c-product-slider__image"
+      src="https://imgs.search.brave.com/Q3gxGcyZMgndtv3EAAh60spNlXZPVLC2zH2B8a6rXik/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/cG5na2V5LmNvbS9w/bmcvZnVsbC80LTQz/MDQ1X2JsYWNrLXQt/c2hpcnQtcG5nLXRy/YW5zcGFyZW50LWlt/YWdlLWJsYWNrLXNo/aXJ0cy5wbmc"
+      alt="" />
+  </ng-template>
+  <ng-template swiperSlide>
+    <img
+      class="c-product-slider__image"
+      src="https://imgs.search.brave.com/53_Gq_QBEizqwXEqp_NNWB-VNc3mjcjRo5ZLLUkFp6Q/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9zdG9y/ZS5ncmVlbnNreWJs/dWVncmFzcy5jb20v/cHJvZHVjdF9pbWFn/ZXMvbi85NTUvV29y/a19TaGlydF9CbHVl/X183Mjc5MV96b29t/LnBuZw"
+      alt="" />
+  </ng-template>
+  <ng-template swiperSlide>
+    <img
+      class="c-product-slider__image"
+      src="https://imgs.search.brave.com/l0MXr4PlVlwLZSEd9nENGsdfiY_M9-wSDME5Jqc0WYU/rs:fit:798:991:1/g:ce/aHR0cHM6Ly9wdXJl/cG5nLmNvbS9wdWJs/aWMvdXBsb2Fkcy9s/YXJnZS9wdXJlcG5n/LmNvbS1kZW5pbS1i/bHVlLWZ1bGwtcGxh/aW4tc2hpcnRnYXJt/ZW50ZHJlc3NzaGly/dGZpdGZyb250LWJ1/dHRvbmZyb250LXBv/Y2tldGRlbmltLWJs/dWVmdWxsLTE0MjE1/MjYzMTM2ODFqM3Fz/ei5wbmc"
+      alt="" />
+  </ng-template>
+</swiper>
+<section class="c-product-details">
+  <div class="c-product-details__top">
+    <div class="c-product-details__name-price">
+      <div class="c-product-details__name-likes">
+        <div class="c-product-details__name o-font-f1-main">Banana fish</div>
+      </div>
+      <div class="c-product-details__price">$13.00</div>
+    </div>
+    <div class="c-product-details__sizes">
+      <div class="c-product-details__title o-font-f1-section">Talla</div>
+      <div class="c-product-details__size-tags">
+        <ng-container *ngFor="let tagSize of this.tagSizes">
+          <app-tag
+            [tag]="tagSize"
+            [selectable]="true"
+            [styles]="'c-tag--size'"
+            [isSelected]="tagSize.isSelected"
+            (selectionOfTag)="this.selectionOfTag($event)"></app-tag>
+        </ng-container>
+      </div>
+    </div>
+    <div class="c-product-details__colors">
+      <div class="c-product-details__title o-font-f1-section">Color</div>
+      <div class="c-product-details__color-tags">
+        <ng-container *ngFor="let color of this.colors">
+          <app-color
+            (selectionOfColor)="this.selectionOfColor($event)"
+            [isSelected]="color.isSelected"
+            [color]="color"></app-color>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</section>
