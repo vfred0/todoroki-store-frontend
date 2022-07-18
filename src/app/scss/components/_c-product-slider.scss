@@ -1,0 +1,10 @@
+.c-product-slider {
+  height: 50vmin;
+  cursor: pointer;
+  
+  &__image {
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom: em(24);
+  }
+}
