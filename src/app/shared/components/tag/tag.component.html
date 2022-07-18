@@ -1,7 +1,11 @@
-<button #etag class="c-tag {{ tag.typeTag }} {{ _selected }}">
+<button
+  #elementTag
+  class="c-tag"
+  [class.has-selected]="this.isSelected"
+  [class]="this.styles">
   <svg-icon
-    src="{{ tag.pathIcon }}"
+    [src]="this.tag.pathIcon"
     [class]="'c-tag__icon o-icon-size-sm'"
     [applyClass]="true"></svg-icon>
-  <span class="c-tag__text o-font-f2-small"> {{ tag.description }} </span>
+  <span class="c-tag__text o-font-f2-small"> {{ this.tag.description }} </span>
 </button>
