@@ -16,7 +16,6 @@ SwiperCore.use([Pagination, Navigation]);
 })
 export class ProductPageComponent {
   tagSizes: Array<TagSize>;
-
   colors: Color[] = [
     {
       typeColor: TypeColor.Black,
@@ -30,6 +29,8 @@ export class ProductPageComponent {
     },
   ];
 
+  likes: Tag;
+
   constructor() {
     this.tagSizes = [];
     Object.values(Size).forEach((size: string) => {
@@ -39,6 +40,10 @@ export class ProductPageComponent {
         pathIcon: 'assets/icons/size.svg',
       });
     });
+    this.likes = {
+      description: '150',
+      pathIcon: 'assets/icons/heart.svg',
+    };
   }
 
   selectionOfTag(tag: Tag) {

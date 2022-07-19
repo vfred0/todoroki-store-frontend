@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
 })
 export class HomePageComponent {
   constructor() {}
+
+  valueChanged(value: number) {
+    console.log(value);
+  }
 }

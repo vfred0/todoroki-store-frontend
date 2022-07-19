@@ -1,9 +1,11 @@
 <swiper
-  [speed]="600"
+  [speed]="500"
   swiper
   [pagination]="true"
   class="mySwiper"
   class="c-product-slider"
+  [autoplay]="true"
+  [loop]="true"
   [pagination]="{
     type: 'bullets',
     dynamicBullets: true
@@ -32,8 +34,9 @@
     <div class="c-product-details__name-price">
       <div class="c-product-details__name-likes">
         <div class="c-product-details__name o-font-f1-main">Banana fish</div>
+        <app-tag [tag]="this.likes" [styles]="'c-tag--likes'"></app-tag>
       </div>
-      <div class="c-product-details__price">$13.00</div>
+      <div class="c-product-details__price o-font-f1-section">$13.00</div>
     </div>
     <div class="c-product-details__sizes">
       <div class="c-product-details__title o-font-f1-section">Talla</div>
@@ -59,5 +62,54 @@
         </ng-container>
       </div>
     </div>
+  </div>
+
+  <div class="c-product-details__bottom">
+    <div class="c-product-details__quantity">
+      <span>Cantidad</span>
+      <app-quantity></app-quantity>
+    </div>
+    <div class="c-product-details__buttons">
+      <app-button
+        [description]="'Añadir al carrito'"
+        [styles]="'c-button c-button--default'"></app-button>
+      <app-button
+        [isWithIcon]="true"
+        [styles]="'c-button c-button--contact'"></app-button>
+    </div>
+  </div>
+</section>
+
+<section class="c-cards">
+  <span class="c-cards__title o-font-f1-main">Lo más deseado</span>
+  <div class="c-cards__container">
+    <app-card
+      [image]="
+        'https://imgs.search.brave.com/xdJkt4qVTDvvaCM2_6_aWyEu9FNODYJtDL4fu8TKGQc/rs:fit:893:1024:1/g:ce/aHR0cHM6Ly9wbmdp/bWcuY29tL3VwbG9h/ZHMvdHNoaXJ0L3Rz/aGlydF9QTkc1NDQ4/LnBuZw'
+      "></app-card>
+    <app-card
+      [image]="
+        'https://imgs.search.brave.com/HUSOwClTXELGKNuMrSYEdLQKBfvVitlCiOFNgEdJego/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/dXNjdXN0b210ZWVz/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAxOS8wOC9CYWxs/cy1EZWVwLUZ1bm55/LUdvbGYtVC1TaGly/dC1Hb2xkLTE1NjY4/MDA0OTYucG5n'
+      "></app-card>
+    <app-card
+      [image]="
+        'https://imgs.search.brave.com/IxjaaKVm3fffJlxOO1WvSybILbjlVTxpxX9d45QAgNc/rs:fit:1155:1155:1/g:ce/aHR0cHM6Ly9hbnp0/ZWUuczMudXMtZWFz/dC0yLmFtYXpvbmF3/cy5jb20vdmFwb3J3/YXZlLXN5bnRod2F2/ZS1yZXRyb3dhdmUt/b3Rha3UtY3JlZXB5/LWZvb2QtY3VwY2Fr/ZS1zaGlydC1nNTAw/LWdpbGRhbi01LTMt/b3otdC1zaGlydC5w/bmc'
+      "></app-card>
+    <app-card
+      [image]="'/assets/images/card.jpg'"
+      [productName]="'Jujutsu Kaisen'"></app-card>
+    <app-card
+      [image]="'/assets/images/card.jpg'"
+      [productName]="'Howl no Ugoku Shiro'"></app-card>
+    <app-card
+      [image]="'/assets/images/card.jpg'"
+      [productName]="
+        'Howl no Ugoku Shirohsdvdhgshjdvjhfghfhgfhgfhgfhg'
+      "></app-card>
+    <app-card
+      [image]="'/assets/images/card.jpg'"
+      [productName]="'Given'"></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
   </div>
 </section>

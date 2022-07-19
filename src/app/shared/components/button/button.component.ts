@@ -1,15 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { TypeButton } from '@core/utils/TypeButton';
 
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
 })
 export class ButtonComponent {
-  @Input() typeButton: TypeButton | undefined;
+  @Input() styles: string = '';
   @Input() description: string = 'Ver productos';
-
+  @Input() isWithIcon: boolean = false;
   isDefault(): boolean {
-    return this.typeButton == TypeButton.Default;
+    return !this.isWithIcon;
   }
 }

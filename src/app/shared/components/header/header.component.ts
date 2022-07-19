@@ -7,7 +7,7 @@ import { TypeButton } from '@core/utils/TypeButton';
 })
 export class HeaderComponent {
   activeModal: string = '';
-  typeButton: TypeButton = TypeButton.Default;
+  // typeButton: TypeButton = TypeButton.Default;
 
   constructor() {}
 
