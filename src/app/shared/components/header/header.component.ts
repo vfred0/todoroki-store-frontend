@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TypeButton } from '@core/utils/TypeButton';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +6,6 @@ import { TypeButton } from '@core/utils/TypeButton';
 })
 export class HeaderComponent {
   activeModal: string = '';
-  // typeButton: TypeButton = TypeButton.Default;
 
   constructor() {}
 
