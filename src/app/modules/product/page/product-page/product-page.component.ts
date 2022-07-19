@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Color, TypeColor } from '@core/utils/Color';
 
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 import { Tag } from '@core/utils/Tag';
 import { Size } from '@core/utils/Size';
 import { TagSize } from '@core/utils/TagSize';
+import { QuantityComponent } from '@shared/components/quantity/quantity.component';
 
 SwiperCore.use([Pagination, Navigation]);
 
@@ -15,7 +16,9 @@ SwiperCore.use([Pagination, Navigation]);
   encapsulation: ViewEncapsulation.None,
 })
 export class ProductPageComponent {
+  @ViewChild(QuantityComponent) quantity!: QuantityComponent;
   tagSizes: Array<TagSize>;
+  likes: Tag;
   colors: Color[] = [
     {
       typeColor: TypeColor.Black,
@@ -28,8 +31,6 @@ export class ProductPageComponent {
       pathIcon: 'assets/icons/check.svg',
     },
   ];
-
-  likes: Tag;
 
   constructor() {
     this.tagSizes = [];
@@ -66,6 +67,16 @@ export class ProductPageComponent {
       }
       return item;
     });
-    console.log(this.colors);
+  }
+
+  addToCart() {
+    console.log('add to cart', this.quantity.getValue());
+    // console.log(
+    //   this.colors.filter((color: Color) => color.isSelected)[0].typeColor
+    // );
+    // console.log(
+    //   this.tagSizes.filter((tagSize: TagSize) => tagSize.isSelected)[0]
+    //     .description
+    // );
   }
 }
