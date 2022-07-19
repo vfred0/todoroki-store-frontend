@@ -1,0 +1,33 @@
+<section class="c-category">
+  <span class="c-category__title">Categorías</span>
+  <div class="c-category__filters">
+    <div class="c-category__filter">
+      <span class="c-category__filters-title">Anime</span>
+      <app-select></app-select>
+    </div>
+    <div class="c-category__filter">
+      <span class="c-category__filters-title">Tipo</span>
+      <app-select></app-select>
+    </div>
+    <div class="c-category__filter">
+      <span class="c-category__filters-title">Color</span>
+      <ng-container *ngFor="let color of this.colors">
+        <app-color
+          (selectionOfColor)="this.selectionOfColor($event)"
+          [isSelected]="color.isSelected"
+          [color]="color"></app-color>
+      </ng-container>
+    </div>
+    <div class="c-category__filter">
+      <span class="c-category__filters-title">Talla</span>
+      <ng-container *ngFor="let tagSize of this.tagSizes">
+        <app-tag
+          [tag]="tagSize"
+          [selectable]="true"
+          [styles]="'c-tag--size'"
+          [isSelected]="tagSize.isSelected"
+          (selectionOfTag)="this.selectionOfTag($event)"></app-tag>
+      </ng-container>
+    </div>
+  </div>
+</section>

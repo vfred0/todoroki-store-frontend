@@ -1,0 +1,10 @@
+<form [formGroup]="this.formSelect">
+  <select class="c-select" formControlName="select">
+    <option
+      *ngFor="let option of this.options"
+      [ngValue]="option"
+      class="c-select__option">
+      {{ option }}
+    </option>
+  </select>
+</form>
