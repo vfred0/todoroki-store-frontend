@@ -1,20 +1,35 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-quantity',
   templateUrl: './quantity.component.html',
 })
 export class QuantityComponent {
-  @Output() valueChanged: EventEmitter<number> = new EventEmitter();
-  public value: FormControl = new FormControl(1);
+  @Input() maxValue: number = 5;
+  public formInput: FormControl;
+
+  constructor() {
+    this.formInput = new FormControl({ value: 1, disabled: true }, [
+      Validators.max(this.maxValue),
+      Validators.min(1),
+    ]);
+  }
 
   decreaseValue() {
-    this.value.setValue(this.value.value - 1);
-    // this.valueChanged.emit(this.value.va6lue);
+    this.formInput.setValue(this.formInput.value - 1);
+    if (this.formInput.value < 1) {
+      this.formInput.setValue(1);
+    }
   }
   increaseValue() {
-    this.value.setValue(this.value.value + 1);
-    // this.valueChanged.emit(this.value.value);
+    this.formInput.setValue(this.formInput.value + 1);
+    if (this.formInput.value > this.maxValue) {
+      this.formInput.setValue(this.maxValue);
+    }
+  }
+
+  getValue() {
+    return this.formInput.value;
   }
 }
