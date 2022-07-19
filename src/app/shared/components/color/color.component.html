@@ -1,5 +1,5 @@
 <button
-  #elementColor
+  (click)="this.onClick()"
   class="c-color"
   [class.has-selected]="this.isSelected"
   [class]="'c-color--'.concat(this.color.typeColor)">
