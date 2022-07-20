@@ -10,6 +10,6 @@ export interface Product {
   likes: number;
   color: TypeColor;
   size: Size;
-  typeClothing: Array<TypeClothings>;
-  typesAnimes: Array<TypeAnimes>;
+  typeClothing: TypeClothings;
+  typesAnimes: TypeAnimes;
 }
