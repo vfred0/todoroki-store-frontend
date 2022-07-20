@@ -3,11 +3,13 @@
   flex-direction: column;
   gap: em(24);
   align-items: center;
+  // width: 100%;
   &__container {
     display: grid;
     grid-gap: 0.8em;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));    
     justify-content: center;
+    width: 100%;
     @include only-sm() {
       grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     }
@@ -15,5 +17,16 @@
   &__title {
     font-weight: $semibold;
     color: $grey-900;
+  }
+
+  &__title-filter {
+    font-weight: $semibold;
+    color: $grey-500;
+    display: block;
+    text-align: right;
+  }
+
+  &__wrapper-text {
+    width: 100%;
   }
 }

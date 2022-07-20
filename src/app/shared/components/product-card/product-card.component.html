@@ -1,11 +1,17 @@
 <div class="c-card">
-  <img [src]="image" class="c-card__image" />
-  <app-tag [tag]="this.likes" [styles]="'c-tag--likes'" class="c-card__likes">
+  <img [src]="this.productCard.image" class="c-card__image" />
+  <app-tag
+    [tag]="this.tagLikes"
+    [isSelectable]="false"
+    [styles]="'c-tag--likes'"
+    class="c-card__likes">
   </app-tag>
   <div class="c-card__wrapper-texts">
     <span class="o-font-f2-normal c-card__title">
-      {{ productName }}
+      {{ this.productCard.description }}
     </span>
-    <span class="o-font-f2-normal c-card__price"> ${{ price }} </span>
+    <span class="o-font-f2-normal c-card__price">
+      ${{ this.productCard.price }}
+    </span>
   </div>
 </div>

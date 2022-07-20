@@ -15,6 +15,8 @@
   position: relative;
   &__image {
     border-radius: em(6);
+    height: 20vmin;
+    object-fit: cover;
   }
   &__wrapper-texts {
     display: flex;
