@@ -1,40 +1,48 @@
-<section class="c-categories">
-  <span class="c-categories__title">Categorías</span>
-  <div class="c-categories__filters">
-    <div class="c-categories__filter">
-      <span class="c-categories__filters-title">Anime</span>
-      <app-select
-        [options]="this.typesAnimes"
-        (selectChange)="this.updateProductsByAnime($event)"></app-select>
+<div class="o-layout-spacing">
+  <section class="c-page-categories">
+    <span class="c-page-categories__title">Categorías</span>
+    <div class="c-page-categories__filters">
+      <div class="c-page-categories__filter">
+        <span class="c-page-categories__filters-title">Anime</span>
+        <app-select
+          [options]="this.typesAnimes"
+          (selectChange)="this.updateProductsByAnime($event)"></app-select>
+      </div>
+      <div class="c-page-categories__filter">
+        <span class="c-page-categories__filters-title">Tipo</span>
+        <app-select
+          [options]="this.typesClotings"
+          (selectChange)="this.updateProductsByCloth($event)"></app-select>
+      </div>
+      <div class="c-page-categories__filter">
+        <span class="c-page-categories__filters-title">Color</span>
+        <app-select-color
+          (colorSelected)="
+            this.updateProductsByColor($event)
+          "></app-select-color>
+      </div>
+      <div class="c-page-categories__filter">
+        <span class="c-page-categories__filters-title">Talla</span>
+        <app-select-size
+          [sizes]="this.sizes"
+          (sizeSelected)="this.updateProductsBySize($event)"></app-select-size>
+      </div>
     </div>
-    <div class="c-categories__filter">
-      <span class="c-categories__filters-title">Tipo</span>
-      <app-select
-        [options]="this.typesClotings"
-        (selectChange)="this.updateProductsByCloth($event)"></app-select>
-    </div>
-    <div class="c-categories__filter">
-      <span class="c-categories__filters-title">Color</span>
-      <app-select-color
-        (colorSelected)="this.updateProductsByColor($event)"></app-select-color>
-    </div>
-    <div class="c-categories__filter">
-      <span class="c-categories__filters-title">Talla</span>
-      <app-select-size
-        [sizes]="this.sizes"
-        (sizeSelected)="this.updateProductsBySize($event)"></app-select-size>
-    </div>
-  </div>
+  </section>
   <div class="c-cards">
-    <ng-template *ngIf="this.existsProductsFiltered()">
-      <span class="c-cards__title o-font-f1-main"
-        >Se han obtenido {{ this.getProductsFiltered().length }} resultados.
-      </span>
+    <ng-template [ngIf]="this.productsCardsFiltered.length">
+      <div class="c-cards__wrapper-text">
+        <span class="c-cards__title-filter o-font-f2-normal"
+          >{{ this.productsCardsFiltered.length }} resultado(os).
+        </span>
+      </div>
     </ng-template>
     <div class="c-cards__container">
-      <ng-container *ngFor="let productFiltered of this.getProductsFiltered()">
-        <app-product-card></app-product-card>
+      <ng-container
+        *ngFor="let productCardFiltered of this.productsCardsFiltered">
+        <app-product-card
+          [productCard]="productCardFiltered"></app-product-card>
       </ng-container>
     </div>
   </div>
-</section>
+</div>
