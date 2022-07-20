@@ -52,6 +52,7 @@ export class CategoriesPageComponent implements AfterContentInit {
   ngAfterContentInit(): void {
     this.products = [
       {
+        id: 1,
         description: 'Camiseta1',
         color: TypeColor.Black,
         size: Size.S,
@@ -62,6 +63,7 @@ export class CategoriesPageComponent implements AfterContentInit {
         likes: 0,
       },
       {
+        id: 2,
         description: 'Camiseta2',
         color: TypeColor.White,
         size: Size.M,

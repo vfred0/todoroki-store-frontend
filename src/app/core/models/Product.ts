@@ -4,6 +4,7 @@ import { TypeAnimes } from './TypeAnimes';
 import { TypeClothings } from './TypeClothings';
 
 export interface Product {
+  id: number;
   description: string;
   price: number;
   image: string;

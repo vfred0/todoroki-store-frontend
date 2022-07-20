@@ -11,7 +11,9 @@
         {{ quantity }} productos</span
       >
     </div>
-    <div class="c-category__wrapper-icon">
+    <div
+      class="c-category__wrapper-icon"
+      (click)="this.redirectToPageCategory()">
       <svg-icon
         src="/assets/icons/arrow.svg"
         [class]="'o-icon-size-lg c-category__icon'"

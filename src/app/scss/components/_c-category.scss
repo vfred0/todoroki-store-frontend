@@ -5,6 +5,7 @@
   background-color: $green-100;
   border-radius: em(6);
   padding: em(16);
+  
 
   &__footer {
     display: flex;
@@ -23,6 +24,7 @@
     background-color: $neutral-white;
     border-radius: 50%;
     padding: em(8);
+    cursor: pointer;
   }
   &__title {
     color: $grey-800;

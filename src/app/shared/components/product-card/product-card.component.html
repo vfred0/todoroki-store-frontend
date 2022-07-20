@@ -1,5 +1,8 @@
 <div class="c-card">
-  <img [src]="this.productCard.image" class="c-card__image" />
+  <img
+    [src]="this.productCard.image"
+    (click)="this.redirectToPageProduct()"
+    class="c-card__image" />
   <app-tag
     [tag]="this.tagLikes"
     [isSelectable]="false"
@@ -7,7 +10,9 @@
     class="c-card__likes">
   </app-tag>
   <div class="c-card__wrapper-texts">
-    <span class="o-font-f2-normal c-card__title">
+    <span
+      class="o-font-f2-normal c-card__title"
+      (click)="this.redirectToPageProduct()">
       {{ this.productCard.description }}
     </span>
     <span class="o-font-f2-normal c-card__price">
