@@ -10,7 +10,6 @@ import { SharedModule } from '@shared/shared.module';
 import { CategoryComponent } from './components/category/category.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [

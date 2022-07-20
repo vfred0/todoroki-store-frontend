@@ -1,32 +1,39 @@
-<section class="c-category">
-  <span class="c-category__title">Categorías</span>
-  <div class="c-category__filters">
-    <div class="c-category__filter">
-      <span class="c-category__filters-title">Anime</span>
-      <app-select></app-select>
+<section class="c-categories">
+  <span class="c-categories__title">Categorías</span>
+  <div class="c-categories__filters">
+    <div class="c-categories__filter">
+      <span class="c-categories__filters-title">Anime</span>
+      <app-select
+        [options]="this.typesAnimes"
+        (selectChange)="this.updateProductsByAnime($event)"></app-select>
     </div>
-    <div class="c-category__filter">
-      <span class="c-category__filters-title">Tipo</span>
-      <app-select></app-select>
+    <div class="c-categories__filter">
+      <span class="c-categories__filters-title">Tipo</span>
+      <app-select
+        [options]="this.typesClotings"
+        (selectChange)="this.updateProductsByCloth($event)"></app-select>
     </div>
-    <div class="c-category__filter">
-      <span class="c-category__filters-title">Color</span>
-      <ng-container *ngFor="let color of this.colors">
-        <app-color
-          (selectionOfColor)="this.selectionOfColor($event)"
-          [isSelected]="color.isSelected"
-          [color]="color"></app-color>
-      </ng-container>
+    <div class="c-categories__filter">
+      <span class="c-categories__filters-title">Color</span>
+      <app-select-color
+        (colorSelected)="this.updateProductsByColor($event)"></app-select-color>
     </div>
-    <div class="c-category__filter">
-      <span class="c-category__filters-title">Talla</span>
-      <ng-container *ngFor="let tagSize of this.tagSizes">
-        <app-tag
-          [tag]="tagSize"
-          [selectable]="true"
-          [styles]="'c-tag--size'"
-          [isSelected]="tagSize.isSelected"
-          (selectionOfTag)="this.selectionOfTag($event)"></app-tag>
+    <div class="c-categories__filter">
+      <span class="c-categories__filters-title">Talla</span>
+      <app-select-size
+        [sizes]="this.sizes"
+        (sizeSelected)="this.updateProductsBySize($event)"></app-select-size>
+    </div>
+  </div>
+  <div class="c-cards">
+    <ng-template *ngIf="this.existsProductsFiltered()">
+      <span class="c-cards__title o-font-f1-main"
+        >Se han obtenido {{ this.getProductsFiltered().length }} resultados.
+      </span>
+    </ng-template>
+    <div class="c-cards__container">
+      <ng-container *ngFor="let productFiltered of this.getProductsFiltered()">
+        <app-product-card></app-product-card>
       </ng-container>
     </div>
   </div>
