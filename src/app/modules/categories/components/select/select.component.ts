@@ -8,11 +8,11 @@ import { Option } from '@core/utils/Option';
 })
 export class SelectComponent implements OnInit {
   formSelect: FormGroup;
-  @Output() selectChange: EventEmitter<string>;
+  @Output() selectChange: EventEmitter<Option<any>>;
   @Input() options: Array<Option<any>>;
 
   constructor() {
-    this.selectChange = new EventEmitter<string>();
+    this.selectChange = new EventEmitter<Option<any>>();
     this.options = [];
     this.formSelect = new FormGroup({});
   }
@@ -24,5 +24,6 @@ export class SelectComponent implements OnInit {
     this.formSelect.get('select')!.valueChanges.subscribe(value => {
       this.selectChange.emit(value);
     });
+    this.selectChange.emit(this.options[0]);
   }
 }
