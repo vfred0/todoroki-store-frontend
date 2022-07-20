@@ -1,57 +1,58 @@
-import { Component, OnInit } from '@angular/core';
-import { Color, TypeColor } from '@core/utils/Color';
+import { Component } from '@angular/core';
+import { Product } from '@core/models/Product';
+import { TypeAnimes } from '@core/models/TypeAnimes';
+import { TypeClothings } from '@core/models/TypeClothings';
+
+import { Option } from '@core/utils/Option';
 import { Size } from '@core/utils/Size';
-import { Tag } from '@core/utils/Tag';
-import { TagSize } from '@core/utils/TagSize';
+import { TypeColor } from '@core/utils/TypeColor';
 
 @Component({
   selector: 'app-category-page',
   templateUrl: './categories-page.component.html',
 })
 export class CategoriesPageComponent {
-  tagSizes: Array<TagSize>;
-
-  colors: Color[] = [
-    {
-      typeColor: TypeColor.Black,
-      isSelected: false,
-      pathIcon: 'assets/icons/check.svg',
-    },
-    {
-      typeColor: TypeColor.White,
-      isSelected: false,
-      pathIcon: 'assets/icons/check.svg',
-    },
-  ];
+  sizes: Array<Size>;
+  typesAnimes: Array<Option<TypeAnimes>>;
+  typesClotings: Array<Option<TypeClothings>>;
+  private products: Array<Product>;
+  colors: TypeColor[];
   constructor() {
-    this.tagSizes = [];
-    Object.values(Size).forEach((size: string) => {
-      this.tagSizes.push({
-        description: size,
-        isSelected: false,
-        pathIcon: 'assets/icons/size.svg',
-      });
-    });
+    this.typesAnimes = [];
+    this.typesClotings = [];
+    this.products = [];
+    this.colors = [...Object.values(TypeColor)];
+    Object.values(TypeAnimes).forEach((value: string) =>
+      this.typesAnimes.push(value)
+    );
+    Object.values(TypeClothings).forEach((value: string) =>
+      this.typesClotings.push(value)
+    );
+
+    this.sizes = [...Object.values(Size)];
+    this.products = [];
+
+    this.setProductsFiltered();
   }
-  selectionOfTag(tag: Tag) {
-    this.tagSizes = this.tagSizes.map((tagSize: TagSize) => {
-      if (!Object.is(tagSize, tag)) {
-        tagSize = { ...tagSize, isSelected: false };
-      } else {
-        tagSize = { ...tagSize, isSelected: true };
-      }
-      return tagSize;
-    });
+  setProductsFiltered() {}
+
+  existsProductsFiltered() {}
+  getProductsFiltered() {
+    return [];
+  }
+  updateProductsByAnime(value: Option<TypeAnimes>) {
+    console.log(Object.is(value, TypeAnimes.Anime));
+    console.log(value);
+  }
+  updateProductsByCloth(value: Option<TypeClothings>) {
+    console.log(value);
   }
 
-  selectionOfColor(color: Color) {
-    this.colors = this.colors.map((item: Color) => {
-      if (!Object.is(color, item)) {
-        item = { ...item, isSelected: false };
-      } else {
-        item = { ...item, isSelected: true };
-      }
-      return item;
-    });
+  updateProductsByColor(value: TypeColor) {
+    console.log(value);
+  }
+
+  updateProductsBySize(size: Size) {
+    console.log(size);
   }
 }
