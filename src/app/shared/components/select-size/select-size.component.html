@@ -1,0 +1,15 @@
+<ng-container *ngFor="let tagSize of this.tagSizes">
+  <ng-template [ngIf]="this.addEventClick()" [ngIfElse]="noAddEventClick">
+    <app-tag
+      [styles]="'c-tag--size'"
+      (selectionOfTag)="this.selectionOfSize(tagSize)"
+      [isSelected]="tagSize.isSelected"
+      [tag]="tagSize">
+    </app-tag>
+  </ng-template>
+
+  <ng-template #noAddEventClick>
+    <app-tag [styles]="'c-tag--size'" [isSelectable]="false" [tag]="tagSize">
+    </app-tag>
+  </ng-template>
+</ng-container>
