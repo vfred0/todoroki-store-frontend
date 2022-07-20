@@ -1,35 +1,51 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
   Input,
   Output,
+  Renderer2,
   ViewChild,
 } from '@angular/core';
-import { Color, TypeColor } from '@core/utils/Color';
+import { TagColor } from '@core/utils/TagColor';
+import { TypeColor } from '@core/utils/TypeColor';
 
 @Component({
   selector: 'app-color',
   templateUrl: './color.component.html',
 })
-export class ColorComponent {
-  @Input() color: Color;
+export class ColorComponent implements AfterViewInit {
+  @Input() tagColor: TagColor;
   @Input() styles: string;
   @Input() isSelected: boolean;
-  @Output() selectionOfColor: EventEmitter<Color> = new EventEmitter();
-  @ViewChild('elementColor') elementColor: ElementRef = new ElementRef('');
+  @Input() isSelectable: boolean;
+  @Output() selectionOfColor: EventEmitter<TagColor>;
+  @ViewChild('elementColor') elementColor: ElementRef;
 
-  constructor() {
-    this.color = {
-      typeColor: TypeColor.White,
+  constructor(private renderer2: Renderer2) {
+    this.tagColor = {
+      typeColor: TypeColor.Black,
       pathIcon: 'assets/icons/check.svg',
       isSelected: false,
     };
     this.isSelected = false;
+    this.isSelectable = true;
     this.styles = '';
+    this.selectionOfColor = new EventEmitter<TagColor>();
+    this.elementColor = new ElementRef('');
   }
 
-  onClick(): void {
-    this.selectionOfColor.emit(this.color);
+  ngAfterViewInit(): void {
+    if (this.isSelectable && !this.isSelected) {
+      this.renderer2.listen(
+        this.elementColor.nativeElement,
+        'click',
+        (event: any) => {
+          event.preventDefault();
+          this.selectionOfColor.emit(this.tagColor);
+        }
+      );
+    }
   }
 }

@@ -1,10 +1,10 @@
 <button
-  (click)="this.onClick()"
+  #elementColor
   class="c-color"
   [class.has-selected]="this.isSelected"
-  [class]="'c-color--'.concat(this.color.typeColor)">
+  [class]="'c-color--'.concat(this.tagColor.typeColor)">
   <svg-icon
-    [src]="this.color.pathIcon"
+    [src]="this.tagColor.pathIcon"
     [class]="'c-color__icon o-icon-size-lg'"
     [applyClass]="true"></svg-icon>
 </button>
