@@ -14,6 +14,7 @@ import { SelectColorComponent } from './components/select-color/select-color.com
 import { SelectSizeComponent } from './components/select-size/select-size.component';
 import { ColorComponent } from './components/color/color.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopping-cart-item.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     QuantityComponent,
     SelectColorComponent,
     SelectSizeComponent,
+    ShoppingCartItemComponent,
   ],
   imports: [
     CommonModule,
@@ -42,6 +44,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     QuantityComponent,
     SelectColorComponent,
     SelectSizeComponent,
+    ShoppingCartItemComponent,
   ],
 })
 export class SharedModule {}
