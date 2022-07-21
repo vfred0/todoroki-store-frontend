@@ -5,12 +5,20 @@ import { FormControl, Validators } from '@angular/forms';
   selector: 'app-quantity',
   templateUrl: './quantity.component.html',
 })
-export class QuantityComponent {
+export class QuantityComponent implements OnInit {
   @Input() maxValue: number = 5;
+  @Input() value: number = 5;
   public formInput: FormControl;
 
   constructor() {
-    this.formInput = new FormControl({ value: 1, disabled: true }, [
+    this.formInput = new FormControl({});
+  }
+
+  ngOnInit(): void {
+    if (this.value > this.maxValue) {
+      this.value = this.maxValue;
+    }
+    this.formInput = new FormControl({ value: this.value, disabled: true }, [
       Validators.max(this.maxValue),
       Validators.min(1),
     ]);
