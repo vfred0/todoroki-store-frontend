@@ -16,8 +16,8 @@
     </div>
     <li
       class="c-header__menu-item c-header__menu-item--toggle"
-      (click)="onToggle($event)">
-      <a class="c-header__menu-link" href="">
+      (click)="onToggleMenu()">
+      <a class="c-header__menu-link">
         <svg-icon
           src="/assets/icons/toggle.svg"
           [class]="'c-header__menu-icon o-icon-size-md'"
@@ -26,13 +26,13 @@
       </a>
     </li>
     <li class="c-header__menu-item">
-      <a class="c-header__menu-link" href="">
+      <a class="c-header__menu-link">
         <img src="/assets/images/Logo.png" alt="" class="c-header__logo" />
       </a>
     </li>
     <div class="c-header__menu-right">
       <li class="c-header__menu-item">
-        <a class="c-header__menu-link" href="">
+        <a class="c-header__menu-link">
           <svg-icon
             src="/assets/icons/search.svg"
             [class]="'c-header__menu-icon o-icon-size-md'"
@@ -40,8 +40,8 @@
           </svg-icon>
         </a>
       </li>
-      <li class="c-header__menu-item">
-        <a class="c-header__menu-link" href="">
+      <li class="c-header__menu-item" (click)="this.onToggleShoppingCart()">
+        <a class="c-header__menu-link">
           <svg-icon
             src="/assets/icons/cart.svg"
             [class]="'c-header__menu-icon o-icon-size-md'"
@@ -53,18 +53,15 @@
   </ul>
 </div>
 
-<div class="c-modal {{ activeModal }}">
-  <ul class="c-modal__menu">
-    <li class="c-modal__menu-item">
-      <a class="c-modal__menu-link o-font-f1-main" href="">Inicio</a>
-    </li>
-    <li class="c-modal__menu-item">
-      <a class="c-modal__menu-link o-font-f1-main" href="">Categorías</a>
-    </li>
-  </ul>
+<app-modal-menu [(isActive)]="this.isActiveModalMenu"></app-modal-menu>
+<app-modal-shopping-cart
+  [(isActive)]="this.isActiveModalShoppingCart"></app-modal-shopping-cart>
 
-  <app-button
-    [description]="'Cerrrar menú'"
-    [styles]="'c-button c-button--default'"
-    (click)="onToggle($event)"></app-button>
-</div>
+<!-- <div class="c-modal-shopping-cart {{ activeModal }}">
+  <div class="c-modal-shopping-cart__header">
+    <span class="c-modal-shopping-cart__title">Carrito de compras</span>
+    <svg-icon [] ></svg-icon>
+    <div class="c-modal-shopping-cart__products-cart"></div>
+    <app-button></app-button>
+  </div>
+</div> -->
