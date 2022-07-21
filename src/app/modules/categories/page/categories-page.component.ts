@@ -42,6 +42,7 @@ export class CategoriesPageComponent implements AfterContentInit {
     );
 
     this.sizes = [...Object.values(Size)];
+    // this.sizes = [Size.L];
     this.products = [];
 
     this.size = Size.S;

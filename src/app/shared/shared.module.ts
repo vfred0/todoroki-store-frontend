@@ -15,6 +15,8 @@ import { SelectSizeComponent } from './components/select-size/select-size.compon
 import { ColorComponent } from './components/color/color.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopping-cart-item.component';
+import { ModalShoppingCartComponent } from './components/modal-shopping-cart/modal-shopping-cart.component';
+import { ModalMenuComponent } from './components/modal-menu/modal-menu.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopp
     SelectColorComponent,
     SelectSizeComponent,
     ShoppingCartItemComponent,
+    ModalShoppingCartComponent,
+    ModalMenuComponent,
   ],
   imports: [
     CommonModule,

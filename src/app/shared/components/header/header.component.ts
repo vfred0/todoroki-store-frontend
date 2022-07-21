@@ -5,16 +5,16 @@ import { Component } from '@angular/core';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
-  activeModal: string = '';
+  isActiveModalMenu: boolean = false;
+  isActiveModalShoppingCart: boolean = false;
 
-  constructor() {}
+  onToggleMenu(): void {
+    // event.preventDefault();
+    this.isActiveModalMenu = !this.isActiveModalMenu;
+  }
 
-  onToggle(event: any): void {
-    event.preventDefault();
-    if (this.activeModal === 'is-active') {
-      this.activeModal = '';
-    } else {
-      this.activeModal = 'is-active';
-    }
+  onToggleShoppingCart(): void {
+    // event.preventDefault();
+    this.isActiveModalShoppingCart = !this.isActiveModalShoppingCart;
   }
 }

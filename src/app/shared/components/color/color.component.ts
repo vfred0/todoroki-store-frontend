@@ -4,6 +4,7 @@ import {
   ElementRef,
   EventEmitter,
   Input,
+  OnInit,
   Output,
   Renderer2,
   ViewChild,
@@ -15,18 +16,20 @@ import { TypeColor } from '@core/utils/TypeColor';
   selector: 'app-color',
   templateUrl: './color.component.html',
 })
-export class ColorComponent implements AfterViewInit {
+export class ColorComponent implements AfterViewInit, OnInit {
   @Input() tagColor: TagColor;
   @Input() styles: string;
   @Input() isSelected: boolean;
   @Input() isSelectable: boolean;
+  @Input() typeColor: TypeColor;
   @Output() selectionOfColor: EventEmitter<TagColor>;
   @ViewChild('elementColor') elementColor: ElementRef;
 
   constructor(private renderer2: Renderer2) {
+    this.typeColor = {} as TypeColor;
+
     this.tagColor = {
       typeColor: TypeColor.Black,
-      pathIcon: 'assets/icons/check.svg',
       isSelected: false,
     };
     this.isSelected = false;
@@ -35,8 +38,12 @@ export class ColorComponent implements AfterViewInit {
     this.selectionOfColor = new EventEmitter<TagColor>();
     this.elementColor = new ElementRef('');
   }
+  ngOnInit(): void {
+    this.isSelected = this.tagColor.isSelected;
+  }
 
   ngAfterViewInit(): void {
+    // this.isSelected = this.tagColor.isSelected;
     if (this.isSelectable && !this.isSelected) {
       this.renderer2.listen(
         this.elementColor.nativeElement,

@@ -29,8 +29,8 @@ export class SelectSizeComponent implements AfterContentInit {
 
       return {
         description: size,
-        isSelected,
         pathIcon: 'assets/icons/size.svg',
+        isSelected,
       };
     });
 
@@ -41,7 +41,7 @@ export class SelectSizeComponent implements AfterContentInit {
   }
 
   addEventClick() {
-    return this.sizes.length > 1;
+    return this.sizes.length > 0;
   }
 
   selectionOfSize(tagSize: TagSize) {
