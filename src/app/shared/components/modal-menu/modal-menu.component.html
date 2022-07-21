@@ -1,0 +1,25 @@
+<div class="c-modal" [class.is-active]="this.isActive">
+  <ul class="c-modal__menu">
+    <li class="c-modal__menu-item">
+      <a
+        class="c-modal__menu-link o-font-f1-main"
+        (click)="onToggle()"
+        [routerLink]="['/']">
+        >Inicio</a
+      >
+    </li>
+    <li class="c-modal__menu-item">
+      <a
+        class="c-modal__menu-link o-font-f1-main"
+        (click)="onToggle()"
+        [routerLink]="['/categories']"
+        >Categorías</a
+      >
+    </li>
+  </ul>
+
+  <app-button
+    [description]="'Cerrrar menú'"
+    [styles]="'c-button c-button--default'"
+    (click)="onToggle()"></app-button>
+</div>
