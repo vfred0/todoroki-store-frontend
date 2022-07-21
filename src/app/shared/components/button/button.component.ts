@@ -7,8 +7,8 @@ import { Component, Input } from '@angular/core';
 export class ButtonComponent {
   @Input() styles: string = '';
   @Input() description: string = 'Ver productos';
-  @Input() isWithIcon: boolean = false;
+  @Input() isContact: boolean = false;
   isDefault(): boolean {
-    return !this.isWithIcon;
+    return !this.isContact;
   }
 }
