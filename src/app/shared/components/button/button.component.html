@@ -1,5 +1,7 @@
 <div *ngIf="isDefault(); else elseBlock">
-  <button class="c-button {{ styles }} o-font-f2-small">{{ description }}</button>
+  <button class="c-button {{ styles }} o-font-f2-small">
+    {{ description }}
+  </button>
 </div>
 <ng-template #elseBlock>
   <button class="c-button {{ styles }} o-font-f2-small">
