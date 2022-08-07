@@ -4,8 +4,10 @@
   <section class="c-categories">
     <span class="c-categories__title o-font-f1-main">Categorías</span>
     <div class="c-categories__container">
-      <app-category [quantity]="30"></app-category>
-      <app-category [nameCategory]="'Buzos'" [quantity]="5"></app-category>
+      <app-category
+        *ngFor="let category of this.categories"
+        [category]="category">
+      </app-category>
     </div>
   </section>
 

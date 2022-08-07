@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
-// import { TypeButton } from '@core/utils/TypeButton';
+import { Component, Input } from '@angular/core';
+import { ProductMostWanted } from '@core/utils/ProductMostWanted';
 
 @Component({
   selector: 'app-most-wanted-content',
   templateUrl: './most-wanted-content.component.html',
 })
 export class MostWantedContentComponent {
-  constructor() {}
-  // typeButton: TypeButton = TypeButton.Default;
+  @Input() productMostWanted: ProductMostWanted;
+
+  constructor() {
+    this.productMostWanted = {
+      id: 1,
+      description: 'Mokey de Fish',
+    };
+  }
 }

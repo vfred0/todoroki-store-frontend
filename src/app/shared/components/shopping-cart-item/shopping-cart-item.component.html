@@ -14,7 +14,9 @@
       [tag]="tagPrice"></app-tag>
   </div>
   <div class="c-shoppping-cart-item__footer">
-    <app-quantity [value]="this.productItemCart.quantity"></app-quantity>
+    <app-quantity
+      (valueChange)="this.setProductCartQuantity($event)"
+      [value]="this.productItemCart.quantity"></app-quantity>
     <span
       (click)="this.onRemoveProduct()"
       class="c-shopping-car-item__remove o-font-f2-small"

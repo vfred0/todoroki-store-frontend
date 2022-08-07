@@ -7,6 +7,10 @@ const routes: Routes = [
     path: '',
     component: CategoriesPageComponent,
   },
+  {
+    path: ':name',
+    component: CategoriesPageComponent,
+  },
 ];
 
 @NgModule({

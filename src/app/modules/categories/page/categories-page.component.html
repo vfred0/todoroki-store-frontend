@@ -11,6 +11,7 @@
       <div class="c-page-categories__filter">
         <span class="c-page-categories__filters-title">Tipo</span>
         <app-select
+          [optionSelected]="this.optionSelected"
           [options]="this.typesClotings"
           (selectChange)="this.updateProductsByCloth($event)"></app-select>
       </div>

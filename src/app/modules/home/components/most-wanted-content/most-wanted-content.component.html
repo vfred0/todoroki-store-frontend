@@ -4,11 +4,12 @@
       <div class="c-most-wanted-content__title o-font-f1-section">
         Lo mas deseado
       </div>
-      <span class="c-most-wanted-content__product-name o-font-f1-main"
-        >Monkey D. Luffy</span
-      >
+      <span class="c-most-wanted-content__product-name o-font-f1-main">
+        {{ this.productMostWanted.description }}
+      </span>
     </div>
     <app-button
+      [routerLink]="['/product', this.productMostWanted.id]"
       [description]="'Ver producto'"
       [styles]="'c-button c-button--default'"></app-button>
   </div>

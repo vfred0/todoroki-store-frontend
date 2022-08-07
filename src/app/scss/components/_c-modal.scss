@@ -23,6 +23,10 @@
     &__icon {
       fill: $grey-900;
     }
+
+    &__items {
+      overflow-y: auto;
+    }
   }
   &__menu {
     display: flex;

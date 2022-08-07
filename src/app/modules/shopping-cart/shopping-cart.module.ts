@@ -3,11 +3,16 @@ import { CommonModule } from '@angular/common';
 
 import { ShoppingCartRoutingModule } from './shopping-cart-routing.module';
 import { ShoppingCartPageComponent } from './page/shopping-cart-page.component';
-import { SharedModule } from '@shared/shared.module';
-
+import { ButtonModule } from '@shared/components/button/button.module';
+import { ShoppingCartItemModule } from '@shared/components/shopping-cart-item/shopping-cart-item.module';
 
 @NgModule({
   declarations: [ShoppingCartPageComponent],
-  imports: [CommonModule, ShoppingCartRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    ShoppingCartRoutingModule,
+    ButtonModule,
+    ShoppingCartItemModule,
+  ],
 })
 export class ShoppingCartModule {}

@@ -1,0 +1,25 @@
+<div class="c-modal c-bar-search" [class.is-active]="this.isActive">
+  <input
+    class="c-bar-search__input"
+    type="text"
+    placeholder="Buscar productos" />
+  <svg-icon
+    src="/assets/icons/search.svg"
+    [class]="'c-bar-search__icon o-icon-size-lg'"
+    [applyClass]="true">
+  </svg-icon>
+  <div class="c-modal-search__most-popular">
+    <span class="c-modal-search__most-popular__title">Lo mas buscado</span>
+    <app-tag (click)="this.clickedTag()" [tag]="this.tag"></app-tag>
+  </div>
+  <ng-container *ngIf="this.existsResults()">
+    <div class="c-modal-search__results">
+      <ng-container *ngFor="let productCard of this.productsCards">
+        <app-product-card [productCard]="productCard"> </app-product-card>
+      </ng-container>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!this.existsResults()">
+    <h1>No hay productos!!!</h1>
+  </ng-container>
+</div>

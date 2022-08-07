@@ -1,10 +1,20 @@
 import { Component } from '@angular/core';
-import { ProductItemCart } from '@core/utils/ProductItemCart';
-import { Size } from '@core/utils/Size';
-import { TypeColor } from '@core/utils/TypeColor';
+import { TypeClothings } from '@core/models/TypeClothings';
+import { Category } from '@core/utils/Category';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
 })
-export class HomePageComponent {}
+export class HomePageComponent {
+  categories: Category[] = [
+    {
+      name: TypeClothings.Sweatshirt,
+      quantity: 10,
+    },
+    {
+      name: TypeClothings.Shirt,
+      quantity: 100,
+    },
+  ];
+}

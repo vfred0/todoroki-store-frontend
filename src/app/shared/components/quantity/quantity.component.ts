@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -8,6 +15,7 @@ import { FormControl, Validators } from '@angular/forms';
 export class QuantityComponent implements OnInit {
   @Input() maxValue: number = 5;
   @Input() value: number = 5;
+  @Output() valueChange = new EventEmitter<number>();
   public formInput: FormControl;
 
   constructor() {
@@ -22,8 +30,13 @@ export class QuantityComponent implements OnInit {
       Validators.max(this.maxValue),
       Validators.min(1),
     ]);
-  }
 
+    this.formInput.valueChanges.subscribe(value => {
+      if (value >= 1 && value <= this.maxValue) {
+        this.valueChange.emit(value);
+      }
+    });
+  }
   decreaseValue() {
     this.formInput.setValue(this.formInput.value - 1);
     if (this.formInput.value < 1) {
@@ -35,6 +48,7 @@ export class QuantityComponent implements OnInit {
     if (this.formInput.value > this.maxValue) {
       this.formInput.setValue(this.maxValue);
     }
+    // this.valueChange.emit(this.formInput.value);
   }
 
   getValue() {

@@ -45,9 +45,12 @@ export class ShoppingCartItemComponent implements OnInit {
       description: this.productItemCart.price.toString(),
       pathIcon: '/assets/icons/price.svg',
     };
-    console.log('DEBUG', 'this.productItemCart', this.productItemCart);
   }
   onRemoveProduct() {
     this.removeProductItemCart.emit(this.productItemCart);
+  }
+
+  setProductCartQuantity(quantity: number) {
+    this.productItemCart.quantity = quantity;
   }
 }

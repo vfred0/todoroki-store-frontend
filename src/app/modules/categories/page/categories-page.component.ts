@@ -1,9 +1,5 @@
-import {
-  AfterContentInit,
-  ChangeDetectorRef,
-  Component,
-  Type,
-} from '@angular/core';
+import { AfterContentInit, Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from '@core/models/Product';
 import { TypeAnimes } from '@core/models/TypeAnimes';
 import { TypeClothings } from '@core/models/TypeClothings';
@@ -17,18 +13,21 @@ import { TypeColor } from '@core/utils/TypeColor';
   templateUrl: './categories-page.component.html',
 })
 export class CategoriesPageComponent implements AfterContentInit {
+  private products: Array<Product>;
   sizes: Array<Size>;
   typesAnimes: Array<Option<TypeAnimes>>;
   typesClotings: Array<Option<TypeClothings>>;
-  private products: Array<Product>;
   productsCardsFiltered: Array<Product>;
   colors: TypeColor[];
   size: Size;
   typeColor: TypeColor;
   typeAnime: Option<TypeClothings>;
   typeCloting: Option<TypeClothings>;
+  optionSelected: Option<TypeClothings>;
 
-  constructor(private cd: ChangeDetectorRef) {
+  constructor(private router: ActivatedRoute) {
+    this.optionSelected = this.router.snapshot.params['name'];
+
     this.productsCardsFiltered = [];
     this.typesAnimes = [];
     this.typesClotings = [];
@@ -42,7 +41,6 @@ export class CategoriesPageComponent implements AfterContentInit {
     );
 
     this.sizes = [...Object.values(Size)];
-    // this.sizes = [Size.L];
     this.products = [];
 
     this.size = Size.S;
@@ -50,6 +48,7 @@ export class CategoriesPageComponent implements AfterContentInit {
     this.typeAnime = TypeAnimes.Anime1;
     this.typeCloting = TypeClothings.Shirt;
   }
+
   ngAfterContentInit(): void {
     this.products = [
       {
@@ -75,16 +74,8 @@ export class CategoriesPageComponent implements AfterContentInit {
         likes: 0,
       },
     ];
-    // this.productsCardsFiltered = this.products.filter(
-    //   (product: Product) =>
-    //     product.color === TypeColor.Black &&
-    //     product.size === Size.S &&
-    //     product.typesAnimes === TypeAnimes.Anime &&
-    //     product.typeClothing === TypeClothings.Shirt
-    // );
 
-    // console.log(this.productsCardsFiltered);
-    this.cd.detectChanges();
+    // this.cd.detectChanges();
   }
   setProductsFiltered() {
     this.productsCardsFiltered = this.products.filter(

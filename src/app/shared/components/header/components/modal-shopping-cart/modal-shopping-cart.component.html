@@ -1,0 +1,45 @@
+<div class="c-modal" [class.is-active]="this.isActive">
+  <div class="c-modal-shopping-cart__header">
+    <span class="c-modal-shopping-cart__title">Carrito de compras</span>
+    <div class="c-modal-shopping-cart__close" (click)="this.onToggle()">
+      <svg-icon
+        src="/assets/icons/close.svg"
+        [class]="'c-header__menu-icon  o-icon-size-lg'"
+        [applyClass]="true">
+      </svg-icon>
+    </div>
+  </div>
+  <ng-container *ngIf="this.existsProductsInCart()">
+    <div class="c-modal-shopping-cart__items">
+      <ng-container *ngFor="let productItemCart of this.productItemsCarts">
+        <app-shopping-cart-item
+          [productItemCart]="productItemCart"
+          (removeProductItemCart)="
+            this.removeProductItemCart($event)
+          "></app-shopping-cart-item>
+      </ng-container>
+    </div>
+
+    <div class="c-shopping-cart-page__total">
+      <span class="c-modal-shopping-cart__total-items">
+        Total por los {{ this.productItemsCarts.length }} productos.
+      </span>
+      <div class="c-shopping-cart-page__total-value">
+        <h3>{{ this.getTotalPriceForProducts() | currency }}</h3>
+      </div>
+    </div>
+    <app-button
+      (click)="this.contactForWhatsapp()"
+      [isContact]="true"
+      [styles]="'c-button--contact'"></app-button>
+    <app-button
+      [description]="'Ver carrito de compras'"
+      [styles]="'c-button--default'"
+      [routerLink]="'/shopping-cart'"
+      (click)="onToggle()"></app-button>
+  </ng-container>
+
+  <ng-container *ngIf="!this.existsProductsInCart()">
+    <h1>No hay productos!!!</h1>
+  </ng-container>
+</div>

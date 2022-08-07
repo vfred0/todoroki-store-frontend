@@ -6,10 +6,12 @@ import { HomePageComponent } from './page/home-page.component';
 import { SwiperModule } from 'swiper/angular';
 import { SliderComponent } from './components/slider/slider.component';
 import { MostWantedContentComponent } from './components/most-wanted-content/most-wanted-content.component';
-import { SharedModule } from '@shared/shared.module';
+
 import { CategoryComponent } from './components/category/category.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { ButtonModule } from '@shared/components/button/button.module';
+import { ProductCardModule } from '@shared/components/product-card/product-card.module';
 
 @NgModule({
   declarations: [
@@ -22,8 +24,9 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     CommonModule,
     HomeRoutingModule,
     SwiperModule,
-    SharedModule,
     HttpClientModule,
+    ButtonModule,
+    ProductCardModule,
     AngularSvgIconModule.forRoot(),
   ],
 })

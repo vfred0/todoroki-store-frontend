@@ -26,12 +26,12 @@
       </a>
     </li>
     <li class="c-header__menu-item">
-      <a class="c-header__menu-link">
+      <a [routerLink]="'/'" class="c-header__menu-link">
         <img src="/assets/images/Logo.png" alt="" class="c-header__logo" />
       </a>
     </li>
     <div class="c-header__menu-right">
-      <li class="c-header__menu-item">
+      <li class="c-header__menu-item" (click)="this.onToggleSearch()">
         <a class="c-header__menu-link">
           <svg-icon
             src="/assets/icons/search.svg"
@@ -56,12 +56,4 @@
 <app-modal-menu [(isActive)]="this.isActiveModalMenu"></app-modal-menu>
 <app-modal-shopping-cart
   [(isActive)]="this.isActiveModalShoppingCart"></app-modal-shopping-cart>
-
-<!-- <div class="c-modal-shopping-cart {{ activeModal }}">
-  <div class="c-modal-shopping-cart__header">
-    <span class="c-modal-shopping-cart__title">Carrito de compras</span>
-    <svg-icon [] ></svg-icon>
-    <div class="c-modal-shopping-cart__products-cart"></div>
-    <app-button></app-button>
-  </div>
-</div> -->
+<app-modal-search [(isActive)]="this.isActiveModalSearch"></app-modal-search>

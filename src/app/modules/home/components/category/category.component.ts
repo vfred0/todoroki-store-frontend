@@ -1,18 +1,22 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Tag } from '@core/utils/Tag';
-
+import { TypeClothings } from '@core/models/TypeClothings';
+import { Category } from '@core/utils/Category';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
 })
 export class CategoryComponent {
-  @Input() nameCategory: string = 'Camisetas';
-  @Input() quantity: number = 10;
+  @Input() category: Category;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.category = {
+      name: TypeClothings.Sweatshirt,
+      quantity: 10,
+    };
+  }
 
   redirectToPageCategory() {
-    this.router.navigate(['/categories']);
+    this.router.navigate(['/categories', this.category.name]);
   }
 }
