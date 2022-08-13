@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-import { ProductItemCart } from '@core/utils/ProductItemCart';
+import { Color } from '@core/types/Color';
 import { Size } from '@core/types/Size';
-<<<<<<< HEAD:src/app/shared/components/header/components/modal-shopping-cart/modal-shopping-cart.component.ts
-import { TypeColor } from '@core/utils/TypeColor';
+import { ProductItemCart } from '@core/utils/ProductItemCart';
 import { ModalComponent } from '../modal/modal.component';
-=======
-import { Color } from '@core/utils/Color';
->>>>>>> main:src/app/shared/components/modal-shopping-cart/modal-shopping-cart.component.ts
 
 @Component({
   selector: 'app-modal-shopping-cart',
@@ -19,7 +15,7 @@ export class ModalShoppingCartComponent extends ModalComponent {
     this.productItemsCarts = [];
     this.productItemsCarts = [
       {
-        id: 1,
+        id: '1',
         description: 'Product 1',
         price: 11.99,
         size: Size.S,
@@ -28,7 +24,7 @@ export class ModalShoppingCartComponent extends ModalComponent {
         image: 'https://picsum.photos/200/300',
       },
       {
-        id: 2,
+        id: '2',
         description: 'Product 2',
         price: 12.99,
         size: Size.S,
@@ -37,29 +33,11 @@ export class ModalShoppingCartComponent extends ModalComponent {
         image: 'https://picsum.photos/200/300',
       },
       {
-        id: 3,
+        id: '3',
         description: 'Product 2',
         price: 12.99,
         size: Size.S,
         color: Color.White,
-        quantity: 1,
-        image: 'https://picsum.photos/200/300',
-      },
-      {
-        id: 3,
-        description: 'Product 2',
-        price: 12.99,
-        size: Size.S,
-        color: TypeColor.White,
-        quantity: 1,
-        image: 'https://picsum.photos/200/300',
-      },
-      {
-        id: 3,
-        description: 'Product 2',
-        price: 12.99,
-        size: Size.S,
-        color: TypeColor.White,
         quantity: 1,
         image: 'https://picsum.photos/200/300',
       },

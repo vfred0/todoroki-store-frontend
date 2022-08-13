@@ -17,7 +17,7 @@ export class ShoppingCartPageComponent implements OnInit {
   ngOnInit(): void {
     this.productItemsCarts = [
       {
-        id: 1,
+        id: '1',
         description: 'Product 1',
         price: 11.99,
         size: Size.S,
@@ -26,7 +26,7 @@ export class ShoppingCartPageComponent implements OnInit {
         image: 'https://picsum.photos/200/300',
       },
       {
-        id: 2,
+        id: '2',
         description: 'Product 2',
         price: 12,
         size: Size.S,

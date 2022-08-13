@@ -21,7 +21,7 @@ export class ShoppingCartItemComponent implements OnInit {
     this.tagColor = {} as TagColor;
     this.tagPrice = {} as Tag;
     this.productItemCart = {
-      id: 1,
+      id: '1',
       description: 'Product 1',
       price: 11.99,
       size: Size.S,

@@ -1,4 +1,4 @@
 export interface ProductMostWanted {
-  id: number;
+  id: string;
   description: string;
 }

@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '@core/models/Product';
-import { TypeAnimes } from '@core/models/TypeAnimes';
-import { TypeClothings } from '@core/models/TypeClothings';
-import { Size } from '@core/utils/Size';
+import { Size } from '@core/types/Size';
+import { ProductFilter } from '@core/utils/ProductFilterd';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -40,10 +39,7 @@ export class ProductService {
     );
   }
 
-  getProductsFilterBy(
-    typeClothings: TypeClothings,
-    typeAnimes: TypeAnimes,
-    color: Color,
-    size: Size
-  );
+  getProductsFiltered(product: ProductFilter): Observable<Product[]> {
+    return this.client.post<Product[]>(`${this.API_URL}/get-filtered`, product);
+  }
 }

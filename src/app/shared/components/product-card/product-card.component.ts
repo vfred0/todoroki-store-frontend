@@ -11,7 +11,7 @@ export class ProductCardComponent {
   tagLikes: Tag;
   constructor(private router: Router) {
     this.productCard = {
-      id: 1,
+      id: '1',
       description: 'Camiseta 1',
       price: 10,
       image: 'https://picsum.photos/200/100',

@@ -3,14 +3,9 @@ import { Clothings } from '@core/types/Clothings';
 import { Color } from '@core/types/Color';
 import { Size } from '@core/types/Size';
 
-export interface Product {
-  id: string;
-  description: string;
-  price: number;
-  image: string;
-  likes: number;
-  color: Color;
+export interface ProductFilter {
   size: Size;
-  typeClothing: Clothings;
-  typesAnimes: Animes;
+  color: Color;
+  anime: Animes;
+  clothing: Clothings;
 }

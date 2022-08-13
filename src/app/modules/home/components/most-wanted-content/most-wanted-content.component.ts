@@ -10,7 +10,7 @@ export class MostWantedContentComponent {
 
   constructor() {
     this.productMostWanted = {
-      id: 1,
+      id: '1',
       description: 'Mokey de Fish',
     };
   }

@@ -1,6 +1,6 @@
-import { TypeClothings } from '@core/models/TypeClothings';
+import { Clothings } from '@core/types/Clothings';
 
 export interface Category {
-  name: TypeClothings;
+  name: Clothings;
   quantity: number;
 }

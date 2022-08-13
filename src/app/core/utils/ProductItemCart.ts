@@ -1,8 +1,8 @@
-import { Size } from './Size';
-import { Color } from './Color';
+import { Color } from '@core/types/Color';
+import { Size } from '@core/types/Size';
 
 export interface ProductItemCart {
-  id: number;
+  id: string;
   image: string;
   description: string;
   color: Color;
