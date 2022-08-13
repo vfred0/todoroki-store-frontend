@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductItemCart } from '@core/utils/ProductItemCart';
-import { Size } from '@core/utils/Size';
-import { Color } from '@core/utils/Color';
+import { Size } from '@core/types/Size';
+import { Color } from '@core/types/Color';
 
 @Component({
   selector: 'app-shopping-cart-page',

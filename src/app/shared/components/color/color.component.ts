@@ -10,7 +10,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { TagColor } from '@core/utils/TagColor';
-import { Color } from '@core/utils/Color';
+import { Color } from '@core/types/Color';
 
 @Component({
   selector: 'app-color',

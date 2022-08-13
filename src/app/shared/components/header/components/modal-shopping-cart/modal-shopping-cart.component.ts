@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductItemCart } from '@core/utils/ProductItemCart';
-import { Size } from '@core/utils/Size';
+import { Size } from '@core/types/Size';
 <<<<<<< HEAD:src/app/shared/components/header/components/modal-shopping-cart/modal-shopping-cart.component.ts
 import { TypeColor } from '@core/utils/TypeColor';
 import { ModalComponent } from '../modal/modal.component';

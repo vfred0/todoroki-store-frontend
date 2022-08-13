@@ -2,10 +2,10 @@ import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 import { Tag } from '@core/utils/Tag';
-import { Size } from '@core/utils/Size';
+import { Size } from '@core/types/Size';
 
 import { QuantityComponent } from '@shared/components/quantity/quantity.component';
-import { Color } from '@core/utils/Color';
+import { Color } from '@core/types/Color';
 
 SwiperCore.use([Pagination, Navigation]);
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 <<<<<<< HEAD
 import { TypeClothings } from '@core/models/TypeClothings';
-import { Category } from '@core/utils/Category';
+import { Category } fro@core/types/Colortegory';
 =======
 import { ProductItemCart } from '@core/utils/ProductItemCart';
 import { Size } from '@core/utils/Size';

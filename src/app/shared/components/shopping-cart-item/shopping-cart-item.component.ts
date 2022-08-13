@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProductItemCart } from '@core/utils/ProductItemCart';
-import { Size } from '@core/utils/Size';
+import { Size } from '@core/types/Size';
 import { Tag } from '@core/utils/Tag';
 import { TagColor } from '@core/utils/TagColor';
-import { Color } from '@core/utils/Color';
+import { Color } from '@core/types/Color';
 
 @Component({
   selector: 'app-shopping-cart-item',

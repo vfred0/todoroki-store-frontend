@@ -1,7 +1,7 @@
-import { Color } from '@core/utils/Color';
-import { Size } from '@core/utils/Size';
-import { TypeAnimes } from './TypeAnimes';
-import { TypeClothings } from './TypeClothings';
+import { Animes } from '@core/types/Animes';
+import { Clothings } from '@core/types/Clothings';
+import { Color } from '@core/types/Color';
+import { Size } from '@core/types/Size';
 
 export interface Product {
   id: number;
@@ -11,6 +11,6 @@ export interface Product {
   likes: number;
   color: Color;
   size: Size;
-  typeClothing: TypeClothings;
-  typesAnimes: TypeAnimes;
+  typeClothing: Clothings;
+  typesAnimes: Animes;
 }

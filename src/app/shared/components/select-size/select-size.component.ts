@@ -5,7 +5,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { Size } from '@core/utils/Size';
+import { Size } from '@core/types/Size';
 import { TagSize } from '@core/utils/TagSize';
 
 @Component({

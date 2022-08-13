@@ -5,8 +5,8 @@ import { TypeAnimes } from '@core/models/TypeAnimes';
 import { TypeClothings } from '@core/models/TypeClothings';
 
 import { Option } from '@core/utils/Option';
-import { Size } from '@core/utils/Size';
-import { Color } from '@core/utils/Color';
+import { Size } from '@core/types/Size';
+import { Color } from '@core/types/Color';
 
 @Component({
   selector: 'app-category-page',
