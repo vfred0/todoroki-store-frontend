@@ -1,4 +1,4 @@
-import { TypeColor } from '@core/utils/TypeColor';
+import { Color } from '@core/utils/Color';
 import { Size } from '@core/utils/Size';
 import { TypeAnimes } from './TypeAnimes';
 import { TypeClothings } from './TypeClothings';
@@ -9,7 +9,7 @@ export interface Product {
   price: number;
   image: string;
   likes: number;
-  color: TypeColor;
+  color: Color;
   size: Size;
   typeClothing: TypeClothings;
   typesAnimes: TypeAnimes;

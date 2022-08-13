@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { ProductItemCart } from '@core/utils/ProductItemCart';
 import { Size } from '@core/utils/Size';
+<<<<<<< HEAD:src/app/shared/components/header/components/modal-shopping-cart/modal-shopping-cart.component.ts
 import { TypeColor } from '@core/utils/TypeColor';
 import { ModalComponent } from '../modal/modal.component';
+=======
+import { Color } from '@core/utils/Color';
+>>>>>>> main:src/app/shared/components/modal-shopping-cart/modal-shopping-cart.component.ts
 
 @Component({
   selector: 'app-modal-shopping-cart',
@@ -19,7 +23,7 @@ export class ModalShoppingCartComponent extends ModalComponent {
         description: 'Product 1',
         price: 11.99,
         size: Size.S,
-        color: TypeColor.White,
+        color: Color.White,
         quantity: 1,
         image: 'https://picsum.photos/200/300',
       },
@@ -28,7 +32,7 @@ export class ModalShoppingCartComponent extends ModalComponent {
         description: 'Product 2',
         price: 12.99,
         size: Size.S,
-        color: TypeColor.White,
+        color: Color.White,
         quantity: 1,
         image: 'https://picsum.photos/200/300',
       },
@@ -37,7 +41,7 @@ export class ModalShoppingCartComponent extends ModalComponent {
         description: 'Product 2',
         price: 12.99,
         size: Size.S,
-        color: TypeColor.White,
+        color: Color.White,
         quantity: 1,
         image: 'https://picsum.photos/200/300',
       },
