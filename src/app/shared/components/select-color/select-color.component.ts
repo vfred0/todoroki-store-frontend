@@ -7,23 +7,23 @@ import {
 } from '@angular/core';
 import { TagColor } from '@core/utils/TagColor';
 
-import { TypeColor } from '@core/utils/TypeColor';
+import { Color } from '@core/utils/Color';
 
 @Component({
   selector: 'app-select-color',
   templateUrl: './select-color.component.html',
 })
 export class SelectColorComponent implements AfterContentInit {
-  @Input() typeColors: Array<TypeColor>;
-  @Output() colorSelected = new EventEmitter<TypeColor>();
+  @Input() typeColors: Array<Color>;
+  @Output() colorSelected = new EventEmitter<Color>();
   tagColors: TagColor[];
   constructor() {
     this.typeColors = [];
     this.tagColors = [];
   }
   ngAfterContentInit(): void {
-    this.tagColors = Object.values(TypeColor).map(
-      (typeColor: TypeColor, index: number) => {
+    this.tagColors = Object.values(Color).map(
+      (typeColor: Color, index: number) => {
         let isSelected: boolean = true;
         if (index > 0) {
           isSelected = false;

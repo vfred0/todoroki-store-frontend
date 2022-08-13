@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductItemCart } from '@core/utils/ProductItemCart';
 import { Size } from '@core/utils/Size';
-import { TypeColor } from '@core/utils/TypeColor';
+import { Color } from '@core/utils/Color';
 
 @Component({
   selector: 'app-shopping-cart-page',
@@ -21,7 +21,7 @@ export class ShoppingCartPageComponent implements OnInit {
         description: 'Product 1',
         price: 11.99,
         size: Size.S,
-        color: TypeColor.White,
+        color: Color.White,
         quantity: 1,
         image: 'https://picsum.photos/200/300',
       },
@@ -30,7 +30,7 @@ export class ShoppingCartPageComponent implements OnInit {
         description: 'Product 2',
         price: 12,
         size: Size.S,
-        color: TypeColor.White,
+        color: Color.White,
         quantity: 1,
         image: 'https://picsum.photos/200/300',
       },

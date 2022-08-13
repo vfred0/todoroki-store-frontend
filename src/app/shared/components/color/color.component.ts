@@ -10,7 +10,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { TagColor } from '@core/utils/TagColor';
-import { TypeColor } from '@core/utils/TypeColor';
+import { Color } from '@core/utils/Color';
 
 @Component({
   selector: 'app-color',
@@ -21,15 +21,15 @@ export class ColorComponent implements AfterViewInit, OnInit {
   @Input() styles: string;
   @Input() isSelected: boolean;
   @Input() isSelectable: boolean;
-  @Input() typeColor: TypeColor;
+  @Input() typeColor: Color;
   @Output() selectionOfColor: EventEmitter<TagColor>;
   @ViewChild('elementColor') elementColor: ElementRef;
 
   constructor(private renderer2: Renderer2) {
-    this.typeColor = {} as TypeColor;
+    this.typeColor = {} as Color;
 
     this.tagColor = {
-      typeColor: TypeColor.Black,
+      typeColor: Color.Black,
       isSelected: false,
     };
     this.isSelected = false;

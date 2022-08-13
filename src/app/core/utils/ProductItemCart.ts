@@ -1,11 +1,11 @@
 import { Size } from './Size';
-import { TypeColor } from './TypeColor';
+import { Color } from './Color';
 
 export interface ProductItemCart {
   id: number;
   image: string;
   description: string;
-  color: TypeColor;
+  color: Color;
   size: Size;
   price: number;
   quantity: number;

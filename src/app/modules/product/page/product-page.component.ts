@@ -5,7 +5,7 @@ import { Tag } from '@core/utils/Tag';
 import { Size } from '@core/utils/Size';
 
 import { QuantityComponent } from '@shared/components/quantity/quantity.component';
-import { TypeColor } from '@core/utils/TypeColor';
+import { Color } from '@core/utils/Color';
 
 SwiperCore.use([Pagination, Navigation]);
 
@@ -19,11 +19,11 @@ export class ProductPageComponent {
   @ViewChild(QuantityComponent) quantity!: QuantityComponent;
   sizes: Array<Size>;
   likes: Tag;
-  typeColors: TypeColor[];
+  typeColors: Color[];
 
   constructor() {
     this.sizes = [...Object.values(Size)];
-    this.typeColors = [...Object.values(TypeColor)];
+    this.typeColors = [...Object.values(Color)];
 
     this.likes = {
       description: '150',
@@ -34,7 +34,7 @@ export class ProductPageComponent {
   addToCart() {
     console.log('add to cart', this.quantity.getValue());
   }
-  colorSelected(color: TypeColor) {
+  colorSelected(color: Color) {
     console.log('????', color);
   }
 

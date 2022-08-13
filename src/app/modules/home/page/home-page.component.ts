@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductItemCart } from '@core/utils/ProductItemCart';
 import { Size } from '@core/utils/Size';
-import { TypeColor } from '@core/utils/TypeColor';
+import { Color } from '@core/utils/Color';
 
 @Component({
   selector: 'app-home-page',

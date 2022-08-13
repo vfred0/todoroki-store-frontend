@@ -1,7 +1,7 @@
-import { TypeColor } from './TypeColor';
+import { Color } from './Color';
 
 export interface TagColor {
-  typeColor: TypeColor;
+  typeColor: Color;
   isSelected: boolean;
   // pathIcon: string;
 }

@@ -10,7 +10,7 @@ import { TypeClothings } from '@core/models/TypeClothings';
 
 import { Option } from '@core/utils/Option';
 import { Size } from '@core/utils/Size';
-import { TypeColor } from '@core/utils/TypeColor';
+import { Color } from '@core/utils/Color';
 
 @Component({
   selector: 'app-category-page',
@@ -22,9 +22,9 @@ export class CategoriesPageComponent implements AfterContentInit {
   typesClotings: Array<Option<TypeClothings>>;
   private products: Array<Product>;
   productsCardsFiltered: Array<Product>;
-  colors: TypeColor[];
+  colors: Color[];
   size: Size;
-  typeColor: TypeColor;
+  typeColor: Color;
   typeAnime: Option<TypeClothings>;
   typeCloting: Option<TypeClothings>;
 
@@ -33,7 +33,7 @@ export class CategoriesPageComponent implements AfterContentInit {
     this.typesAnimes = [];
     this.typesClotings = [];
     this.products = [];
-    this.colors = [...Object.values(TypeColor)];
+    this.colors = [...Object.values(Color)];
     Object.values(TypeAnimes).forEach((value: string) =>
       this.typesAnimes.push(value)
     );
@@ -46,7 +46,7 @@ export class CategoriesPageComponent implements AfterContentInit {
     this.products = [];
 
     this.size = Size.S;
-    this.typeColor = TypeColor.Black;
+    this.typeColor = Color.Black;
     this.typeAnime = TypeAnimes.Anime1;
     this.typeCloting = TypeClothings.Shirt;
   }
@@ -55,7 +55,7 @@ export class CategoriesPageComponent implements AfterContentInit {
       {
         id: 1,
         description: 'Camiseta1',
-        color: TypeColor.Black,
+        color: Color.Black,
         size: Size.S,
         typesAnimes: TypeAnimes.Anime,
         typeClothing: TypeClothings.Shirt,
@@ -66,7 +66,7 @@ export class CategoriesPageComponent implements AfterContentInit {
       {
         id: 2,
         description: 'Camiseta2',
-        color: TypeColor.White,
+        color: Color.White,
         size: Size.M,
         typesAnimes: TypeAnimes.Anime1,
         typeClothing: TypeClothings.Shirt,
@@ -108,7 +108,7 @@ export class CategoriesPageComponent implements AfterContentInit {
     this.setProductsFiltered();
   }
 
-  updateProductsByColor(value: TypeColor) {
+  updateProductsByColor(value: Color) {
     this.typeColor = value;
     this.setProductsFiltered();
   }
