@@ -5,24 +5,24 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('@modules/home/home.module').then(m => m.HomeModule),
+      import('src/app/pages/home/home.module').then(m => m.HomeModule),
   },
   {
     path: 'product/:id',
     loadChildren: () =>
-      import('@modules/product/product.module').then(m => m.ProductModule),
+      import('src/app/pages/product/product.module').then(m => m.ProductModule),
   },
   {
     path: 'categories',
     loadChildren: () =>
-      import('@modules/categories/categories.module').then(
+      import('src/app/pages/categories/categories.module').then(
         m => m.CategoriesModule
       ),
   },
   {
     path: 'shopping-cart',
     loadChildren: () =>
-      import('@modules/shopping-cart/shopping-cart.module').then(
+      import('src/app/pages/shopping-cart/shopping-cart.module').then(
         m => m.ShoppingCartModule
       ),
   },

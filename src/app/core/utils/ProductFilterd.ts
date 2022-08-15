@@ -4,8 +4,8 @@ import { Color } from '@core/types/Color';
 import { Size } from '@core/types/Size';
 
 export interface ProductFilter {
-  size: Size;
-  color: Color;
   anime: Animes;
   clothing: Clothings;
+  color: Color;
+  size: Size;
 }
