@@ -13,15 +13,16 @@ import { TagSize } from '@core/utils/TagSize';
   templateUrl: './select-size.component.html',
 })
 export class SelectSizeComponent implements AfterContentInit {
-  @Input() sizes: Array<Size>;
+  // @Input() sizes: Array<Size>;
   @Output() sizeSelected = new EventEmitter<Size>();
+  @Input() isSelectable: boolean;
   tagSizes: TagSize[];
   constructor() {
-    this.sizes = [];
+    this.isSelectable = true;
     this.tagSizes = [];
   }
   ngAfterContentInit(): void {
-    this.tagSizes = this.sizes.map((size: Size, index: number) => {
+    this.tagSizes = Object.values(Size).map((size: Size, index: number) => {
       let isSelected: boolean = true;
       if (index > 0) {
         isSelected = false;
@@ -40,9 +41,9 @@ export class SelectSizeComponent implements AfterContentInit {
     );
   }
 
-  addEventClick() {
-    return this.sizes.length > 0;
-  }
+  // addEventClick() {
+  //   return this.tagSizes.length > 1;
+  // }
 
   selectionOfSize(tagSize: TagSize) {
     this.tagSizes = this.tagSizes.map((item: TagSize) => {

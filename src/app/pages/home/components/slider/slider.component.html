@@ -1,12 +1,8 @@
 <!-- [autoplay]="{ delay: 2500 }" -->
 <swiper [speed]="600" [mousewheel]="true">
-  <ng-template swiperSlide>
-    <app-most-wanted-content></app-most-wanted-content>
-  </ng-template>
-  <ng-template swiperSlide>
-    <app-most-wanted-content></app-most-wanted-content>
-  </ng-template>
-  <ng-template swiperSlide>
-    <app-most-wanted-content></app-most-wanted-content>
-  </ng-template>
+  <ng-container *ngFor="let productMostWanted of this.productsMostWanted">
+    <ng-template swiperSlide>
+      <app-most-wanted-content [productMostWanted]="productMostWanted"></app-most-wanted-content>
+      </ng-template>
+</ng-container>
 </swiper>

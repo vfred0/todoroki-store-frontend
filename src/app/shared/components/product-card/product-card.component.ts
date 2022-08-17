@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductCard } from '@core/utils/ProductCard';
 import { Tag } from '@core/utils/Tag';
@@ -6,19 +6,16 @@ import { Tag } from '@core/utils/Tag';
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
 })
-export class ProductCardComponent {
+export class ProductCardComponent implements OnInit {
   @Input() productCard: ProductCard;
   tagLikes: Tag;
   constructor(private router: Router) {
-    this.productCard = {
-      id: '1',
-      description: 'Camiseta 1',
-      price: 10,
-      image: 'https://picsum.photos/200/100',
-      likes: 130,
-    };
+    this.productCard = {} as ProductCard;
+    this.tagLikes = {} as Tag;
+  }
+  ngOnInit(): void {
     this.tagLikes = {
-      description: this.productCard.likes.toString(),
+      description: `${this.productCard.likes}`,
       pathIcon: 'assets/icons/heart.svg',
     };
   }

@@ -1,6 +1,6 @@
-import { Clothings } from '@core/types/Clothings';
+import { ClothingType } from '@core/types/ClothingType';
 
 export interface Category {
-  name: Clothings;
+  name: ClothingType;
   quantity: number;
 }

@@ -1,18 +1,18 @@
 <div class="o-layout-spacing">
   <section class="c-page-categories">
-    <span class="c-page-categories__title">Categorías</span>
+    <span class="c-page-categories__title">Catálogo</span>
     <div class="c-page-categories__filters">
       <div class="c-page-categories__filter">
         <span class="c-page-categories__filters-title">Anime</span>
         <app-select
-          [options]="this.typesAnimes"
+          [options]="animeOptions"
           (selectChange)="this.updateProductsByAnime($event)"></app-select>
       </div>
       <div class="c-page-categories__filter">
         <span class="c-page-categories__filters-title">Tipo</span>
         <app-select
-          [optionSelected]="this.optionSelected"
-          [options]="this.typesClotings"
+          [options]="typeClothingsOptions"
+          [optionSelected]="this.clothingTypeSelected"
           (selectChange)="this.updateProductsByCloth($event)"></app-select>
       </div>
       <div class="c-page-categories__filter">
@@ -25,7 +25,6 @@
       <div class="c-page-categories__filter">
         <span class="c-page-categories__filters-title">Talla</span>
         <app-select-size
-          [sizes]="this.sizes"
           (sizeSelected)="this.updateProductsBySize($event)"></app-select-size>
       </div>
     </div>

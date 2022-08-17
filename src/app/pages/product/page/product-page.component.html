@@ -1,4 +1,4 @@
-<swiper
+<!-- <swiper
   [speed]="500"
   swiper
   [pagination]="true"
@@ -28,22 +28,29 @@
       src="https://imgs.search.brave.com/l0MXr4PlVlwLZSEd9nENGsdfiY_M9-wSDME5Jqc0WYU/rs:fit:798:991:1/g:ce/aHR0cHM6Ly9wdXJl/cG5nLmNvbS9wdWJs/aWMvdXBsb2Fkcy9s/YXJnZS9wdXJlcG5n/LmNvbS1kZW5pbS1i/bHVlLWZ1bGwtcGxh/aW4tc2hpcnRnYXJt/ZW50ZHJlc3NzaGly/dGZpdGZyb250LWJ1/dHRvbmZyb250LXBv/Y2tldGRlbmltLWJs/dWVmdWxsLTE0MjE1/MjYzMTM2ODFqM3Fz/ei5wbmc"
       alt="" />
   </ng-template>
-</swiper>
+</swiper> -->
 <section class="c-product-details">
+  <img
+    src="https://imgs.search.brave.com/qeHfPdQifG1hH63noHvVgxu2nd5uYHi69KX1ssWfX60/rs:fit:768:768:1/g:ce/aHR0cHM6Ly9tb25v/cmVuYWwuY29tLmFy/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIx/LzAxL1JlbWVyYS1C/YW5hbmEtRmlzaC1S/b2phLTc2OHg3Njgu/cG5n"
+    alt=""
+    class="c-product-details" />
+
   <div class="c-product-details__top">
     <div class="c-product-details__name-price">
       <div class="c-product-details__name-likes">
-        <div class="c-product-details__name o-font-f1-main">Banana fish</div>
+        <div class="c-product-details__name o-font-f1-main">
+          {{ this.product.description }}
+        </div>
         <app-tag [tag]="this.likes" [styles]="'c-tag--likes'"></app-tag>
       </div>
-      <div class="c-product-details__price o-font-f1-section">$13.00</div>
+      <div class="c-product-details__price o-font-f1-section">
+        ${{ this.product.price }}
+      </div>
     </div>
     <div class="c-product-details__sizes">
       <div class="c-product-details__title o-font-f1-section">Talla</div>
       <div class="c-product-details__size-tags">
-        <app-select-size
-          [sizes]="this.sizes"
-          (sizeSelected)="this.sizeSelected($event)">
+        <app-select-size (sizeSelected)="this.sizeSelected($event)">
         </app-select-size>
       </div>
     </div>
@@ -67,16 +74,17 @@
         [description]="'Añadir al carrito'"
         [styles]="'c-button c-button--default'"></app-button>
       <app-button
+        (click)="this.contactForWhatsapp()"
         [isContact]="true"
         [styles]="'c-button c-button--contact'"></app-button>
     </div>
   </div>
 </section>
 
-<section class="c-cards">
+<!-- <section class="c-cards">
   <span class="c-cards__title o-font-f1-main">Lo más deseado</span>
   <div class="c-cards__container">
     <app-product-card></app-product-card>
     <app-product-card></app-product-card>
   </div>
-</section>
+</section> -->

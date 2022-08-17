@@ -13,11 +13,9 @@ const routes: Routes = [
       import('src/app/pages/product/product.module').then(m => m.ProductModule),
   },
   {
-    path: 'categories',
+    path: 'catalog',
     loadChildren: () =>
-      import('src/app/pages/categories/categories.module').then(
-        m => m.CategoriesModule
-      ),
+      import('@pages/catalog/catalog.module').then(m => m.CatalogModule),
   },
   {
     path: 'shopping-cart',

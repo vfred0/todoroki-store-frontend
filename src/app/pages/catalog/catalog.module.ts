@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CategoryRoutingModule } from './categories-routing.module';
+import { CategoryRoutingModule } from './catalog-routing.module';
 
 import { SelectComponent } from './components/select/select.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -22,4 +22,4 @@ import { ProductCardModule } from '@shared/components/product-card/product-card.
     ProductCardModule,
   ],
 })
-export class CategoriesModule {}
+export class CatalogModule {}

@@ -2,7 +2,7 @@
   <app-slider></app-slider>
 
   <section class="c-categories">
-    <span class="c-categories__title o-font-f1-main">Categorías</span>
+    <span class="c-categories__title o-font-f1-main">Catálogo</span>
     <div class="c-categories__container">
       <app-category
         *ngFor="let category of this.categories"
@@ -14,7 +14,9 @@
   <section class="c-cards">
     <span class="c-cards__title o-font-f1-main">Lo más deseado</span>
     <div class="c-cards__container">
-      <app-product-card></app-product-card>
+      <ng-container *ngFor="let product of this.productsCards">
+        <app-product-card [productCard]="product"></app-product-card>
+      </ng-container>
     </div>
   </section>
 </div>

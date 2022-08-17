@@ -2,7 +2,14 @@
   #elementColor
   class="c-color"
   [class.has-selected]="this.isSelected"
-  [class]="'c-color--'.concat(this.tagColor.typeColor)">
+  [class]="
+    'c-color--'.concat(
+      this.tagColor.typeColor
+        .charAt(0)
+        .toLowerCase()
+        .concat(tagColor.typeColor.slice(1))
+    )
+  ">
   <svg-icon
     src="assets/icons/check.svg"
     [class]="'c-color__icon o-icon-size-lg'"

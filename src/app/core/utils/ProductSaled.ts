@@ -1,4 +1,9 @@
+import { Color } from '@core/types/Color';
+import { Size } from '@core/types/Size';
+
 export interface ProductSaled {
-  id: string;
+  productId: string;
+  color: Color;
+  size: Size;
   quantity: number;
 }

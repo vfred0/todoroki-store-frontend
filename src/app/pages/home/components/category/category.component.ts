@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Clothings } from '@core/types/Clothings';
+import { ClothingType } from '@core/types/ClothingType';
+
 import { Category } from '@core/utils/Category';
 @Component({
   selector: 'app-category',
@@ -11,7 +12,7 @@ export class CategoryComponent {
 
   constructor(private router: Router) {
     this.category = {
-      name: Clothings.Sweatshirt,
+      name: ClothingType.Sweatshirt,
       quantity: 10,
     };
   }
