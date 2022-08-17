@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '@core/models/Product';
-import { Size } from '@core/types/Size';
+import { Category } from '@core/utils/Category';
 import { ProductFilter } from '@core/utils/ProductFilterd';
+import { ProductMostWanted } from '@core/utils/ProductMostWanted';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -18,11 +19,13 @@ export class ProductService {
   }
 
   getProduct(id: string): Observable<Product> {
-    return this.client.get<Product>(`${this.API_URL}/get/${id}`);
+    return this.client.post<Product>(`${this.API_URL}/get-product-by-id/`, {
+      productId: id,
+    });
   }
 
   createProduct(product: Product): Observable<Product> {
-    return this.client.post<Product>(`${this.API_URL}/create`, product);
+    return this.client.post<Product>(`${this.API_URL}/save`, product);
   }
 
   updateProduct(product: Product): Observable<Product> {
@@ -30,16 +33,26 @@ export class ProductService {
   }
 
   deleteProduct(id: string): Observable<Product> {
-    return this.client.delete<Product>(`${this.API_URL}/delete/${id}`);
+    return this.client.delete<Product>(`${this.API_URL}/delete/`, {
+      params: { productId: id },
+    });
   }
 
-  getProductsByCategory(category: string): Observable<Product[]> {
-    return this.client.get<Product[]>(
-      `${this.API_URL}/get-by-category/${category}`
+  getProductsFiltered(productFilter: ProductFilter): Observable<Product[]> {
+    return this.client.post<Product[]>(
+      `${this.API_URL}/filtered`,
+      productFilter
     );
   }
 
-  getProductsFiltered(product: ProductFilter): Observable<Product[]> {
-    return this.client.post<Product[]>(`${this.API_URL}/get-filtered`, product);
+  getProductsMostWanted(): Observable<ProductMostWanted[]> {
+    return this.client.post<ProductMostWanted[]>(
+      `${this.API_URL}/most-wanted`,
+      {}
+    );
+  }
+
+  getCategories(): Observable<Category[]> {
+    return this.client.post<Category[]>(`${this.API_URL}/get-categories`, {});
   }
 }
