@@ -24,6 +24,11 @@ const routes: Routes = [
         m => m.ShoppingCartModule
       ),
   },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('src/app/pages/login/login.module').then(m => m.LoginModule),
+  },
 ];
 
 @NgModule({

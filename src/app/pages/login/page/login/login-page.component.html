@@ -1,0 +1,7 @@
+<form class="c-login" [formGroup]="formGroup">
+  <input formControlName="username" type="text" class="c-login__username" />
+  <input formControlName="password" type="password" class="c-login__password" />
+  <button (click)="this.checkAccount()" class="c-login__button">
+    <span>Ingresar</span>
+  </button>
+</form>

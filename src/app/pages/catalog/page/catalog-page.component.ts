@@ -12,9 +12,9 @@ import { ProductFilter } from '@core/utils/ProductFilterd';
 
 @Component({
   selector: 'app-category-page',
-  templateUrl: './categories-page.component.html',
+  templateUrl: './catalog-page.component.html',
 })
-export class CategoriesPageComponent {
+export class CatlogPageComponent {
   private productFilter: ProductFilter;
   productsCardsFiltered: Array<Product>;
   clothingTypeSelected: string;

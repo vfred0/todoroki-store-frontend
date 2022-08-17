@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
 import { ClothingType } from '@core/types/ClothingType';
 
 import { Category } from '@core/utils/Category';
@@ -10,14 +9,10 @@ import { Category } from '@core/utils/Category';
 export class CategoryComponent {
   @Input() category: Category;
 
-  constructor(private router: Router) {
+  constructor() {
     this.category = {
       name: ClothingType.Sweatshirt,
       quantity: 10,
     };
-  }
-
-  redirectToPageCategory() {
-    this.router.navigate(['/categories', this.category.name]);
   }
 }

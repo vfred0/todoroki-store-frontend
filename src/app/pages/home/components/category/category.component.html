@@ -13,7 +13,7 @@
     </div>
     <div
       class="c-category__wrapper-icon"
-      (click)="this.redirectToPageCategory()">
+      [routerLink]="['/catalog', this.category.name]">
       <svg-icon
         src="/assets/icons/arrow.svg"
         [class]="'o-icon-size-lg c-category__icon'"
