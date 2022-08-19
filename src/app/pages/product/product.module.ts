@@ -13,6 +13,7 @@ import { ProductCardModule } from '@shared/components/product-card/product-card.
 import { QuantityModule } from '@shared/components/quantity/quantity.module';
 import { SelectSizeModule } from '@shared/components/select-size/select-size.module';
 import { TagModule } from '@shared/components/tag/tag.module';
+import { HeaderModule } from '@shared/components/header/header.module';
 
 @NgModule({
   declarations: [ProductPageComponent],
@@ -27,6 +28,7 @@ import { TagModule } from '@shared/components/tag/tag.module';
     QuantityModule,
     TagModule,
     ProductCardModule,
+    HeaderModule,
   ],
 })
 export class ProductModule {}

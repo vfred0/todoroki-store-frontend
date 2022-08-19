@@ -10,6 +10,7 @@ import { CatlogPageComponent } from './page/catalog-page.component';
 import { SelectColorModule } from '@shared/components/select-color/select-color.module';
 import { SelectSizeModule } from '@shared/components/select-size/select-size.module';
 import { ProductCardModule } from '@shared/components/product-card/product-card.module';
+import { HeaderModule } from '@shared/components/header/header.module';
 
 @NgModule({
   declarations: [CatlogPageComponent, SelectComponent],
@@ -20,6 +21,7 @@ import { ProductCardModule } from '@shared/components/product-card/product-card.
     SelectColorModule,
     SelectSizeModule,
     ProductCardModule,
+    HeaderModule,
   ],
 })
 export class CatalogModule {}

@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ButtonModule } from '@shared/components/button/button.module';
 import { ProductCardModule } from '@shared/components/product-card/product-card.module';
+import { HeaderModule } from '@shared/components/header/header.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ProductCardModule } from '@shared/components/product-card/product-card.
     ButtonModule,
     ProductCardModule,
     AngularSvgIconModule.forRoot(),
+    HeaderModule,
   ],
 })
 export class HomeModule {}
