@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { User } from '@core/models/User';
-import { UserLogin } from '@core/utils/UserLogin.';
 import { UserService } from '@shared/services/user.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login-page.component.html',
 })
-export class LoginPageComponent /* implements OnInit */ {
+export class LoginPageComponent {
   formGroup: FormGroup;
   constructor(private userService: UserService) {
     this.formGroup = new FormGroup({
@@ -24,8 +22,13 @@ export class LoginPageComponent /* implements OnInit */ {
         password: this.formGroup.value.password,
       })
       .subscribe((exists: boolean) => {
-        console.log('El usuario existe: ', exists);
-        if (exists) this.userService.setUser(this.formGroup.value.username);
+        if (exists) {
+          this.userService.setAuthenticationAndRedirect(
+            this.formGroup.value.username
+          );
+        } else {
+          console.log('Error: username or password is incorrect');
+        }
       });
   }
 }

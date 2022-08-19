@@ -26,6 +26,7 @@ const routes: Routes = [
   {
     path: 'clothing-management',
     canLoad: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('@pages/clothing-managenent/clothing-managenent.module').then(
         m => m.ClothingManagenentModule
