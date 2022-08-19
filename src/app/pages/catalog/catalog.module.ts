@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CatalogRoutingModule } from './catalog-routing.module';
 
-import { SelectComponent } from './components/select/select.component';
+import { SelectComponent } from '../../shared/components/select/select.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { CatlogPageComponent } from './page/catalog-page.component';

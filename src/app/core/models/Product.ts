@@ -11,6 +11,6 @@ export interface Product {
   likes: number;
   color: Color;
   size: Size;
-  typeClothing: ClothingType;
-  typesAnimes: Animes;
+  clothingType: ClothingType;
+  anime: Animes;
 }
