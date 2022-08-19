@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '@shared/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -18,16 +19,17 @@ const routes: Routes = [
       import('@pages/catalog/catalog.module').then(m => m.CatalogModule),
   },
   {
-    path: 'shopping-cart',
-    loadChildren: () =>
-      import('src/app/pages/shopping-cart/shopping-cart.module').then(
-        m => m.ShoppingCartModule
-      ),
-  },
-  {
     path: 'login',
     loadChildren: () =>
       import('src/app/pages/login/login.module').then(m => m.LoginModule),
+  },
+  {
+    path: 'clothing-management',
+    canLoad: [AuthGuard],
+    loadChildren: () =>
+      import('@pages/clothing-managenent/clothing-managenent.module').then(
+        m => m.ClothingManagenentModule
+      ),
   },
 ];
 
