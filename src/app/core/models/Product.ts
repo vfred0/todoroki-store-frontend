@@ -10,7 +10,6 @@ export interface Product {
   image: string;
   likes: number;
   color: Color;
-  size: Size;
   clothingType: ClothingType;
   anime: Animes;
 }
