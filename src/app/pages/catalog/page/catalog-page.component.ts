@@ -11,10 +11,10 @@ import { ProductService } from '@shared/services/product.service';
 import { ProductFilter } from '@core/utils/ProductFilterd';
 
 @Component({
-  selector: 'app-category-page',
+  selector: 'app-clothing-type-card-page',
   templateUrl: './catalog-page.component.html',
 })
-export class CatlogPageComponent {
+export class CatalogPageComponent {
   private productFilter: ProductFilter;
   productsCardsFiltered: Array<Product>;
   clothingTypeSelected: string;
@@ -57,10 +57,12 @@ export class CatlogPageComponent {
       clothingType: Object.keys(ClothingType)[
         Object.values(ClothingType).findIndex(key => key === this.typeClothing)
       ] as ClothingType,
+      // clothingType: Object.keys(ClothingType)[
+      //   Object.values(ClothingType).findIndex(key => key === this.typeClothing)
+      // ] as ClothingType,
       limit: 10,
       page: 1,
     };
-    // console.log(this.productFilter);
     this.productService
       .getProductsFiltered(this.productFilter)
       .subscribe((products: Array<Product>) => {

@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CatlogPageComponent } from './page/catalog-page.component';
+import { CatalogPageComponent } from './page/catalog-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CatlogPageComponent,
+    component: CatalogPageComponent,
   },
   {
     path: ':name',
-    component: CatlogPageComponent,
+    component: CatalogPageComponent,
   },
 ];
 
