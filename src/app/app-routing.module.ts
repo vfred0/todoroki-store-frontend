@@ -24,12 +24,12 @@ const routes: Routes = [
       import('src/app/pages/login/login.module').then(m => m.LoginModule),
   },
   {
-    path: 'clothing-management',
+    path: 'store-management',
     canLoad: [AuthGuard],
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('@pages/clothing-managenent/clothing-managenent.module').then(
-        m => m.ClothingManagenentModule
+      import('@pages/store-management/store-management.module').then(
+        m => m.StoreManagementModule
       ),
   },
 ];
