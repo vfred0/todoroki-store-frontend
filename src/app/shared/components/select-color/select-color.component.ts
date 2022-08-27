@@ -56,6 +56,17 @@ export class SelectColorComponent implements AfterContentInit {
     this.colorSelected.emit(tagColor.typeColor);
   }
 
+  setColorSelected(color: Color) {
+    this.tagColors = this.tagColors.map((item: TagColor) => {
+      if (!Object.is(color, item.typeColor)) {
+        item = { ...item, isSelected: false };
+      } else {
+        item = { ...item, isSelected: true };
+      }
+      return item;
+    });
+  }
+
   // private getColor(): TagColor {
   //   return this.tagColors.filter((color: TagColor) => color.isSelected)[0];
   // }

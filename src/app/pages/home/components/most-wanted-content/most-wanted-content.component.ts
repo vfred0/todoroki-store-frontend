@@ -12,6 +12,7 @@ export class MostWantedContentComponent {
     this.productMostWanted = {
       id: '1',
       description: 'Mokey de Fish',
+      image: 'https',
     };
   }
 }

@@ -1,0 +1,73 @@
+<form
+  class="c-form"
+  [formGroup]="formGroup"
+  class="c-modal"
+  [class.is-active]="this.isActive">
+  <div class="c-form__container">
+    <img class="c-form__image" type="image" [src]="this.product.image" alt="" />
+    <input
+      class="c-form__upload"
+      type="file"
+      (change)="onFileSelected($event)" />
+  </div>
+
+  <div class="c-modal-product-management">
+    <div class="c-form__details">
+      <span class="c-form__title o-font-f1-subtitle"> Nombre </span>
+      <div class="c-bar-search">
+        <input
+          class="c-bar-search__input o-font-f2-normal"
+          formControlName="description"
+          type="text" />
+        <svg-icon
+          src="/assets/icons/heart.svg"
+          [class]="'c-bar-search__icon o-icon-size-sm'"
+          [applyClass]="true"></svg-icon>
+      </div>
+      <span class="c-form__title o-font-f1-subtitle"> Precio </span>
+      <div class="c-bar-search">
+        <input
+          class="c-bar-search__input o-font-f2-normal"
+          formControlName="price"
+          type="number"
+          id="" />
+        <svg-icon
+          src="/assets/icons/price.svg"
+          [class]="'c-bar-search__icon o-icon-size-sm'"
+          [applyClass]="true"></svg-icon>
+      </div>
+      <span class="c-form__title o-font-f1-subtitle"> Likes </span>
+      <div class="c-bar-search">
+        <input
+          class="c-bar-search__input o-font-f2-normal"
+          formControlName="likes"
+          type="number"
+          id="" />
+        <svg-icon
+          src="/assets/icons/price.svg"
+          [class]="'c-bar-search__icon o-icon-size-sm'"
+          [applyClass]="true"></svg-icon>
+      </div>
+      <span class="c-form__title o-font-f1-subtitle"> Tipo de ropa </span>
+      <app-select
+        #selectClothingType
+        (selectChange)="this.clothingTypeSelected($event)"
+        [options]="this.getClothingTypes()"></app-select>
+      <span class="c-form__title o-font-f1-subtitle"> Anime </span>
+      <app-select
+        #selectAnime
+        (selectChange)="this.animeSelected($event)"
+        [options]="this.getAnimes()"></app-select>
+      <span class="c-form__title o-font-f1-subtitle"> Color </span>
+      <app-select-color
+        (colorSelected)="this.colorSelected($event)"></app-select-color>
+    </div>
+    <button (click)="this.saveOrUpdateProduct()" class="c-login__button">
+      <span> {{ this.actionForProduct }}</span>
+    </button>
+  </div>
+
+  <button (click)="this.onToggle()">
+    <span>Cerrar modal</span>
+  </button>
+</form>

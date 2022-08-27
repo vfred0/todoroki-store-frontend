@@ -1,14 +1,28 @@
 <div class="c-card">
   <img
-    [src]="'https://picsum.photos/200/300'"
+    [src]="this.productCard.image"
     (click)="this.redirectToPageProduct()"
     class="c-card__image" />
-  <app-tag
-    [tag]="this.tagLikes"
-    [isSelectable]="false"
-    [styles]="'c-tag--likes'"
-    class="c-card__likes">
-  </app-tag>
+
+  <ng-container *ngIf="!this.isForManagement">
+    <app-tag
+      [tag]="this.tag"
+      [isSelectable]="false"
+      [styles]="'c-tag--likes'"
+      class="c-card__likes">
+    </app-tag>
+  </ng-container>
+
+  <ng-container *ngIf="this.isForManagement">
+    <app-tag
+      [tag]="this.tag"
+      [isSelectable]="true"
+      [styles]="'c-tag--delete'"
+      (selectionOfTag)="this.deleteProduct()"
+      class="c-tag__delete">
+    </app-tag>
+  </ng-container>
+
   <div class="c-card__wrapper-texts">
     <span
       class="o-font-f2-normal c-card__title"

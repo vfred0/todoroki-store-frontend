@@ -3,12 +3,12 @@
   <app-slider></app-slider>
 
   <section class="c-categories">
-    <span class="c-categories__title o-font-f1-main">Catálogo</span>
+    <span class="c-categories__title o-font-f1-main">Tipos de ropa</span>
     <div class="c-categories__container">
-      <app-category
-        *ngFor="let category of this.categories"
-        [category]="category">
-      </app-category>
+      <app-clothing-type-card
+        *ngFor="let clothingTypeCard of this.clothingTypeCards"
+        [clothingTypeCard]="clothingTypeCard">
+      </app-clothing-type-card>
     </div>
   </section>
 

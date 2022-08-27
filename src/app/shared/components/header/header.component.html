@@ -31,7 +31,7 @@
       </a>
     </li>
     <div class="c-header__menu-right">
-      <li class="c-header__menu-item" (click)="this.onToggleSearch()">
+      <!-- <li class="c-header__menu-item" (click)="this.onToggleSearch()">
         <a class="c-header__menu-link">
           <svg-icon
             src="/assets/icons/search.svg"
@@ -39,7 +39,7 @@
             [applyClass]="true">
           </svg-icon>
         </a>
-      </li>
+      </li> -->
       <li class="c-header__menu-item" (click)="this.onToggleShoppingCart()">
         <a class="c-header__menu-link">
           <svg-icon
@@ -56,4 +56,4 @@
 <app-modal-menu [(isActive)]="this.isActiveModalMenu"></app-modal-menu>
 <app-modal-shopping-cart
   [(isActive)]="this.isActiveModalShoppingCart"></app-modal-shopping-cart>
-<app-modal-search [(isActive)]="this.isActiveModalSearch"></app-modal-search>
+<!-- <app-modal-search [(isActive)]="this.isActiveModalSearch"></app-modal-search> -->

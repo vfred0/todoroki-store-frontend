@@ -1,9 +1,7 @@
 import {
   ChangeDetectorRef,
   Component,
-  Input,
   OnDestroy,
-  OnInit,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -18,7 +16,7 @@ import { Product } from '@core/models/Product';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '@shared/services/product.service';
 import { Subscription } from 'rxjs';
-import { ProductSaled } from '@core/utils/ProductSaled';
+import { ProductOrder } from '@core/utils/ProductOrder';
 
 SwiperCore.use([Pagination, Navigation]);
 
@@ -34,7 +32,7 @@ export class ProductPageComponent implements OnDestroy {
   likes: Tag;
   typeColors: Color[];
   product: Product;
-  private productSaled: ProductSaled;
+  private productOrder: ProductOrder;
 
   private subscription: Subscription;
 
@@ -43,7 +41,7 @@ export class ProductPageComponent implements OnDestroy {
     private productService: ProductService,
     private cd: ChangeDetectorRef
   ) {
-    this.productSaled = {} as ProductSaled;
+    this.productOrder = {} as ProductOrder;
     this.subscription = new Subscription();
     this.product = {} as Product;
     this.likes = {} as Tag;
@@ -52,7 +50,7 @@ export class ProductPageComponent implements OnDestroy {
 
     this.subscription.add(
       this.productService
-        .getProduct(this.router.snapshot.params['id'])
+        .getProductById(this.router.snapshot.params['id'])
         .subscribe((product: Product) => {
           this.product = product;
           this.likes = {
@@ -68,26 +66,26 @@ export class ProductPageComponent implements OnDestroy {
     this.subscription.unsubscribe();
   }
   contactForWhatsapp() {
-    this.productSaled = {
+    this.productOrder = {
       productId: this.product.id,
-      color: this.product.color,
-      size: this.product.size,
+      color: this.productOrder.color,
+      size: this.productOrder.size,
       quantity: this.quantity.getValue(),
     };
 
-    console.log('add to cart', this.productSaled);
+    console.log('add to cart', this.productOrder);
   }
 
   addToCart() {
     // -
   }
   colorSelected(color: Color) {
-    this.product.color = color;
+    this.productOrder.color = color;
     this.cd.detectChanges();
   }
 
   sizeSelected(size: Size) {
-    this.product.size = size;
+    this.productOrder.size = size;
     this.cd.detectChanges();
   }
 }

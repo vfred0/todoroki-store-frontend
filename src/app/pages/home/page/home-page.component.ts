@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ClothingType } from '@core/types/ClothingType';
+import { ClothingTypeCard } from '@core/utils/ClothingTypeCard';
 
-import { Category } from '@core/utils/Category';
 import { ProductCard } from '@core/utils/ProductCard';
 import { ProductService } from '@shared/services/product.service';
 import { Subscription } from 'rxjs';
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './home-page.component.html',
 })
 export class HomePageComponent implements OnDestroy {
-  categories: Array<Category>;
+  clothingTypeCards: Array<ClothingTypeCard>;
   productsCards: Array<ProductCard>;
 
   private subscriptions = new Subscription();
@@ -32,22 +32,22 @@ export class HomePageComponent implements OnDestroy {
       })
     );
 
-    this.categories = [];
+    this.clothingTypeCards = [];
     this.subscriptions.add(
       this.productService
-        .getCategories()
-        .subscribe((categories: Array<Category>) => {
+        .getClothingTypeCards()
+        .subscribe((categories: Array<ClothingTypeCard>) => {
           this.setCategories(categories);
         })
     );
   }
-  setCategories(categories: Category[]) {
+  setCategories(categories: ClothingTypeCard[]) {
     Object.keys(ClothingType).forEach((key, index) => {
-      categories.forEach((category: Category) => {
-        if (key == category.name) {
-          this.categories.push({
+      categories.forEach((clothingTypeCard: ClothingTypeCard) => {
+        if (key == clothingTypeCard.name) {
+          this.clothingTypeCards.push({
             name: Object.values(ClothingType)[index],
-            quantity: category.quantity,
+            quantity: clothingTypeCard.quantity,
           });
         }
       });

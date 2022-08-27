@@ -1,0 +1,24 @@
+<button (click)="this.logout()" class="c-login__button">
+  <a routerLink="/store-management">Cerrar session</a>
+</button>
+
+<button (click)="this.onToggleProductManagement()">
+  <span> Insertar </span>
+</button>
+
+<section class="c-cards">
+  <span class="c-cards__title o-font-f1-main">Lista de productos</span>
+  <div class="c-cards__container">
+    <ng-container *ngFor="let product of this.productsCards">
+      <app-product-card
+        (deleteProductSelected)="this.deleteProductById($event)"
+        [isForManagement]="true"
+        (updateProduct)="this.updateProduct($event)"
+        [productCard]="product"></app-product-card>
+    </ng-container>
+  </div>
+</section>
+
+<app-modal-product-management
+  [(isActive)]="this.isActiveModalProductManagement"
+  (updateProducts)="this.setProductsCards()"></app-modal-product-management>
