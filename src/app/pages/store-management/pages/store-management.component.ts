@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoreManagementComponent {
   isActiveModalActionsForUser: boolean;
-
   constructor() {
     this.isActiveModalActionsForUser = false;
   }

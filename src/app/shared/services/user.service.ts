@@ -3,36 +3,40 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '@core/models/User';
 import { UserLogin } from '@core/utils/UserLogin.';
-import { map, Observable, of, tap } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private readonly baseUrl = 'http://localhost:8080/api/user';
+  getUserName(): string {
+    return localStorage.getItem('name') || '';
+  }
+
+  private readonly API_URL = 'http://localhost:8080/api/user';
 
   constructor(private client: HttpClient, private router: Router) {}
 
   existsAccount(userLogin: UserLogin): Observable<boolean> {
     return this.client.post<boolean>(
-      `${this.baseUrl}/existsAccount/`,
+      `${this.API_URL}/existsAccount/`,
       userLogin
     );
   }
 
   setAuthenticationAndRedirect(username: string): void {
     this.client
-      .get<User>(`${this.baseUrl}/get-user/${username}`)
+      .get<User>(`${this.API_URL}/get-user/${username}`)
       .subscribe((user: User) => {
+        localStorage.setItem('name', user.name);
         localStorage.setItem('username', user.username);
-        this.router.navigate(['/clothing-management']);
+        this.router.navigate(['/store-management']);
       });
   }
 
   deleteAuthentication(): void {
-    localStorage.setItem('username', '');
-
-    console.log('delete authentication success');
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
   existsAuthentication(): Observable<boolean> {
@@ -46,7 +50,7 @@ export class UserService {
 
     return this.client
       .get<boolean>(
-        `${this.baseUrl}/exists-user/${localStorage.getItem('username')}`
+        `${this.API_URL}/exists-user/${localStorage.getItem('username')}`
       )
       .pipe(
         map((exists: boolean) => {

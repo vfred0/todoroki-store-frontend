@@ -1,4 +1,5 @@
 <div class="c-modal" [class.is-active]="this.isActive">
-  <p>Nombre del usuario</p>
-  <p>Cerrar la sesion</p>
+  <p>{{ this.getUserName() }}</p>
+
+  <button class="c-button" (click)="this.onLogout()">Cerrar sesión</button>
 </div>
