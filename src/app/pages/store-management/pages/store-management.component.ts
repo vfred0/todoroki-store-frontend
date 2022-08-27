@@ -5,5 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './store-management.component.html',
 })
 export class StoreManagementComponent {
-  constructor() {}
+  isActiveModalActionsForUser: boolean;
+
+  constructor() {
+    this.isActiveModalActionsForUser = false;
+  }
+
+  onToggleActionForUser(): void {
+    this.isActiveModalActionsForUser = !this.isActiveModalActionsForUser;
+  }
 }

@@ -1,1 +1,35 @@
-<p>store-management works!</p>
+<div class="c-header">
+  <ul class="c-header__menu">
+    <li class="c-header__menu-item">
+      <a [routerLink]="'/'" class="c-header__menu-link">
+        <img src="/assets/images/Logo.png" alt="" class="c-header__logo" />
+      </a>
+    </li>
+    <li class="c-header__menu-item">
+      <span class="o-font-f1-main">Gestión de la tienda</span>
+    </li>
+    <li class="c-header__menu-item" (click)="this.onToggleActionForUser()">
+      <a class="c-header__menu-link">
+        <div>
+          <svg-icon
+            src="/assets/icons/user.svg"
+            [class]="'c-header__menu-icon o-icon-size-md'"
+            [applyClass]="true">
+          </svg-icon>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+<app-card-management
+  [description]="'Gestionar la ropa'"
+  [icon]="'/assets/icons/cart.svg'"
+  [redirectTo]="'/store-management/clothing-management'"
+  [image]="'/assets/images/clothing-management.png'"></app-card-management>
+<app-card-management
+  [description]="'Gestionar órdernes'"
+  [icon]="'/assets/icons/list.svg'"
+  [redirectTo]="'/store-management/orders-management'"
+  [image]="'/assets/images/orders-management.png'"></app-card-management>
+<app-modal-actions-for-user
+  [(isActive)]="this.isActiveModalActionsForUser"></app-modal-actions-for-user>
