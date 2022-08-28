@@ -1,0 +1,31 @@
+<ng-container *ngFor="let earningSummary of earningSummaries">
+  <span>
+    {{ this.getDescription(earningSummary.clothingType) }}
+  </span>
+  <app-tag
+    [tag]="
+      this.getTagFrom(
+        earningSummary.quantity.toString(),
+        '/assets/icons/cart.svg'
+      )
+    ">
+    >
+  </app-tag>
+  <div *ngFor="let colorDetails of earningSummary.colorDetails">
+    <app-color
+      [isSelected]="true"
+      [tagColor]="this.getTagColorFrom(colorDetails.color)"></app-color>
+    <span>{{ colorDetails.quantity }}</span>
+    <app-tag
+      [tag]="
+        this.getTagFrom(colorDetails.price.toString(), '/assets/icons/cart.svg')
+      "></app-tag>
+  </div>
+  <app-tag
+    [tag]="
+      this.getTagFrom(earningSummary.price.toString(), '/assets/icons/cart.svg')
+    ">
+    >
+  </app-tag>
+  <\br>
+</ng-container>
