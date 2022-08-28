@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OrdersManagementComponent } from './page/orders-management.component';
+import { OrdersManagementComponent } from './pages/orders-management.component';
 
 const routes: Routes = [
   {
     path: '',
     component: OrdersManagementComponent,
+  },
+  {
+    path: 'order-lists',
+    loadChildren: () =>
+      import('./pages/order-lists/order-lists.module').then(
+        m => m.OrderListsModule
+      ),
   },
 ];
 
