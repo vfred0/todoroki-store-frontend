@@ -18,9 +18,9 @@ export class CatalogPageComponent {
   private productFilter: ProductFilter;
   productsCardsFiltered: Array<Product>;
   clothingTypeSelected: string;
-  typeClothing: Option<ClothingType>;
   typeColor: Color;
   size: Size;
+  typeClothing: Option<ClothingType>;
   typeAnime: Option<Animes>;
   animeOptions: Array<Option<Animes>>;
   typeClothingsOptions: Array<Option<ClothingType>>;
