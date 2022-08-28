@@ -35,7 +35,6 @@ export class SelectComponent implements OnInit {
     this.selectChange.emit(this.optionSelected);
   }
   setOptionSelected(option: Option<any>) {
-    console.log(this.options, option);
     this.formSelect.setValue({ select: option });
   }
 }
