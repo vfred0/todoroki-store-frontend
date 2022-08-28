@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
-  isActiveModalMenu: boolean = false;
-  isActiveModalShoppingCart: boolean = false;
+  isActiveModalMenu: boolean;
+  isActiveModalShoppingCart: boolean;
   // isActiveModalSearch: boolean = false;
+  constructor() {
+    this.isActiveModalMenu = false;
+    this.isActiveModalShoppingCart = false;
+  }
 
   onToggleMenu(): void {
     this.isActiveModalMenu = !this.isActiveModalMenu;

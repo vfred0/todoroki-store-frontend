@@ -1,1 +1,15 @@
-<p>orders-management works!</p>
+<app-back-menu [description]="'Gestión de pedidos'"></app-back-menu>
+<app-card-management
+  [description]="'Búsqueda de pedidos'"
+  [icon]="'/assets/icons/search.svg'"
+  [redirectTo]="'/store-management/clothing-management'"
+  [image]="'/assets/images/search-order.png'"></app-card-management>
+<app-card-management
+  [description]="'Listado de pedidos'"
+  [icon]="'/assets/icons/list.svg'"
+  [redirectTo]="'/store-management/orders-management'"
+  [image]="'/assets/images/order-lists.png'"></app-card-management>
+
+<span class="o-font-f1-main">Resumen de ganancias</span>
+<app-earning-summary
+  [earningSummaries]="this.earingSummaries"></app-earning-summary>

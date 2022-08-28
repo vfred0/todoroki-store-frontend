@@ -16,11 +16,7 @@ export class ClothingManagementPageComponent {
   @ViewChild(ModalProductManagementComponent)
   modalProductManagement!: ModalProductManagementComponent;
   productsCards: ProductCard[];
-  constructor(
-    private userService: UserService,
-    private router: Router,
-    private productService: ProductService
-  ) {
+  constructor(private productService: ProductService) {
     this.productsCards = [];
     this.setProductsCards();
   }
@@ -37,11 +33,6 @@ export class ClothingManagementPageComponent {
         } as ProductCard;
       });
     });
-  }
-
-  logout() {
-    this.userService.deleteAuthentication();
-    this.router.navigate(['/login']);
   }
 
   onToggleProductManagement(): void {
