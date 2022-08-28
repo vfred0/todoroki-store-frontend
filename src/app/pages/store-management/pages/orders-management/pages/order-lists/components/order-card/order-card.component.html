@@ -1,0 +1,22 @@
+<div>
+  <span>#1</span>
+  <app-tag
+    *ngFor="let tag of getTags(1, 2)"
+    (selectionOfTag)="showOrder()"
+    [tag]="tag"></app-tag>
+  <app-tag
+    *ngFor="let tag of getTags(0, 1)"
+    [isSelectable]="false"
+    [tag]="tag"></app-tag>
+  <app-select-size
+    [selectedSizes]="selectedSizes"
+    [isSelectable]="false"></app-select-size>
+  <app-select-color
+    [isSelectable]="false"
+    [selectedColors]="selectedColors"></app-select-color>
+
+  <app-tag
+    *ngFor="let tag of getTags(2, 4)"
+    [isSelectable]="false"
+    [tag]="tag"></app-tag>
+</div>
