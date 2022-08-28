@@ -1,0 +1,33 @@
+<!-- <span class="c-page-categories__title">Catálogo</span>
+<div class="c-page-categories__filters">
+  <div class="c-page-categories__filter">
+    <span class="c-page-categories__filters-title">Anime</span>
+    <app-select-anime
+      (updateProductsByAnimes)="this.updateProductsByAnimes($event)">
+    </app-select-anime>
+  </div>
+  <div class="c-page-categories__filter">
+    <span class="c-page-categories__filters-title">Tipo</span>
+    <app-select-clothing-type
+      (updateProductsByClothingType)="
+        this.updateProductsByClothingType($event)
+      ">
+    </app-select-clothing-type>
+  </div>
+  <div class="c-page-categories__filter">
+    <span class="c-page-categories__filters-title">Color</span>
+    <app-select-color
+      (colorSelected)="this.updateProductsByColor($event)"></app-select-color>
+  </div>
+</div> -->
+
+<div>
+  <span>Listado de pedidos</span>
+  <app-select-order-status
+    (orderStatusSelected)="this.updateForOrderStatus($event)">
+    ></app-select-order-status
+  >
+  <app-select-order-date (filterOrder)="this.updateForOrderDate($event)">
+    ></app-select-order-date
+  >
+</div>
