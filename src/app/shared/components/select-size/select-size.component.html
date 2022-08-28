@@ -9,7 +9,11 @@
   </ng-template>
 
   <ng-template #noAddEventClick>
-    <app-tag [styles]="'c-tag--size'" [isSelectable]="false" [tag]="tagSize">
+    <app-tag
+      [styles]="'c-tag--size'"
+      [isSelectable]="false"
+      [isSelected]="tagSize.isSelected"
+      [tag]="tagSize">
     </app-tag>
   </ng-template>
 </ng-container>

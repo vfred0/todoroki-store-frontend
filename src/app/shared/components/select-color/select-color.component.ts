@@ -17,9 +17,13 @@ export class SelectColorComponent implements AfterContentInit {
   @Input() typeColors: Array<Color>;
   @Output() colorSelected = new EventEmitter<Color>();
   tagColors: TagColor[];
+  @Input() isSelectable: boolean;
+  @Input() selectedColors: Color[];
   constructor() {
     this.typeColors = [];
     this.tagColors = [];
+    this.selectedColors = [];
+    this.isSelectable = true;
   }
   ngAfterContentInit(): void {
     this.tagColors = Object.values(Color).map(
@@ -35,14 +39,24 @@ export class SelectColorComponent implements AfterContentInit {
         };
       }
     );
-    this.colorSelected.emit(
-      this.tagColors.filter((color: TagColor) => color.isSelected)[0].typeColor
-    );
+    this.tagColors = this.tagColors.map((item: TagColor) => {
+      if (this.selectedColors.includes(item.typeColor as Color)) {
+        item.isSelected = true;
+      }
+      return item;
+    });
+
+    if (this.isSelectable) {
+      this.colorSelected.emit(
+        this.tagColors.filter((color: TagColor) => color.isSelected)[0]
+          .typeColor
+      );
+    }
   }
 
-  addEventClick() {
-    return this.tagColors.length > 1;
-  }
+  // addEventClick() {
+  //   return this.tagColors.length > 1;
+  // }
 
   selectionOfColor(tagColor: TagColor) {
     this.tagColors = this.tagColors.map((item: TagColor) => {

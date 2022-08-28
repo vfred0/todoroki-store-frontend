@@ -17,7 +17,9 @@ export class SelectSizeComponent implements AfterContentInit {
   @Output() sizeSelected = new EventEmitter<Size>();
   @Input() isSelectable: boolean;
   tagSizes: TagSize[];
+  @Input() selectedSizes: Size[];
   constructor() {
+    this.selectedSizes = [];
     this.isSelectable = true;
     this.tagSizes = [];
   }
@@ -35,10 +37,20 @@ export class SelectSizeComponent implements AfterContentInit {
       };
     });
 
-    this.sizeSelected.emit(
-      this.tagSizes.filter((tagSize: TagSize) => tagSize.isSelected)[0]
-        .description as Size
-    );
+    this.tagSizes = this.tagSizes.map((item: TagSize) => {
+      if (this.selectedSizes.includes(item.description as Size)) {
+        item.isSelected = true;
+      }
+      return item;
+    });
+    // }
+
+    if (this.isSelectable) {
+      this.sizeSelected.emit(
+        this.tagSizes.filter((tagSize: TagSize) => tagSize.isSelected)[0]
+          .description as Size
+      );
+    }
   }
 
   // addEventClick() {
