@@ -14,6 +14,13 @@ const routes: Routes = [
         m => m.OrderListsModule
       ),
   },
+  {
+    path: 'order-details/:orderNumber',
+    loadChildren: () =>
+      import('./pages/order-details/order-details.module').then(
+        m => m.OrderDetailsModule
+      ),
+  },
 ];
 
 @NgModule({
