@@ -13,6 +13,7 @@ import { SelectOrderStatusComponent } from './components/select-order-status/sel
 import { SelectOrderDateComponent } from './components/select-order-date/select-order-date.component';
 import { TagModule } from '@shared/components/tag/tag.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SelectSizeModule } from '@shared/components/select-size/select-size.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SelectAnimeModule,
     TagModule,
     ReactiveFormsModule,
+    SelectSizeModule,
   ],
 })
 export class OrderListsModule {}

@@ -1,0 +1,26 @@
+<div>
+  <span> Pedido {{ this.orderDetails.orderStatus }} </span>
+  <section>
+    <span>Listado de productos</span>
+    <app-product-ordered
+      *ngFor="let productOrdered of this.productsOrdered"
+      [productOrdered]="productOrdered"></app-product-ordered>
+  </section>
+  <section>
+    <span>Detalles del pedido</span>
+    <app-select-payment-type
+      (updatePaymentType)="
+        this.setPaymentType($event)
+      "></app-select-payment-type>
+    <app-select-order-status
+      [orderStatusSelected]="this.orderStatusSelected"
+      (updateOrderStatus)="
+        this.setOrderStatus($event)
+      "></app-select-order-status>
+    <app-select-order-dates
+      (filterOrder)="this.setOrderDates($event)"></app-select-order-dates>
+    <button (click)="this.updateOrderDetails()">
+      Actualizar detalles del pedido
+    </button>
+  </section>
+</div>

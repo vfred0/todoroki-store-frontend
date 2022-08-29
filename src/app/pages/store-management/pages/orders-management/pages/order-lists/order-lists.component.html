@@ -30,4 +30,11 @@
   <app-select-order-date (filterOrder)="this.updateForOrderDate($event)">
     ></app-select-order-date
   >
+
+  <!-- {{ this.orderCards | json }} -->
+
+  <app-order-card
+    *ngFor="let orderCard of this.orderCards"
+    [orderCard]="orderCard"></app-order-card>
 </div>
+<!-- card -->
