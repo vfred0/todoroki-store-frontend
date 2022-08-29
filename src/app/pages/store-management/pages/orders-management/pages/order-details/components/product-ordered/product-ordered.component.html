@@ -1,0 +1,15 @@
+<div>
+  <span> {{ this.productOrdered.description }} </span>
+  <img [src]="this.productOrdered.image" />
+
+  <div>
+    <app-color [tagColor]="this.getTagColor()"></app-color>
+    <app-tag [isSelectable]="false" [tag]="this.getTagSize()"></app-tag>
+    <app-tag [isSelectable]="false" [tag]="this.getTagQuantity()"></app-tag>
+  </div>
+
+  <div>
+    <app-tag [isSelectable]="false" [tag]="this.getTagUnitPrice()"></app-tag>
+    <app-tag [isSelectable]="false" [tag]="this.getTagPrice()"></app-tag>
+  </div>
+</div>
