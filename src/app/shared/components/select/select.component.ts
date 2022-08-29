@@ -20,6 +20,7 @@ export class SelectComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('OPTIONS SELECTED', this.optionSelected);
     if (!Object.values(this.options).includes(this.optionSelected)) {
       this.optionSelected = this.options[0];
     }

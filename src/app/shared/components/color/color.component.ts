@@ -16,7 +16,7 @@ import { Color } from '@core/types/Color';
   selector: 'app-color',
   templateUrl: './color.component.html',
 })
-export class ColorComponent implements AfterViewInit {
+export class ColorComponent implements AfterViewInit, OnInit {
   @Input() tagColor: TagColor;
   @Input() styles: string;
   @Input() isSelected: boolean;
@@ -37,6 +37,9 @@ export class ColorComponent implements AfterViewInit {
     this.styles = '';
     this.selectionOfColor = new EventEmitter<TagColor>();
     this.elementColor = new ElementRef('');
+  }
+  ngOnInit(): void {
+    this.isSelected = this.tagColor.isSelected;
   }
 
   ngAfterViewInit(): void {

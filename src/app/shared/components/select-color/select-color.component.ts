@@ -26,25 +26,24 @@ export class SelectColorComponent implements AfterContentInit {
     this.isSelectable = true;
   }
   ngAfterContentInit(): void {
-    this.tagColors = Object.values(Color).map(
-      (typeColor: Color, index: number) => {
-        let isSelected: boolean = true;
-        if (index > 0) {
-          isSelected = false;
-        }
-        return {
-          typeColor,
-          isSelected,
-          pathIcon: 'assets/icons/check.svg',
-        };
-      }
-    );
-    this.tagColors = this.tagColors.map((item: TagColor) => {
-      if (this.selectedColors.includes(item.typeColor as Color)) {
-        item.isSelected = true;
-      }
-      return item;
+    this.tagColors = Object.values(Color).map((typeColor: Color) => {
+      return {
+        typeColor,
+        isSelected: false,
+        pathIcon: 'assets/icons/check.svg',
+      };
     });
+
+    if (this.selectedColors.length > 0) {
+      this.tagColors = this.tagColors.map((item: TagColor) => {
+        if (this.selectedColors.includes(item.typeColor as Color)) {
+          item.isSelected = true;
+        }
+        return item;
+      });
+    } else {
+      this.tagColors[0].isSelected = true;
+    }
 
     if (this.isSelectable) {
       this.colorSelected.emit(

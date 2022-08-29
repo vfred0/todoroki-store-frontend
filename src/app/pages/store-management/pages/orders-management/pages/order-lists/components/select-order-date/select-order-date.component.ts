@@ -37,10 +37,13 @@ export class SelectOrderDateComponent implements OnInit {
     this.filterOrder.emit(
       new Map<string, string>([
         [
-          'orderDate',
+          'orderDateFrom',
           this.getFormatDate(this.formGroup.get('orderDate')?.value),
         ],
-        ['saleDate', this.getFormatDate(this.formGroup.get('saleDate')?.value)],
+        [
+          'orderDateTo',
+          this.getFormatDate(this.formGroup.get('saleDate')?.value),
+        ],
       ])
     );
   }

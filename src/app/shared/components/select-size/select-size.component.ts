@@ -24,26 +24,23 @@ export class SelectSizeComponent implements AfterContentInit {
     this.tagSizes = [];
   }
   ngAfterContentInit(): void {
-    this.tagSizes = Object.values(Size).map((size: Size, index: number) => {
-      let isSelected: boolean = true;
-      if (index > 0) {
-        isSelected = false;
-      }
-
+    this.tagSizes = Object.values(Size).map((size: Size) => {
       return {
         description: size,
         pathIcon: 'assets/icons/size.svg',
-        isSelected,
+        isSelected: false,
       };
     });
-
-    this.tagSizes = this.tagSizes.map((item: TagSize) => {
-      if (this.selectedSizes.includes(item.description as Size)) {
-        item.isSelected = true;
-      }
-      return item;
-    });
-    // }
+    if (this.selectedSizes.length > 0) {
+      this.tagSizes = this.tagSizes.map((item: TagSize) => {
+        if (this.selectedSizes.includes(item.description as Size)) {
+          item.isSelected = true;
+        }
+        return item;
+      });
+    } else {
+      this.tagSizes[0].isSelected = true;
+    }
 
     if (this.isSelectable) {
       this.sizeSelected.emit(
@@ -52,10 +49,6 @@ export class SelectSizeComponent implements AfterContentInit {
       );
     }
   }
-
-  // addEventClick() {
-  //   return this.tagSizes.length > 1;
-  // }
 
   selectionOfSize(tagSize: TagSize) {
     this.tagSizes = this.tagSizes.map((item: TagSize) => {
