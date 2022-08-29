@@ -1,16 +1,10 @@
 import { ClothingType } from '@core/types/ClothingType';
-import { Color } from '@core/types/Color';
+import { ColorDetails } from './ColorDeatails';
 
 export interface EarningSummary {
   clothingType: ClothingType;
   quantity: number;
   colorDetails: ColorDetails[];
-  price: number;
-}
-
-interface ColorDetails {
-  color: Color;
-  quantity: number;
   price: number;
 }
 
