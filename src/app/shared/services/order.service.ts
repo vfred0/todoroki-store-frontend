@@ -1,8 +1,10 @@
+import { OrderCard } from './../../core/utils/OrderCard';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Order } from '@core/models/Order';
 import { EarningSummary } from '@core/utils/EarningSummary';
 import { Observable } from 'rxjs';
+import { OrderDetails } from '@core/utils/OrderDetails';
 
 @Injectable({
   providedIn: 'root',
@@ -28,9 +30,19 @@ export class OrderService {
     );
   }
 
-  getDetailsOrderByNumber(orderNumber: number): Observable<Order> {
-    return this.client.get<Order>(
+  getDetailsOrderByNumber(orderNumber: number): Observable<OrderDetails> {
+    return this.client.get<OrderDetails>(
       `${this.API_URL}/get-details-order-by-number/${orderNumber}`
+    );
+  }
+  getOrdersFiltered(orderFilter: Map<string, string>): Observable<OrderCard[]> {
+    return this.client.post<OrderCard[]>(
+      `${this.API_URL}/get-orders-filtered/`,
+      {
+        orderDateFrom: orderFilter.get('orderDateFrom'),
+        orderStatus: orderFilter.get('orderStatus'),
+        orderDateTo: orderFilter.get('orderDateTo'),
+      }
     );
   }
 }
