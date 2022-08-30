@@ -112,7 +112,6 @@ export class ModalProductManagementComponent
         price: this.product.price,
         likes: this.product.likes,
       });
-      console.log(this.product);
       this.selectColorComponent.setColorSelected(this.product.color);
       this.selectAnimeComponent.setOptionSelected(this.product.anime);
       let optionClothingType = Object.values(ClothingType)[

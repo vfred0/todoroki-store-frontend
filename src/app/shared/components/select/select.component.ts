@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Animes } from '@core/types/Animes';
 import { Option } from '@core/utils/Option';
 
 @Component({
@@ -20,7 +19,6 @@ export class SelectComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('OPTIONS SELECTED', this.optionSelected);
     if (!Object.values(this.options).includes(this.optionSelected)) {
       this.optionSelected = this.options[0];
     }
@@ -36,6 +34,7 @@ export class SelectComponent implements OnInit {
     this.selectChange.emit(this.optionSelected);
   }
   setOptionSelected(option: Option<any>) {
+    console.log('DEBUG', option);
     this.formSelect.setValue({ select: option });
   }
 }
