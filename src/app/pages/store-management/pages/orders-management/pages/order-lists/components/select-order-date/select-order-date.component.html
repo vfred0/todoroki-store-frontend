@@ -1,4 +1,4 @@
 <div [formGroup]="this.formGroup">
-  Desde <input formControlName="orderDate" type="date" /> hasta
-  <input formControlName="saleDate" type="date" />
+  Desde <input [formControlName]="this.MIN_DATE" type="date" /> hasta
+  <input [formControlName]="this.MIN_DATE" type="date" />
 </div>
