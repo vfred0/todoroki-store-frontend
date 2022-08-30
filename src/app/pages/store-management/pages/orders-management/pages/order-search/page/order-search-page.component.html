@@ -1,0 +1,19 @@
+<app-back-menu
+  [redirectTo]="'../'"
+  [description]="'Búsqueda de pedido'"></app-back-menu>
+
+<form [formGroup]="this.formGroup" (ngSubmit)="onSubmit()">
+  <input
+    placeholder="Ingresa el número de la orden"
+    formControlName="search"
+    type="number" />
+  <button [disabled]="!this.formGroup.valid" type="submit">search</button>
+
+  <app-order-card
+    *ngFor="let orderCard of this.orderCards"
+    [orderCard]="orderCard"></app-order-card>
+
+  <ng-container *ngIf="this.showEmptyResults()">
+    No existe una orden con ese número
+  </ng-container>
+</form>

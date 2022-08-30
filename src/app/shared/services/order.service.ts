@@ -19,8 +19,8 @@ export class OrderService {
     this.client.post<Order>(`${this.API_URL}/save`, order).subscribe();
   }
 
-  searchOrderByNumber(orderNumber: number): Observable<Order> {
-    return this.client.get<Order>(
+  searchOrderByNumber(orderNumber: number): Observable<OrderCard[]> {
+    return this.client.get<OrderCard[]>(
       `${this.API_URL}/search-order-by-number/${orderNumber}`
     );
   }

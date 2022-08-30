@@ -21,6 +21,13 @@ const routes: Routes = [
         m => m.OrderDetailsModule
       ),
   },
+  {
+    path: 'order-search',
+    loadChildren: () =>
+      import('./pages/order-search/order-search.module').then(
+        m => m.OrderSearchModule
+      ),
+  },
 ];
 
 @NgModule({
