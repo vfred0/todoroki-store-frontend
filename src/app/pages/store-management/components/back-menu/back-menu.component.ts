@@ -6,7 +6,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BackMenuComponent {
   @Input() description: string;
+  @Input() redirectTo: string;
+
   constructor() {
     this.description = '';
+    this.redirectTo = '';
   }
 }
