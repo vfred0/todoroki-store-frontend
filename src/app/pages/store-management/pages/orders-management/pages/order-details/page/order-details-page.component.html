@@ -13,12 +13,14 @@
         this.setPaymentType($event)
       "></app-select-payment-type>
     <app-select-order-status
-      [orderStatusSelected]="this.orderStatusSelected"
       (updateOrderStatus)="
         this.setOrderStatus($event)
       "></app-select-order-status>
     <app-select-order-dates
-      (filterOrder)="this.setOrderDates($event)"></app-select-order-dates>
+      [namesForOrderDate]="this.namesForOrderDate"
+      (updateDateInterval)="
+        this.setOrderDates($event)
+      "></app-select-order-dates>
     <button (click)="this.updateOrderDetails()">
       Actualizar detalles del pedido
     </button>

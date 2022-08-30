@@ -13,12 +13,14 @@ export class OrderListsComponent implements OnInit {
   orderCards: OrderCard[];
   private orderStatus: OrderStatus;
   private orderDates: Map<string, string>;
+  namesForOrderDate: string[];
 
   constructor(private orderService: OrderService) {
     this.orderStatus = OrderStatus.Pending;
     this.orderDates = new Map<string, string>();
     this.orderCards = [];
-    this.selectedSizes = [Size.S, Size.XL];
+    this.selectedSizes = [];
+    this.namesForOrderDate = ['orderDateFrom', 'orderDateTo'];
   }
   ngOnInit(): void {
     this.updateOrderCards();
@@ -35,12 +37,10 @@ export class OrderListsComponent implements OnInit {
         Object.values(OrderStatus).findIndex(key => key === this.orderStatus)
       ]
     );
-    console.log('Filtro', orderFilter);
     this.orderService
       .getOrdersFiltered(orderFilter)
       .subscribe((orders: OrderCard[]) => {
         this.orderCards = orders;
-        console.log('Orders', this.orderCards);
       });
   }
 

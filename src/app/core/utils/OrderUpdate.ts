@@ -6,4 +6,5 @@ export interface OrderUpdate {
   paymentType: PaymentType;
   orderDate: string;
   saleDate: string;
+  orderNumber: number;
 }

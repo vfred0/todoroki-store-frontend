@@ -4,7 +4,7 @@ import { Color } from '@core/types/Color';
 import { OrderStatus } from '@core/types/OrderStatus';
 import { Size } from '@core/types/Size';
 import { Tag } from '@core/utils/Tag';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-card',
@@ -31,15 +31,14 @@ export class OrderCardComponent implements OnInit {
   }
 
   getTags(index: number): Tag {
+    let orderStatus =
+      Object.values(OrderStatus)[
+        Object.keys(OrderStatus).indexOf(this.orderCard.orderStatus)
+      ];
     return [
       {
-        description:
-          Object.values(OrderStatus)[
-            Object.keys(OrderStatus).findIndex(
-              key => key === this.orderCard.orderStatus
-            )
-          ],
-        pathIcon: '/assets/icons/pending.svg',
+        description: orderStatus,
+        pathIcon: this.getIcon(orderStatus),
       },
       {
         description: 'Ver pedido',
@@ -54,5 +53,11 @@ export class OrderCardComponent implements OnInit {
         pathIcon: '/assets/icons/pricev2.svg',
       },
     ][index];
+  }
+  getIcon(orderStatus: OrderStatus): string {
+    if (orderStatus == OrderStatus.Sold) {
+      return '/assets/icons/check.svg';
+    }
+    return '/assets/icons/pending.svg';
   }
 }

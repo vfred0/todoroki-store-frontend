@@ -27,7 +27,9 @@
     (orderStatusSelected)="this.updateForOrderStatus($event)">
     ></app-select-order-status
   >
-  <app-select-order-date (filterOrder)="this.updateForOrderDate($event)">
+  <app-select-order-date
+    [namesForOrderDate]="this.namesForOrderDate"
+    (updateDateInterval)="this.updateForOrderDate($event)">
     ></app-select-order-date
   >
 
