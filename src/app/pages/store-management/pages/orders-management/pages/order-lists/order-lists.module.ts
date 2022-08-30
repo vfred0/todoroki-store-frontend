@@ -8,18 +8,18 @@ import { OrderListsComponent } from './order-lists.component';
 
 import { SelectClothingTypeModule } from '@shared/components/select-clothing-type/select-clothing-type.module';
 import { SelectAnimeModule } from '@shared/components/select-anime/select-anime.module';
-import { OrderCardComponent } from './components/order-card/order-card.component';
+
 import { SelectOrderStatusComponent } from './components/select-order-status/select-order-status.component';
 import { SelectOrderDateComponent } from './components/select-order-date/select-order-date.component';
 import { TagModule } from '@shared/components/tag/tag.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SelectSizeModule } from '@shared/components/select-size/select-size.module';
 import { BackMenuModule } from '@pages/store-management/components/back-menu/back-menu.module';
+import { OrderCardModule } from '../../components/order-card/order-card.module';
 
 @NgModule({
   declarations: [
     OrderListsComponent,
-    OrderCardComponent,
     SelectOrderStatusComponent,
     SelectOrderDateComponent,
   ],
@@ -33,6 +33,7 @@ import { BackMenuModule } from '@pages/store-management/components/back-menu/bac
     ReactiveFormsModule,
     SelectSizeModule,
     BackMenuModule,
+    OrderCardModule,
   ],
 })
 export class OrderListsModule {}

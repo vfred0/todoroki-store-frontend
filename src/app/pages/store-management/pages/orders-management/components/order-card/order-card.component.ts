@@ -1,4 +1,4 @@
-import { OrderCard } from './../../../../../../../../core/utils/OrderCard';
+import { OrderCard } from '../../../../../../core/utils/OrderCard';
 import { Component, Input, OnInit } from '@angular/core';
 import { Color } from '@core/types/Color';
 import { OrderStatus } from '@core/types/OrderStatus';
