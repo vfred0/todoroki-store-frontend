@@ -34,12 +34,13 @@ export class OrderListsComponent implements OnInit {
     orderFilter.set(
       'orderStatus',
       Object.keys(OrderStatus)[
-        Object.values(OrderStatus).findIndex(key => key === this.orderStatus)
+        Object.values(OrderStatus).indexOf(this.orderStatus)
       ]
     );
     this.orderService
       .getOrdersFiltered(orderFilter)
       .subscribe((orders: OrderCard[]) => {
+        console.log(orders);
         this.orderCards = orders;
       });
   }

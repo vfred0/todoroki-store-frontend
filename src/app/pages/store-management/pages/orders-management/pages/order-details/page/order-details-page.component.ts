@@ -25,7 +25,7 @@ export class OrderDetailsPageComponent implements OnInit {
 
   @ViewChild(SelectOrderDatesComponent)
   selectOrderDatesComponent!: SelectOrderDatesComponent;
-  private readonly orderNumber: number;
+  orderNumber: number;
 
   namesForOrderDate: string[];
 

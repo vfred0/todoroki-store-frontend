@@ -1,5 +1,8 @@
 <div>
-  <span> Pedido {{ this.orderDetails.orderStatus }} </span>
+  <app-back-menu
+    [redirectTo]="'../../order-lists'"
+    [description]="'Pedido #' + this.orderNumber">
+  </app-back-menu>
   <section>
     <span>Listado de productos</span>
     <app-product-ordered

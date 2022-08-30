@@ -19,7 +19,6 @@ export class CardManagementComponent {
   }
 
   onRedirectTo(): void {
-    console.info('Redirect to: ', this.redirectTo);
     this.router.navigate([this.redirectTo]);
   }
 }

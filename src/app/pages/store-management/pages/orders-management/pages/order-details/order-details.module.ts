@@ -12,6 +12,7 @@ import { SelectOrderStatusComponent } from './components/select-order-status/sel
 import { SelectOrderDatesComponent } from './components/select-order-dates/select-order-dates.component';
 import { SelectModule } from '@shared/components/select/select.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BackMenuModule } from '@pages/store-management/components/back-menu/back-menu.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     TagModule,
     SelectModule,
     ReactiveFormsModule,
+    BackMenuModule,
   ],
 })
 export class OrderDetailsModule {}

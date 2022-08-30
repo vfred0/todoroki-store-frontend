@@ -14,6 +14,7 @@ import { SelectOrderDateComponent } from './components/select-order-date/select-
 import { TagModule } from '@shared/components/tag/tag.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SelectSizeModule } from '@shared/components/select-size/select-size.module';
+import { BackMenuModule } from '@pages/store-management/components/back-menu/back-menu.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SelectSizeModule } from '@shared/components/select-size/select-size.mod
     TagModule,
     ReactiveFormsModule,
     SelectSizeModule,
+    BackMenuModule,
   ],
 })
 export class OrderListsModule {}
