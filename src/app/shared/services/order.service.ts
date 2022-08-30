@@ -5,6 +5,7 @@ import { Order } from '@core/models/Order';
 import { EarningSummary } from '@core/utils/EarningSummary';
 import { Observable } from 'rxjs';
 import { OrderDetails } from '@core/utils/OrderDetails';
+import { OrderUpdate } from '@core/utils/OrderUpdate';
 
 @Injectable({
   providedIn: 'root',
@@ -44,5 +45,9 @@ export class OrderService {
         orderDateTo: orderFilter.get('orderDateTo'),
       }
     );
+  }
+
+  update(orderUpdate: OrderUpdate): Observable<void> {
+    return this.client.post<void>(`${this.API_URL}/update/`, orderUpdate);
   }
 }
