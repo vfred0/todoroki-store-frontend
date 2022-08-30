@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-back-menu',
@@ -6,10 +7,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BackMenuComponent {
   @Input() description: string;
-  @Input() redirectTo: string;
+  // @Input() redirectTo: string;
 
-  constructor() {
+  constructor(private location: Location) {
     this.description = '';
-    this.redirectTo = '';
+    // this.redirectTo = '';
+  }
+
+  onBack() {
+    this.location.back();
   }
 }
