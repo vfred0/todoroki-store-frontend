@@ -1,14 +1,15 @@
 import { OrderService } from '@shared/services/order.service';
-import { OrderCard } from './../../../../../../core/utils/OrderCard';
+
 import { Component, OnInit } from '@angular/core';
 import { OrderStatus } from '@core/types/OrderStatus';
 import { Size } from '@core/types/Size';
+import { OrderCard } from '@core/utils/OrderCard';
 
 @Component({
   selector: 'app-order-lists',
-  templateUrl: './order-lists.component.html',
+  templateUrl: './order-lists-page.component.html',
 })
-export class OrderListsComponent implements OnInit {
+export class OrderListsPageComponent implements OnInit {
   selectedSizes: Size[];
   orderCards: OrderCard[];
   private orderStatus: OrderStatus;

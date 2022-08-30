@@ -1,7 +1,5 @@
 <div>
-  <app-back-menu
-    [description]="'Listado de pedidos'"
-    [redirectTo]="'../'"></app-back-menu>
+  <app-back-menu [description]="'Listado de pedidos'"></app-back-menu>
 
   <app-select-order-status
     (orderStatusSelected)="this.updateForOrderStatus($event)">

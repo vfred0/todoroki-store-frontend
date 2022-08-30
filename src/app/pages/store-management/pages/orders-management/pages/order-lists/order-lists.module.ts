@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { OrderListsRoutingModule } from './order-lists-routing.module';
 import { SelectColorModule } from '@shared/components/select-color/select-color.module';
 
-import { OrderListsComponent } from './order-lists.component';
-
 import { SelectClothingTypeModule } from '@shared/components/select-clothing-type/select-clothing-type.module';
 import { SelectAnimeModule } from '@shared/components/select-anime/select-anime.module';
 
@@ -16,10 +14,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SelectSizeModule } from '@shared/components/select-size/select-size.module';
 import { BackMenuModule } from '@pages/store-management/components/back-menu/back-menu.module';
 import { OrderCardModule } from '../../components/order-card/order-card.module';
+import { OrderListsPageComponent } from './page/order-lists-page.component';
 
 @NgModule({
   declarations: [
-    OrderListsComponent,
+    OrderListsPageComponent,
     SelectOrderStatusComponent,
     SelectOrderDateComponent,
   ],
