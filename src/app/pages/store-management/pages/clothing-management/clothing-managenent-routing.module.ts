@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ClothingManagementPageComponent } from './page/clothing-management-page.component';
+import { ClothingManagementPageComponent } from './pages/clothing-management-page.component';
 
 const routes: Routes = [
   {
