@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Color } from '@core/types/Color';
-import { Size } from '@core/types/Size';
 import { ProductItemCart } from '@core/utils/ProductItemCart';
+import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 import { ModalComponent } from '../modal/modal.component';
 
 @Component({
@@ -9,66 +8,29 @@ import { ModalComponent } from '../modal/modal.component';
   templateUrl: './modal-shopping-cart.component.html',
 })
 export class ModalShoppingCartComponent extends ModalComponent {
-  productItemsCarts: ProductItemCart[];
-  constructor() {
+  cartItems$ = this.shoppingcartService.productItemsCart$;
+  total$ = this.shoppingcartService.total$;
+  itemsCount$ = this.shoppingcartService.productItemsCount$;
+  constructor(private shoppingcartService: ShoppingCartService) {
     super();
-    this.productItemsCarts = [];
-    this.productItemsCarts = [
-      {
-        id: '1',
-        description: 'Product 1',
-        price: 11.99,
-        size: Size.S,
-        color: Color.White,
-        quantity: 1,
-        image: 'https://picsum.photos/200/300',
-      },
-      {
-        id: '2',
-        description: 'Product 2',
-        price: 12.99,
-        size: Size.S,
-        color: Color.White,
-        quantity: 1,
-        image: 'https://picsum.photos/200/300',
-      },
-      {
-        id: '3',
-        description: 'Product 2',
-        price: 12.99,
-        size: Size.S,
-        color: Color.White,
-        quantity: 1,
-        image: 'https://picsum.photos/200/300',
-      },
-    ];
   }
 
   removeProductItemCart(productItemCart: ProductItemCart) {
-    this.productItemsCarts = this.productItemsCarts.filter(
-      (item: ProductItemCart) => !Object.is(item, productItemCart)
-    );
+    this.shoppingcartService.deleteItem(productItemCart);
   }
 
-  getTotalPriceForProducts() {
-    return this.productItemsCarts.reduce(
-      (acc, item) => acc + item.price * item.quantity,
-      0
-    );
-  }
   contactForWhatsapp() {
-    console.log('DEBUG', this.productItemsCarts);
-    window.open(
-      'https://api.whatsapp.com/send?phone=5511999999999&text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20pedido%20de%20produtos%20no%20site%20do%20restaurante%20'
-    );
+    console.log('DEBUG ==>', this.cartItems$);
+    // window.open(
+    //   'https://api.whatsapp.com/send?phone=5511999999999&text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20pedido%20de%20produtos%20no%20site%20do%20restaurante%20'
+    // );
   }
 
   existsProductsInCart(): boolean {
-    return this.productItemsCarts.length > 0;
+    return this.shoppingcartService.existsProductsInCart();
   }
 
   override onToggle(): void {
     super.onToggle();
-    console.log('DEBUG', 'onToggle', this.productItemsCarts);
   }
 }

@@ -1,4 +1,4 @@
-import { Color } from "@core/types/Color";
+import { Color } from '@core/types/Color';
 
 export interface ColorDetails {
   color: Color;

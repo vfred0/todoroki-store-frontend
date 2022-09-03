@@ -17,6 +17,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '@shared/services/product.service';
 import { Subscription } from 'rxjs';
 import { ProductOrder } from '@core/utils/ProductOrder';
+import { ShoppingCartService } from '@shared/services/shopping-cart.service';
+import { ProductItemCart } from '@core/utils/ProductItemCart';
 
 SwiperCore.use([Pagination, Navigation]);
 
@@ -39,7 +41,8 @@ export class ProductPageComponent implements OnDestroy {
   constructor(
     private router: ActivatedRoute,
     private productService: ProductService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private shoppingcartService: ShoppingCartService
   ) {
     this.productOrder = {} as ProductOrder;
     this.subscription = new Subscription();
@@ -73,11 +76,19 @@ export class ProductPageComponent implements OnDestroy {
       quantity: this.quantity.getValue(),
     };
 
-    console.log('add to cart', this.productOrder);
+    console.log('contact ', this.productOrder);
   }
 
   addToCart() {
-    // -
+    this.shoppingcartService.addItem({
+      id: this.product.id,
+      image: this.product.image,
+      description: this.product.description,
+      color: this.product.color,
+      size: this.productOrder.size,
+      price: this.product.price,
+      quantity: this.quantity.getValue(),
+    } as ProductItemCart);
   }
   colorSelected(color: Color) {
     this.productOrder.color = color;

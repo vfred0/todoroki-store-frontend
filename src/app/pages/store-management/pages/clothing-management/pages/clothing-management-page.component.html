@@ -1,15 +1,50 @@
 <app-back-menu [description]="'Gestión de la ropa'"></app-back-menu>
 <app-card-management
-  [description]="'Insertar ropa'"
+  [description]="'Guardar ropa'"
   [icon]="'/assets/icons/insert.svg'"
-  [redirectTo]="'/store-management/orders-management/order-search'"
+  [redirectTo]="'/store-management/clothing-management/clothing-details/save'"
   [image]="'/assets/images/search-order.png'"></app-card-management>
 <app-card-management
   [description]="'Listado de ropa'"
   [icon]="'/assets/icons/list.svg'"
-  [redirectTo]="'/store-management/orders-management/order-lists'"
+  [redirectTo]="'/store-management/clothing-management/clothing-list'"
   [image]="'/assets/images/order-lists.png'"></app-card-management>
 
-<span class="o-font-f1-main">Resumen de ganancias</span>
-<!-- <app-earning-summary
-  [earningSummaries]="this.earingSummaries"></app-earning-summary> -->
+<span class="o-font-f1-main">Resumen de las ropas</span>
+
+<ng-container *ngFor="let earningSummary of earningSummaries">
+  <span>
+    {{ this.getDescription(earningSummary.clothingType) }}
+  </span>
+  <app-tag
+    [tag]="
+      this.getTagFrom(
+        earningSummary.quantity.toString(),
+        '/assets/icons/cart.svg'
+      )
+    ">
+    >
+  </app-tag>
+  <div *ngFor="let colorDetails of earningSummary.colorDetails">
+    <app-color
+      [isSelected]="true"
+      [tagColor]="this.getTagColorFrom(colorDetails.color)"></app-color>
+    <span>{{ colorDetails.quantity }}</span>
+  </div>
+</ng-container>
+<span> Total </span>
+<app-tag
+  [tag]="
+    this.getTagFrom(
+      this.getTotalSummary('total').toString(),
+      '/assets/icons/cart.svg'
+    )
+  ">
+  >
+</app-tag>
+<div *ngFor="let color of getColors()">
+  <app-color
+    [isSelected]="true"
+    [tagColor]="getTagColorFrom(color)"></app-color>
+  <span> {{ this.getTotalSummary(color) }} </span>
+</div>

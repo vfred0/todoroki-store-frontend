@@ -2,17 +2,28 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '@core/models/Product';
 import { ClothingTypeCard } from '@core/utils/ClothingTypeCard';
+import { EarningSummary } from '@core/utils/EarningSummary';
 
 import { ProductFilter } from '@core/utils/ProductFilterd';
 import { ProductMostWanted } from '@core/utils/ProductMostWanted';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
+  existsProduct(product: Product): Observable<boolean> {
+    return this.client.post<boolean>(
+      `${this.API_URL}/exists-product/`,
+      product
+    );
+  }
+
+  // https://lh3.googleusercontent.com/drive-viewer/AJc5JmTntbhVNT7UQ4mMIwCzCER6QN7CxUpr22g1mKcObe7DhbfTJ68F0M5FvM5gQxyRerALUE5GzIw=w795-h595
+
+  //   1BKVdocVRUnxZRk1NvBgn6OX11MBguSbD
   getProductForUpdate(): Product {
-    throw new Error('Method not implemented.');
+    return this.productForUpdate;
   }
   private readonly API_URL = 'http://localhost:8080/api/products';
   private productForUpdate: Product;
@@ -67,17 +78,28 @@ export class ProductService {
     );
   }
 
-  setProductForUpdate(id: string) {
-    this.getProductById(id).subscribe((product: Product) => {
-      this.productForUpdate = product;
-      console.log('Se ha guarddado el producto: ', this.productForUpdate);
-    });
+  setProductForUpdate(product: Product) {
+    this.productForUpdate = product;
   }
 
-  existsProductForUpdate(): Observable<boolean> {
+  getClothingSummary(): Observable<EarningSummary[]> {
+    return this.client.get<EarningSummary[]>(
+      `${this.API_URL}/get-clothing-summary`
+    );
+  }
+
+  getSimilarClothing(productFilter: ProductFilter): Observable<Product[]> {
+    return this.client.post<Product[]>(
+      `${this.API_URL}/get-similar-clothing`,
+      productFilter
+    );
+  }
+
+  existsProductForUpdate(): boolean {
     // behavior subject
-    return new Observable(observer => {
-      observer.next(this.productForUpdate.id !== undefined);
-    });
+    return this.productForUpdate.id != null;
+    // return new Observable(observer => {
+    //   observer.next(this.productForUpdate.id !== undefined);
+    // });
   }
 }

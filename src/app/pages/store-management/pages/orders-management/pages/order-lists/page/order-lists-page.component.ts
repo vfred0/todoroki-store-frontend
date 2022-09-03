@@ -50,16 +50,4 @@ export class OrderListsPageComponent implements OnInit {
     this.orderDates = orderDates;
     this.updateOrderCards();
   }
-
-  // updateProductsByClothingType(option: ClothingType) {
-  //   console.log('Option', option);
-  // }
-
-  // updateProductsByColor(color: Color) {
-  //   console.log('Color', color);
-  // }
-
-  // updateProductsByAnimes(option: Animes) {
-  //   console.log('Animes', option);
-  // }
 }

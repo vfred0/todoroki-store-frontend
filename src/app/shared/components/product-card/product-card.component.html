@@ -4,18 +4,16 @@
     (click)="this.redirectToPageProduct()"
     class="c-card__image" />
 
-  <ng-container *ngIf="!this.isForManagement">
-    <app-tag
-      [tag]="this.tag"
-      [isSelectable]="false"
-      [styles]="'c-tag--likes'"
-      class="c-card__likes">
-    </app-tag>
-  </ng-container>
+  <app-tag
+    [tag]="this.tagForLikes"
+    [isSelectable]="false"
+    [styles]="'c-tag--likes'"
+    class="c-card__likes">
+  </app-tag>
 
   <ng-container *ngIf="this.isForManagement">
     <app-tag
-      [tag]="this.tag"
+      [tag]="this.tagForDelete"
       [isSelectable]="true"
       [styles]="'c-tag--delete'"
       (selectionOfTag)="this.deleteProduct()"

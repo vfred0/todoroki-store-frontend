@@ -7,7 +7,7 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class QuantityComponent implements OnInit {
   @Input() maxValue: number = 5;
-  @Input() value: number = 5;
+  @Input() value: number = 1;
   @Output() valueChange = new EventEmitter<number>();
   public formInput: FormControl;
 

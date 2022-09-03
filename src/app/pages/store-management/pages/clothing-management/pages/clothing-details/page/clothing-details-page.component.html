@@ -1,20 +1,93 @@
-<button (click)="this.onToggleProductManagement()">
-  <span> Insertar </span>
-</button>
+<app-back-menu [description]="this.actionForProduct + ' ropa'"></app-back-menu>
 
-<section class="c-cards">
-  <span class="c-cards__title o-font-f1-main">Lista de productos</span>
-  <div class="c-cards__container">
-    <ng-container *ngFor="let product of this.productsCards">
-      <app-product-card
-        (deleteProductSelected)="this.deleteProductById($event)"
-        [isForManagement]="true"
-        (updateProduct)="this.updateProduct($event)"
-        [productCard]="product"></app-product-card>
-    </ng-container>
+<form
+  class="c-form"
+  [formGroup]="this.clothingDetailsManagement.getFormGroup()">
+  {{ this.clothingDetailsManagement.getPreviewImage() | json }}
+  <ng-container *ngIf="this.clothingDetailsManagement.getPreviewImage()">
+    <div>
+      <span>Vista previa de la imagen</span>
+      {{ this.clothingDetailsManagement.getPreviewImage() }}
+      <img
+        class="c-form__image"
+        type="image"
+        [src]="this.clothingDetailsManagement.getPreviewImage()"
+        alt="" />
+      <!-- <input class="c-form__upload" type="file" (change)="setImage($event)" /> -->
+    </div>
+  </ng-container>
+
+  <div class="c-modal-product-management">
+    <div class="c-form__details">
+      <span class="c-form__title o-font-f1-subtitle"> Imagen </span>
+      <div class="c-bar-search">
+        <input
+          class="c-bar-search__input o-font-f2-normal"
+          formControlName="image"
+          type="text" />
+        <svg-icon
+          src="/assets/icons/heart.svg"
+          [class]="'c-bar-search__icon o-icon-size-sm'"
+          [applyClass]="true"></svg-icon>
+      </div>
+      <!-- <span class="c-form__title o-font-f1-subtitle"> Nombre </span>
+      <div class="c-bar-search">
+        <input
+          class="c-bar-search__input o-font-f2-normal"
+          formControlName="description"
+          type="text" />
+        <svg-icon
+          src="/assets/icons/heart.svg"
+          [class]="'c-bar-search__icon o-icon-size-sm'"
+          [applyClass]="true"></svg-icon>
+      </div> -->
+      <span class="c-form__title o-font-f1-subtitle"> Precio </span>
+      <div class="c-bar-search">
+        <input
+          class="c-bar-search__input o-font-f2-normal"
+          formControlName="price"
+          type="number"
+          step="0.01"
+          min="0"
+          id="" />
+        <svg-icon
+          src="/assets/icons/price.svg"
+          [class]="'c-bar-search__icon o-icon-size-sm'"
+          [applyClass]="true"></svg-icon>
+      </div>
+
+      <span class="c-form__title o-font-f1-subtitle"> Likes </span>
+      <div class="c-bar-search">
+        <input
+          class="c-bar-search__input o-font-f2-normal"
+          formControlName="likes"
+          type="number"
+          min="0"
+          id="" />
+        <svg-icon
+          src="/assets/icons/price.svg"
+          [class]="'c-bar-search__icon o-icon-size-sm'"
+          [applyClass]="true"></svg-icon>
+      </div>
+      <span class="c-form__title o-font-f1-subtitle"> Tipo de ropa </span>
+      <app-select-clothing-type
+        (clothingTypeChange)="
+          setClothingType($event)
+        "></app-select-clothing-type>
+      <span class="c-form__title o-font-f1-subtitle"> Anime </span>
+      <app-select-anime
+        (updateProductsByAnimes)="this.setAnime($event)"></app-select-anime>
+
+      <span class="c-form__title o-font-f1-subtitle"> Color </span>
+      <app-select-color
+        (colorSelected)="this.setColor($event)"></app-select-color>
+    </div>
+    <button
+      [disabled]="this.isDisabled()"
+      (click)="this.saveOrUpdateProduct()"
+      class="c-login__button">
+      <span> {{ this.actionForProduct }}</span>
+    </button>
+    <span> {{ this.ERRORS }}</span>
   </div>
-</section>
-
-<app-modal-product-management
-  [(isActive)]="this.isActiveModalProductManagement"
-  (updateProducts)="this.setProductsCards()"></app-modal-product-management>
+</form>

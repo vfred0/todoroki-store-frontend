@@ -7,6 +7,10 @@ const routes: Routes = [
     path: '',
     component: ClothingDetailsPageComponent,
   },
+  // {
+  //   path: 'clothing-details/:id',
+  //   component: ClothingDetailsPageComponent,
+  // },
 ];
 
 @NgModule({

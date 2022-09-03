@@ -1,47 +1,112 @@
-import { Component, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from '@core/models/Product';
-import { ProductCard } from '@core/utils/ProductCard';
+import { Animes } from '@core/types/Animes';
+import { ClothingType } from '@core/types/ClothingType';
+import { Color } from '@core/types/Color';
+import { ActionForProduct } from '@core/utils/ActionForProduct';
+import { ClothingDetailsManagement } from '@core/utils/ClothingDetailsManagement';
+import { SelectAnimeComponent } from '@shared/components/select-anime/select-anime.component';
+import { SelectClothingTypeComponent } from '@shared/components/select-clothing-type/select-clothing-type.component';
+import { SelectColorComponent } from '@shared/components/select-color/select-color.component';
 import { ProductService } from '@shared/services/product.service';
-import { ModalProductManagementComponent } from '../components/modal-product-management/modal-product-management.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-clothing-details-page',
   templateUrl: './clothing-details-page.component.html',
 })
-export class ClothingDetailsPageComponent {
-  isActiveModalProductManagement: boolean = false;
-  @ViewChild(ModalProductManagementComponent)
-  modalProductManagement!: ModalProductManagementComponent;
-  productsCards: ProductCard[];
-  constructor(private productService: ProductService) {
-    this.productsCards = [];
-    this.setProductsCards();
+export class ClothingDetailsPageComponent implements OnDestroy, AfterViewInit {
+  product: Product;
+  actionForProduct: ActionForProduct;
+  private subscription: Subscription;
+  @ViewChild(SelectClothingTypeComponent)
+  selectClothingTypeComponent!: SelectClothingTypeComponent;
+  @ViewChild(SelectColorComponent)
+  selectColorComponent!: SelectColorComponent;
+  @ViewChild(SelectAnimeComponent)
+  selectAnimeComponent!: SelectAnimeComponent;
+  clothingDetailsManagement: ClothingDetailsManagement;
+  ERRORS: string;
+  constructor(
+    private productService: ProductService,
+    private activatedRoute: ActivatedRoute,
+    private cd: ChangeDetectorRef
+  ) {
+    this.ERRORS = '';
+    this.clothingDetailsManagement = new ClothingDetailsManagement();
+    this.product = {} as Product;
+    this.actionForProduct = ActionForProduct.Save;
+    this.subscription = new Subscription();
+    this.actionForProduct =
+      this.activatedRoute.snapshot.data['actionForProduct'];
+  }
+  ngAfterViewInit(): void {
+    if (this.actionForProduct == ActionForProduct.Update) {
+      this.product = this.productService.getProductForUpdate();
+      this.clothingDetailsManagement.setProduct(this.product);
+      this.selectClothingTypeComponent.setClothingType(
+        this.product.clothingType
+      );
+      this.selectColorComponent.setColorSelected(this.product.color);
+      this.selectAnimeComponent.setAnime(this.product.anime);
+      this.cd.detectChanges();
+    }
+    this.clothingDetailsManagement.subscribeToPreviewImage();
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
-  setProductsCards() {
-    this.productService.getProducts().subscribe((products: Product[]) => {
-      this.productsCards = products.map((product: Product) => {
-        return {
-          id: product.id,
-          image: product.image,
-          description: product.description,
-          price: product.price,
-          likes: product.likes,
-        } as ProductCard;
+  setClothingType(clothingType: ClothingType) {
+    this.product.clothingType = clothingType;
+  }
+
+  setAnime(anime: Animes) {
+    this.product.anime = anime;
+  }
+
+  setColor(color: Color) {
+    this.product.color = color;
+  }
+
+  isDisabled(): boolean {
+    if (this.actionForProduct == ActionForProduct.Update) {
+      return !this.clothingDetailsManagement.isUpdatableProductFrom(
+        this.product
+      );
+    }
+    return !this.clothingDetailsManagement.formGroupIsValid();
+  }
+
+  saveOrUpdateProduct() {
+    this.ERRORS = '';
+    let product: Product = this.clothingDetailsManagement.getProductFrom(
+      this.product
+    );
+    this.productService
+      .existsProduct(product)
+      .subscribe((existsProduct: boolean) => {
+        if (!existsProduct || !this.isDisabled()) {
+          if (this.actionForProduct == ActionForProduct.Update) {
+            this.productService.update(product).subscribe(() => {
+              console.log('Product updated');
+            });
+          } else {
+            this.productService.save(product).subscribe(() => {
+              this.clothingDetailsManagement.cleanProductDetails();
+              console.log('Product saved');
+            });
+          }
+        } else {
+          this.ERRORS = 'La ropa ya existe';
+        }
       });
-    });
-  }
-
-  onToggleProductManagement(): void {
-    this.isActiveModalProductManagement = !this.isActiveModalProductManagement;
-  }
-  deleteProductById(id: string): void {
-    this.productService.deleteProductById(id).subscribe(() => {
-      this.setProductsCards();
-    });
-  }
-  updateProduct(productCard: ProductCard): void {
-    this.isActiveModalProductManagement = true;
-    this.modalProductManagement.setProductForUpdate(productCard.id);
   }
 }

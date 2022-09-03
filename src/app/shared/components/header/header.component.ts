@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,8 @@ export class HeaderComponent {
   isActiveModalMenu: boolean;
   isActiveModalShoppingCart: boolean;
   // isActiveModalSearch: boolean = false;
-  constructor() {
+  itemsCount$ = this.shoppingCartService.productItemsCount$;
+  constructor(private shoppingCartService: ShoppingCartService) {
     this.isActiveModalMenu = false;
     this.isActiveModalShoppingCart = false;
   }

@@ -11,7 +11,7 @@
   </div>
   <ng-container *ngIf="this.existsProductsInCart()">
     <div class="c-modal-shopping-cart__items">
-      <ng-container *ngFor="let productItemCart of this.productItemsCarts">
+      <ng-container *ngFor="let productItemCart of this.cartItems$ | async">
         <app-shopping-cart-item
           [productItemCart]="productItemCart"
           (removeProductItemCart)="
@@ -22,21 +22,17 @@
 
     <div class="c-shopping-cart-page__total">
       <span class="c-modal-shopping-cart__total-items">
-        Total por los {{ this.productItemsCarts.length }} productos.
+        Total por los {{ this.itemsCount$ | async }} productos.
       </span>
       <div class="c-shopping-cart-page__total-value">
-        <h3>{{ this.getTotalPriceForProducts() | currency }}</h3>
+        <h3>{{ this.total$ | async | currency }}</h3>
       </div>
     </div>
     <app-button
       (click)="this.contactForWhatsapp()"
+      (click)="onToggle()"
       [isContact]="true"
       [styles]="'c-button--contact'"></app-button>
-    <app-button
-      [description]="'Ver carrito de compras'"
-      [styles]="'c-button--default'"
-      [routerLink]="'/shopping-cart'"
-      (click)="onToggle()"></app-button>
   </ng-container>
 
   <ng-container *ngIf="!this.existsProductsInCart()">

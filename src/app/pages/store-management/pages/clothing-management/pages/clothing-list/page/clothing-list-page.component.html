@@ -1,0 +1,19 @@
+<app-back-menu [description]="'Listado de ropa'"></app-back-menu>
+<app-select-anime
+  (updateProductsByAnimes)="
+    this.updateProductsByAnimes($event)
+  "></app-select-anime>
+<app-select-clothing-type
+  (clothingTypeChange)="
+    updateProductsByClothingType($event)
+  "></app-select-clothing-type>
+<app-select-color
+  (colorSelected)="this.updateProductsByColor($event)"></app-select-color>
+<app-product-card
+  *ngFor="let productCard of this.productsCard"
+  [productCard]="productCard"
+  [isForManagement]="true"
+  (updateProduct)="this.updateProduct(productCard)"
+  (deleteProductSelected)="
+    this.deleteProductSelected($event)
+  "></app-product-card>
