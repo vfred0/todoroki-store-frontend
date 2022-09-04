@@ -6,12 +6,13 @@ import { EarningSummary } from '@core/utils/EarningSummary';
 import { Observable } from 'rxjs';
 import { OrderDetails } from '@core/utils/OrderDetails';
 import { OrderUpdate } from '@core/utils/OrderUpdate';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OrderService {
-  private readonly API_URL = 'http://localhost:8080/api/orders';
+  private readonly API_URL = `${environment.API_URL}/api/orders`;
 
   constructor(private client: HttpClient) {}
 

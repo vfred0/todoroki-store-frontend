@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '@core/models/User';
 import { UserLogin } from '@core/utils/UserLogin.';
 import { map, Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class UserService {
     return localStorage.getItem('name') || '';
   }
 
-  private readonly API_URL = 'http://localhost:8080/api/user';
+  private readonly API_URL = `${environment.API_URL}/api/user`;
 
   constructor(private client: HttpClient, private router: Router) {}
 

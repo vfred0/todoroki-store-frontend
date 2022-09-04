@@ -3,10 +3,12 @@ import { Injectable } from '@angular/core';
 import { Product } from '@core/models/Product';
 import { ClothingTypeCard } from '@core/utils/ClothingTypeCard';
 import { EarningSummary } from '@core/utils/EarningSummary';
+import { ProductCard } from '@core/utils/ProductCard';
 
 import { ProductFilter } from '@core/utils/ProductFilterd';
 import { ProductMostWanted } from '@core/utils/ProductMostWanted';
 import { map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -19,13 +21,10 @@ export class ProductService {
     );
   }
 
-  // https://lh3.googleusercontent.com/drive-viewer/AJc5JmTntbhVNT7UQ4mMIwCzCER6QN7CxUpr22g1mKcObe7DhbfTJ68F0M5FvM5gQxyRerALUE5GzIw=w795-h595
-
-  //   1BKVdocVRUnxZRk1NvBgn6OX11MBguSbD
   getProductForUpdate(): Product {
     return this.productForUpdate;
   }
-  private readonly API_URL = 'http://localhost:8080/api/products';
+  private readonly API_URL = `${environment.API_URL}/api/products`;
   private productForUpdate: Product;
 
   constructor(private client: HttpClient) {
