@@ -65,6 +65,7 @@ export class ClothingListPageComponent implements OnInit {
                 price: product.price,
                 image: product.image,
                 likes: product.likes,
+                color: product.color,
               } as ProductCard;
             });
             console.log(products);

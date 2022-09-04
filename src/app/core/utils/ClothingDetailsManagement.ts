@@ -54,10 +54,11 @@ export class ClothingDetailsManagement {
 
   subscribeToPreviewImage() {
     this.formGroup.get('image')!.valueChanges.subscribe((image: string) => {
-      if (image && image.includes('sharing')) {
-        let id: string = image.match(/d\/([A-Za-z0-9\-_]+)/)![1] || '';
-        this.previewImage = `https://drive.google.com/uc?export=view&id=${id}`;
-      }
+      this.previewImage = image;
+      // if (image && image.includes('sharing')) {
+      //   let id: string = image.match(/d\/([A-Za-z0-9\-_]+)/)![1] || '';
+      //   this.previewImage = `https://drive.google.com/uc?export=view&id=${id}`;
+      // }
     });
   }
 

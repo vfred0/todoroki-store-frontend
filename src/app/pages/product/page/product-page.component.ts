@@ -19,14 +19,14 @@ import { Subscription } from 'rxjs';
 import { ProductOrder } from '@core/utils/ProductOrder';
 import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 import { ProductItemCart } from '@core/utils/ProductItemCart';
+import { ProductCard } from '@core/utils/ProductCard';
+import { ProductFilter } from '@core/utils/ProductFilterd';
 
 SwiperCore.use([Pagination, Navigation]);
 
 @Component({
   selector: 'app-product-page',
   templateUrl: './product-page.component.html',
-  styleUrls: ['./product-page.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class ProductPageComponent implements OnDestroy {
   @ViewChild(QuantityComponent) quantity!: QuantityComponent;
@@ -35,7 +35,7 @@ export class ProductPageComponent implements OnDestroy {
   typeColors: Color[];
   product: Product;
   private productOrder: ProductOrder;
-
+  productsSimilarity: ProductCard[];
   private subscription: Subscription;
 
   constructor(
@@ -62,6 +62,21 @@ export class ProductPageComponent implements OnDestroy {
           };
         })
     );
+    this.productsSimilarity = [];
+    this.subscription.add(
+      this.productService
+        .getSimilarClothing({
+          color: this.product.color,
+          clothingType: this.product.clothingType,
+          anime: this.product.anime,
+          limit: 4,
+          page: 1,
+        } as ProductFilter)
+        .subscribe(products => {
+          this.productsSimilarity = products;
+        })
+    );
+
     this.sizes = [...Object.values(Size)];
     this.typeColors = [...Object.values(Color)];
   }
@@ -75,8 +90,6 @@ export class ProductPageComponent implements OnDestroy {
       size: this.productOrder.size,
       quantity: this.quantity.getValue(),
     };
-
-    console.log('contact ', this.productOrder);
   }
 
   addToCart() {

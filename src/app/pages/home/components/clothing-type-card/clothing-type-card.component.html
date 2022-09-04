@@ -1,22 +1,22 @@
-<div class="c-category">
+<div class="c-clothing-type">
   <img
-    class="c-category__image"
+    class="c-clothing-type__image"
     src="https://imgs.search.brave.com/xdJkt4qVTDvvaCM2_6_aWyEu9FNODYJtDL4fu8TKGQc/rs:fit:893:1024:1/g:ce/aHR0cHM6Ly9wbmdp/bWcuY29tL3VwbG9h/ZHMvdHNoaXJ0L3Rz/aGlydF9QTkc1NDQ4/LnBuZw" />
-  <div class="c-category__footer">
-    <div class="c-category__wrapper-texts">
-      <span class="c-category__title o-font-f1-subtitle">{{
+  <div class="c-clothing-type__footer">
+    <div class="c-clothing-type__wrapper-texts">
+      <span class="c-clothing-type__title o-font-f1-subtitle">{{
         this.clothingTypeCard.name
       }}</span>
-      <span class="c-category__quantity o-font-f1-section">
+      <span class="c-clothing-type__quantity o-font-f1-section">
         {{ this.clothingTypeCard.quantity }} productos</span
       >
     </div>
     <div
-      class="c-category__wrapper-icon"
+      class="c-clothing-type__wrapper-icon"
       [routerLink]="['/catalog', this.clothingTypeCard.name]">
       <svg-icon
         src="/assets/icons/arrow.svg"
-        [class]="'o-icon-size-lg c-category__icon'"
+        [class]="'o-icon-size-lg c-clothing-type__icon'"
         [applyClass]="true">
       </svg-icon>
     </div>

@@ -21,6 +21,25 @@
       (updateDateInterval)="
         this.setOrderDates($event)
       "></app-select-order-dates>
+    <!-- <app-earning-summary
+      [earningSummaries]="this.earningSummaries"></app-earning-summary>
+    <span> Total </span>
+    <app-tag
+      [tag]="
+        this.getTagFrom(
+          this.getTotalSummary('total').toString(),
+          '/assets/icons/cart.svg'
+        )
+      ">
+      >
+    </app-tag> -->
+    <div *ngFor="let color of getColors()">
+      <app-color
+        [isSelected]="true"
+        [tagColor]="getTagColorFrom(color)"></app-color>
+      <span> {{ this.getTotalSummary(color) }} </span>
+    </div>
+
     <button (click)="this.updateOrderDetails()">
       Actualizar detalles del pedido
     </button>

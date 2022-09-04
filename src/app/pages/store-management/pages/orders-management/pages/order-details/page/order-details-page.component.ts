@@ -1,10 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Color } from '@core/types/Color';
 import { OrderStatus } from '@core/types/OrderStatus';
 import { PaymentType } from '@core/types/PaymentType';
+import { EarningSummary } from '@core/utils/EarningSummary';
 import { OrderDetails } from '@core/utils/OrderDetails';
 import { OrderUpdate } from '@core/utils/OrderUpdate';
 import { ProductOrdered } from '@core/utils/ProductOrdered';
+import { Tag } from '@core/utils/Tag';
+import { TagColor } from '@core/utils/TagColor';
 import { OrderService } from '@shared/services/order.service';
 import { SelectOrderDatesComponent } from '../components/select-order-dates/select-order-dates.component';
 import { SelectOrderStatusComponent } from '../components/select-order-status/select-order-status.component';
@@ -28,11 +32,13 @@ export class OrderDetailsPageComponent implements OnInit {
   orderNumber: number;
 
   namesForOrderDate: string[];
+  earningSummaries: EarningSummary[];
 
   constructor(
     private orderService: OrderService,
     private router: ActivatedRoute
   ) {
+    this.earningSummaries = [];
     this.productsOrdered = [];
     this.orderDetails = {} as OrderDetails;
     this.orderUpdate = {} as OrderUpdate;
@@ -44,6 +50,7 @@ export class OrderDetailsPageComponent implements OnInit {
       .getDetailsOrderByNumber(this.orderNumber)
       .subscribe(orderDetails => {
         this.orderDetails = orderDetails;
+
         this.productsOrdered = orderDetails.productsOrdered;
         this.selectPaymentTypeComponent.setOptionSelected(
           this.orderDetails.paymentType
@@ -82,5 +89,41 @@ export class OrderDetailsPageComponent implements OnInit {
     this.orderService.update(this.orderUpdate).subscribe(() => {
       console.log('UPDATE OK');
     });
+  }
+
+  getTotalSummary(key: string): number {
+    let totalSummary = new Map<String, number>();
+    this.earningSummaries.forEach(earningSummary => {
+      earningSummary.colorDetails.reduce((acc, colorDetail) => {
+        acc.set(
+          colorDetail.color,
+          colorDetail.quantity + (acc.get(colorDetail.color) || 0)
+        );
+        return acc;
+      }, totalSummary);
+    });
+    let total: number = 0;
+    totalSummary.forEach((value, key) => {
+      total += value;
+    });
+    totalSummary.set('total', total);
+    return totalSummary.get(key) || 0;
+  }
+  getColors(): Color[] {
+    return Object.values(Color);
+  }
+
+  getTagFrom(description: string = '', pathIcon: string = ''): Tag {
+    return {
+      description,
+      pathIcon,
+    };
+  }
+
+  getTagColorFrom(color: Color): TagColor {
+    return {
+      typeColor: color,
+      isSelected: true,
+    };
   }
 }

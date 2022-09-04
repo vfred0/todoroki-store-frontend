@@ -27,6 +27,7 @@ export class HomePageComponent implements OnDestroy {
             price: product.price,
             image: product.image,
             likes: product.likes,
+            color: product.color,
           });
         });
       })

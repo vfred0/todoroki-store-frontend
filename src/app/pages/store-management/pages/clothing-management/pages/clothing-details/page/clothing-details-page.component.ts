@@ -90,23 +90,31 @@ export class ClothingDetailsPageComponent implements OnDestroy, AfterViewInit {
     let product: Product = this.clothingDetailsManagement.getProductFrom(
       this.product
     );
-    this.productService
-      .existsProduct(product)
-      .subscribe((existsProduct: boolean) => {
-        if (!existsProduct || !this.isDisabled()) {
-          if (this.actionForProduct == ActionForProduct.Update) {
-            this.productService.update(product).subscribe(() => {
-              console.log('Product updated');
-            });
+
+    this.subscription.add(
+      this.productService
+        .existsProduct(product)
+        .subscribe((existsProduct: boolean) => {
+          if (!existsProduct) {
+            if (this.actionForProduct == ActionForProduct.Update) {
+              this.subscription.add(
+                this.productService.update(product).subscribe(() => {
+                  this.clothingDetailsManagement.cleanProductDetails();
+                  console.log('Update');
+                })
+              );
+            } else {
+              this.subscription.add(
+                this.productService.save(product).subscribe(() => {
+                  this.clothingDetailsManagement.cleanProductDetails();
+                  console.log('Save');
+                })
+              );
+            }
           } else {
-            this.productService.save(product).subscribe(() => {
-              this.clothingDetailsManagement.cleanProductDetails();
-              console.log('Product saved');
-            });
+            this.ERRORS = 'La ropa ya existe';
           }
-        } else {
-          this.ERRORS = 'La ropa ya existe';
-        }
-      });
+        })
+    );
   }
 }

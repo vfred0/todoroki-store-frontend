@@ -12,4 +12,20 @@
 
 <span class="o-font-f1-main">Resumen de ganancias</span>
 <app-earning-summary
-  [earningSummaries]="this.earingSummaries"></app-earning-summary>
+  [earningSummaries]="this.earningSummaries"></app-earning-summary>
+<span> Total </span>
+<!-- <app-tag
+  [tag]="
+    this.getTagFrom(
+      this.getTotalSummary('total').toString(),
+      '/assets/icons/cart.svg'
+    )
+  ">
+  >
+</app-tag>
+<div *ngFor="let color of getColors()">
+  <app-color
+    [isSelected]="true"
+    [tagColor]="getTagColorFrom(color)"></app-color>
+  <span> {{ this.getTotalSummary(color) }} </span>
+</div> -->

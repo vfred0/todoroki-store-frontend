@@ -1,6 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ClothingType } from '@core/types/ClothingType';
+import { Color } from '@core/types/Color';
 import { EarningSummary } from '@core/utils/EarningSummary';
+import { Tag } from '@core/utils/Tag';
+import { TagColor } from '@core/utils/TagColor';
 import { OrderService } from '@shared/services/order.service';
 import { Subscription } from 'rxjs';
 
@@ -9,10 +12,10 @@ import { Subscription } from 'rxjs';
   templateUrl: './orders-management.component.html',
 })
 export class OrdersManagementComponent implements OnInit, OnDestroy {
-  earingSummaries: EarningSummary[];
+  earningSummaries: EarningSummary[];
   private subscription: Subscription;
   constructor(private orderService: OrderService) {
-    this.earingSummaries = [];
+    this.earningSummaries = [];
     this.subscription = new Subscription();
   }
   ngOnDestroy(): void {
@@ -24,15 +27,57 @@ export class OrdersManagementComponent implements OnInit, OnDestroy {
       this.orderService
         .getEarningsSummary()
         .subscribe((earningSummaries: EarningSummary[]) => {
-          this.earingSummaries = earningSummaries;
+          this.earningSummaries = earningSummaries;
         })
     );
   }
+  // getTotalSummary(key: string): number {
+  //   let totalSummary = new Map<String, Map<String, number>>();
+  //   this.earningSummaries.forEach(earningSummary => {
+  //     earningSummary.colorDetails.reduce((acc, colorDetail) => {
+  //       acc.set(
+  //         colorDetail.color,
+  //         new Map<String, number>([
+  //           [
+  //             'quantity',
+  //             colorDetail.quantity +
+  //               (acc.get(colorDetail.color)?.get('quantity') || 0),
+  //           ],
+  //           [
+  //             'price',
+  //             colorDetail.price +
+  //               (acc.get(colorDetail.color)?.get('price') || 0),
+  //           ],
+  //         ])
+  //       );
+  //       return acc;
+  //     }, totalSummary);
+  //   });
+  //   let total: number = 0;
+  //   let total: number = 0;
+  //   totalSummary.forEach((key, value) => {
+  //     key.forEach((k2, v2) => {
+  //       total += key.get('')
+  //     });
+  //   });
+  //   totalSummary.set('total', total);
+  //   return totalSummary.get(key) || 0;
+  // }
+  getColors(): Color[] {
+    return Object.values(Color);
+  }
 
-  private getClothingType(_key: string): ClothingType {
-    let checkKey = _key.charAt(0).toUpperCase() + _key.slice(1);
-    return Object.keys(ClothingType)[
-      Object.keys(ClothingType).findIndex(key => key === checkKey)
-    ] as ClothingType;
+  getTagFrom(description: string = '', pathIcon: string = ''): Tag {
+    return {
+      description,
+      pathIcon,
+    };
+  }
+
+  getTagColorFrom(color: Color): TagColor {
+    return {
+      typeColor: color,
+      isSelected: true,
+    };
   }
 }

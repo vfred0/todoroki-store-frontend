@@ -2,9 +2,9 @@
 <div class="o-layout-spacing">
   <app-slider></app-slider>
 
-  <section class="c-categories">
-    <span class="c-categories__title o-font-f1-main">Tipos de ropa</span>
-    <div class="c-categories__container">
+  <section class="c-clothing-types">
+    <span class="c-clothing-types o-font-f1-main">Tipos de ropa</span>
+    <div class="c-clothing-types__container">
       <app-clothing-type-card
         *ngFor="let clothingTypeCard of this.clothingTypeCards"
         [clothingTypeCard]="clothingTypeCard">
