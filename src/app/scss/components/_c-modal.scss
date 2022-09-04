@@ -9,7 +9,7 @@
   display: none;
   $modal: &;
 
-  &-shopping-cart {
+  &--shopping-cart {
     display: none;
     background-color: $grey-500;
     #{$modal}.is-active {

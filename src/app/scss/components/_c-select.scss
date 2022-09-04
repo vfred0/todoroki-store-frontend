@@ -1,0 +1,44 @@
+.c-select{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: em(4);
+    position: relative;
+    &__frame{
+        text-overflow:ellipsis;
+        overflow:hidden;
+        white-space:nowrap;
+	    -webkit-appearance: none;
+        height: 26px;
+        width: 107px;
+        color: $grey-700;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding-left: em(21);
+        &::-ms-expand{
+            display: none;
+
+        }
+    }
+    &__arrow{
+        background-color: $neutral-black;
+        width: em(20);
+        height: em(20);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        cursor: pointer;
+    }   
+    &__icon{
+        height: em(6);
+        width: em(10);
+        display: flex;
+        align-items: center;
+        justify-content: center;    
+    }
+}

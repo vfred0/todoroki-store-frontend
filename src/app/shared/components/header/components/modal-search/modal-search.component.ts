@@ -14,13 +14,14 @@ export class ModalSearchComponent extends ModalComponent {
   constructor() {
     super();
     this.productsCards = [
-      {
-        id: '1',
-        description: 'Camiseta 1dhsdhjsdhjd',
-        price: 13.99,
-        image: 'https://picsum.photos/200/100',
-        likes: 130,
-      },
+      // {
+      //   id: '1',
+      //   description: 'Camiseta 1dhsdhjsdhjd',
+      //   price: 13.99,
+      //   image: 'https://picsum.photos/200/100',
+      //   likes: 130,
+      //   color: '',
+      // },
     ];
 
     this.productsCards = [];

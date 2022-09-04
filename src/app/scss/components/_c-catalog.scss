@@ -1,0 +1,23 @@
+.c-catalog{
+    text-align: center;
+    display: grid;
+    gap: em(24);
+    max-width: em(490);
+    margin: 0 auto;
+    &__filters{
+        display: flex;
+        justify-content: center;
+        gap: em(24);
+        flex-wrap: wrap;
+    }
+    &__filters-title{
+        color: $grey-800;
+    }
+    &__filter{
+        display: grid;
+        justify-content: center;
+        gap: em(12);
+        width: em(135);
+    }
+}
+    
