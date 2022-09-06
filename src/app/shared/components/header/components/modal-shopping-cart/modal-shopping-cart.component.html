@@ -1,41 +1,59 @@
 <div class="c-modal c-modal--shopping-cart" [class.is-active]="this.isActive">
-  <div class="c-modal-shopping-cart__header">
-    <span class="c-modal-shopping-cart__title">Carrito de compras</span>
-    <div class="c-modal-shopping-cart__close" (click)="this.onToggle()">
-      <svg-icon
-        src="/assets/icons/close.svg"
-        [class]="'c-header__menu-icon  o-icon-size-lg'"
-        [applyClass]="true">
-      </svg-icon>
-    </div>
-  </div>
-  <ng-container *ngIf="this.existsProductsInCart()">
-    <div class="c-modal-shopping-cart__items">
-      <ng-container *ngFor="let productItemCart of this.cartItems$ | async">
-        <app-shopping-cart-item
-          [productItemCart]="productItemCart"
-          (removeProductItemCart)="
-            this.removeProductItemCart($event)
-          "></app-shopping-cart-item>
+  <div class="o-layout-spacing">
+    <div class="c-modal-shopping-cart">
+      <div class="c-modal-shopping-cart__header">
+        <span class="c-modal-shopping-cart__title o-font-f1-main">Carrito de compras</span>
+        <div class="c-modal-shopping-cart__close" (click)="this.onToggle()">
+          <svg-icon
+            src="/assets/icons/close.svg"
+            [class]="'c-header__menu-icon c-modal-shopping-cart__icon  o-icon-size-lg'"
+            [applyClass]="true">
+          </svg-icon>
+        </div>
+      </div>
+      
+      <ng-container *ngIf="this.existsProductsInCart()">
+        <div class="c-modal-shopping-cart__items">
+          <ng-container *ngFor="let productItemCart of this.cartItems$ | async">
+            <app-shopping-cart-item
+              [productItemCart]="productItemCart"
+              (removeProductItemCart)="
+                this.removeProductItemCart($event)
+              "></app-shopping-cart-item>
+          </ng-container>
+        </div>
+    
+        <div class="c-modal-shopping-cart__total">
+          <span class="c-modal-shopping-cart__total-items o-font-f1-subtitle">
+            Total por los {{ this.itemsCount$ | async }} productos.
+          </span>
+          <div class="c-modal-shopping-cart__total-value o-font-f1-main">
+            <h3>{{ this.total$ | async | currency }}</h3>
+          </div>
+          <app-button
+          (click)="this.contactForWhatsapp()"
+          (click)="onToggle()"
+          [isContact]="true"
+          [styles]="'c-button--contact'"></app-button>
+        </div>
+        
+      </ng-container>
+    
+      <ng-container *ngIf="!this.existsProductsInCart()">
+        <div class="c-modal-shopping-cart__no-items">
+          <img src="../../../../../../assets/images/empty-cart 1.png" alt="">
+          <div class="c-modal-shopping-cart__no-items--information">
+            <span class="c-modal-shopping-cart__no-items--information__title o-font-f1-subtitle">Tu carrito está vacio</span>
+            <span class="c-modal-shopping-cart__no-items--information__subtitle o-font-f1-section">Puedes consultar todos los productos disponibles y comprar algunos en la tienda</span>
+          </div>
+          <app-button
+          [description]="'Volver a comprar'"
+          [styles]="'c-button c-button--default'"
+          (click)="onToggle()"></app-button>
+        </div>
       </ng-container>
     </div>
-
-    <div class="c-shopping-cart-page__total">
-      <span class="c-modal-shopping-cart__total-items">
-        Total por los {{ this.itemsCount$ | async }} productos.
-      </span>
-      <div class="c-shopping-cart-page__total-value">
-        <h3>{{ this.total$ | async | currency }}</h3>
-      </div>
-    </div>
-    <app-button
-      (click)="this.contactForWhatsapp()"
-      (click)="onToggle()"
-      [isContact]="true"
-      [styles]="'c-button--contact'"></app-button>
-  </ng-container>
-
-  <ng-container *ngIf="!this.existsProductsInCart()">
-    <h1>No hay productos!!!</h1>
-  </ng-container>
+    
+  </div>
+  
 </div>
