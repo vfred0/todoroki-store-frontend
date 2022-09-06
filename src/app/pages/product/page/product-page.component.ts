@@ -30,14 +30,14 @@ SwiperCore.use([Pagination, Navigation]);
   templateUrl: './product-page.component.html',
 })
 export class ProductPageComponent implements OnDestroy {
+  private productOrder: ProductOrder;
+  private subscription: Subscription;
   @ViewChild(QuantityComponent) quantity!: QuantityComponent;
   sizes: Array<Size>;
   likes: Tag;
   typeColors: Color[];
   product: Product;
-  private productOrder: ProductOrder;
   productsSimilarity: ProductCard[];
-  private subscription: Subscription;
 
   constructor(
     private router: ActivatedRoute,
@@ -65,19 +65,19 @@ export class ProductPageComponent implements OnDestroy {
         })
     );
     this.productsSimilarity = [];
-    this.subscription.add(
-      this.productService
-        .getSimilarClothing({
-          color: this.product.color,
-          clothingType: this.product.clothingType,
-          anime: this.product.anime,
-          limit: 4,
-          page: 1,
-        } as ProductFilter)
-        .subscribe(products => {
-          this.productsSimilarity = products;
-        })
-    );
+    // this.subscription.add(
+    //   this.productService
+    //     .getSimilarClothing({
+    //       color: this.product.color,
+    //       clothingType: this.product.clothingType,
+    //       anime: this.product.anime,
+    //       limit: 4,
+    //       page: 1,
+    //     } as ProductFilter)
+    //     .subscribe(products => {
+    //       this.productsSimilarity = products;
+    //     })
+    // );
 
     this.sizes = [...Object.values(Size)];
     this.typeColors = [...Object.values(Color)];
@@ -88,7 +88,7 @@ export class ProductPageComponent implements OnDestroy {
   contactForWhatsapp() {
     this.productOrder = {
       productId: this.product.id,
-      color: this.productOrder.color,
+      color: this.product.color,
       size: this.productOrder.size,
       quantity: this.quantity.getValue(),
       price: this.quantity.getValue() * this.product.price,
@@ -129,10 +129,10 @@ export class ProductPageComponent implements OnDestroy {
       quantity: this.quantity.getValue(),
     } as ProductItemCart);
   }
-  colorSelected(color: Color) {
-    this.productOrder.color = color;
-    this.cd.detectChanges();
-  }
+  // colorSelected(color: Color) {
+  //   this.productOrder.color = color;
+  //   this.cd.detectChanges();
+  // }
 
   sizeSelected(size: Size) {
     this.productOrder.size = size;
