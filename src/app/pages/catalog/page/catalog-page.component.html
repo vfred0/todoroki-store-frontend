@@ -1,31 +1,31 @@
 <app-header> </app-header>
 <div class="o-layout-spacing">
-  <section class="c-page-categories">
-    <span class="c-page-categories__title">Catálogo</span>
-    <div class="c-page-categories__filters">
-      <div class="c-page-categories__filter">
-        <span class="c-page-categories__filters-title">Anime</span>
+  <section class="c-catalog">
+    <span class="c-catalog__title o-font-f1-main">Catálogo</span>
+    <div class="c-catalog__filters">
+      <div class="c-catalog__filter">
+        <span class="c-catalog__filters-title o-font-f1-section">Anime</span>
         <app-select
           [options]="animeOptions"
           (selectChange)="this.updateProductsByAnime($event)"></app-select>
       </div>
-      <div class="c-page-categories__filter">
-        <span class="c-page-categories__filters-title">Tipo</span>
+      <div class="c-catalog__filter">
+        <span class="c-catalog__filters-title o-font-f1-section">Tipo de ropa</span>
         <app-select
           [options]="typeClothingsOptions"
           [optionSelected]="this.clothingTypeSelected"
           (selectChange)="this.updateProductsByCloth($event)"></app-select>
       </div>
-      <div class="c-page-categories__filter">
-        <span class="c-page-categories__filters-title">Color</span>
+      <div class="c-catalog__filter">
+        <span class="c-catalog__filters-title o-font-f1-section">Color</span>
         <app-select-color
           (colorSelected)="
             this.updateProductsByColor($event)
           "></app-select-color>
       </div>
-      <!-- <div class="c-page-categories__filter">
-        <span class="c-page-categories__filters-title">Talla</span>
-        <app-select-size
+      <!-- <div class="c-catalogue__filter c-catalogue__filter--contain-size">
+        <span class="c-catalogue__filters-title o-font-f1-section">Talla</span>
+        <app-select-size class="c-catalogue__filter-size"
           (sizeSelected)="this.updateProductsBySize($event)"></app-select-size>
       </div> -->
     </div>

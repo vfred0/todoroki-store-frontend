@@ -1,0 +1,56 @@
+.c-product-view{
+    display: grid;
+    gap: em(12);
+    &__image{
+        margin: 0 auto;
+    }
+    &__details{
+        align-items: flex-end;
+        display: grid;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: em(12);
+        @include md {
+            justify-content: space-between;
+            display: flex;
+          }
+        &__top{
+            display: grid;
+            gap: em(12);
+        }
+        &__name-price{
+            display: grid;
+            gap: em(4);
+            
+        }
+        &__name-likes{
+            display: flex;
+            justify-content: space-between;
+        }
+        &__sizes{
+            display: grid;
+            gap: em(12);
+        }
+        &__colors{
+            
+            display: grid;
+            gap: em(12);
+            justify-items: start;
+        }
+        &__quantity{
+            display: grid;
+            gap: em(12);
+        }
+        &__cart-quantity{
+            display: flex;
+            align-items: center;
+            gap: em(12);
+        }
+    }
+    &__button-add{
+        
+    }
+    &__button-wsp{
+        
+    }
+}

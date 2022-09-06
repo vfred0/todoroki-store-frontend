@@ -1,9 +1,6 @@
 .c-select{
     display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
-    gap: em(4);
+    align-items: center; 
     position: relative;
     &__frame{
         text-overflow:ellipsis;
@@ -16,10 +13,9 @@
         border: none;
         outline: none;
         cursor: pointer;
-        padding-left: em(21);
+        padding-left: em(22);
         &::-ms-expand{
             display: none;
-
         }
     }
     &__arrow{

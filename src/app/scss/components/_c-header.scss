@@ -13,6 +13,7 @@
     align-items: center;
     justify-content: space-between;
     padding: em(8);
+    position: relative;
     &-right {
       display: flex;
       gap: em(16);
@@ -39,12 +40,26 @@
         display: none;
       }
     }
+    &--logo{
+      width: em(32);
+      height: em(32);
+      @include md {
+        width: em(40);
+        height: em(40);
+      }
+    }
   }
   &__logo {
     width: em(32);
-
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
     @include md {
       width: em(40);
+      
     }
     @include lg {
       width: em(48);

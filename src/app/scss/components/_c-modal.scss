@@ -1,6 +1,7 @@
 .c-modal {
   height: 100%;
-  width: 60vmin;
+  width: 100%;
+  /* max-width: em(600); */
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -11,10 +12,12 @@
 
   &--shopping-cart {
     display: none;
-    background-color: $grey-500;
+    /* background-color: $grey-500; */
+    right: 0;
     #{$modal}.is-active {
       display: flex;
       position: fixed;
+      /* background-color: aqua; */
       top: 0;
       right: 0;
       z-index: $z-modal;
@@ -46,7 +49,8 @@
   }
 
   &.is-active {
-    display: flex;
+    /* display: flex; */
+    display: block;
     position: fixed;
     top: 0;
     z-index: $z-modal;

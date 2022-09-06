@@ -1,15 +1,17 @@
-<ng-container *ngFor="let tagColor of this.tagColors">
-  <ng-template [ngIf]="this.isSelectable" [ngIfElse]="noAddEventClick">
-    <app-color
-      [isSelected]="tagColor.isSelected"
-      (selectionOfColor)="this.selectionOfColor($event)"
-      [tagColor]="tagColor"></app-color>
-  </ng-template>
-
-  <ng-template #noAddEventClick>
-    <app-color
-      [isSelectable]="this.isSelectable"
-      [isSelected]="tagColor.isSelected"
-      [tagColor]="tagColor"></app-color>
-  </ng-template>
-</ng-container>
+<div class="c-select-color">
+  <ng-container *ngFor="let tagColor of this.tagColors">
+    <ng-template [ngIf]="this.isSelectable" [ngIfElse]="noAddEventClick">
+      <app-color
+        [isSelected]="tagColor.isSelected"
+        (selectionOfColor)="this.selectionOfColor($event)"
+        [tagColor]="tagColor"></app-color>
+    </ng-template>
+  
+    <ng-template #noAddEventClick>
+      <app-color
+        [isSelectable]="this.isSelectable"
+        [isSelected]="tagColor.isSelected"
+        [tagColor]="tagColor"></app-color>
+    </ng-template>
+  </ng-container>
+</div>

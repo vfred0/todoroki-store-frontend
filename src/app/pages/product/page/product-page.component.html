@@ -1,63 +1,68 @@
 <app-header> </app-header>
-
-<section class="c-product-details">
-  <img [src]="this.product.image" alt="" class="c-product-details" />
-
-  <div class="c-product-details__top">
-    <div class="c-product-details__name-price">
-      <div class="c-product-details__name-likes">
-        <div class="c-product-details__name o-font-f1-main">
-          {{ this.product.description }}
+<div class="o-layout-spacing">
+  <section class="c-product-view">
+    <img [src]="this.product.image" alt="" class="c-product-view__image" />
+    <div class="c-product-view__details">
+      <div class="c-product-view__details__top">
+        <div class="c-product-view__details__name-price">
+          <div class="c-product-view__details__name-likes">
+            <div class="c-product-view__details__name o-font-f1-main">
+              {{ this.product.description }}
+            </div>
+            <app-tag [tag]="this.likes" [styles]="'c-tag--likes'"></app-tag>
+          </div>
+          <div class="c-product-view__details__price o-font-f1-section">
+            ${{ this.product.price }}
+          </div>
         </div>
-        <app-tag [tag]="this.likes" [styles]="'c-tag--likes'"></app-tag>
+        <div class="c-product-view__details__sizes">
+          <div class="c-product-view__details__title o-font-f1-section">Talla</div>
+          <div class="c-product-view__details__size-tags">
+            <app-select-size (sizeSelected)="this.sizeSelected($event)">
+            </app-select-size>
+          </div>
+        </div>
+        <!-- <div class="c-product-details__colors">
+          <div class="c-product-details__title o-font-f1-section">Color</div>
+          <div class="c-product-details__color-tags">
+            <app-select-color
+              (colorSelected)="this.colorSelected($event)"></app-select-c-product-view__details
+        </div> -->
       </div>
-      <div class="c-product-details__price o-font-f1-section">
-        ${{ this.product.price }}
+    
+      <div class="c-product-view__details__bottom">
+        <div class="c-product-view__details__quantity">
+          <span>Cantidad</span>
+          <div class="c-product-view__details__cart-quantity">
+            <app-quantity></app-quantity>
+            <app-button
+            (click)="this.addToCart()"
+            [description]="'Añadir al carrito'"
+            [styles]="'c-button c-button--default'"
+            class="c-product-view__button-add"></app-button>
+          </div>
+          <app-button
+          (click)="this.contactForWhatsapp()"
+          [isContact]="true"
+          [styles]="'c-button c-button--contact'"
+          class="c-product-view__button-wsp"></app-button>
+        </div> 
       </div>
-    </div>
-    <div class="c-product-details__sizes">
-      <div class="c-product-details__title o-font-f1-section">Talla</div>
-      <div class="c-product-details__size-tags">
-        <app-select-size (sizeSelected)="this.sizeSelected($event)">
-        </app-select-size>
-      </div>
-    </div>
-    <div class="c-product-details__colors">
-      <div class="c-product-details__title o-font-f1-section">Color</div>
-      <div class="c-product-details__color-tags">
-        <app-select-color
-          (colorSelected)="this.colorSelected($event)"></app-select-color>
-      </div>
-    </div>
-  </div>
-
-  <div class="c-product-details__bottom">
-    <div class="c-product-details__quantity">
-      <span>Cantidad</span>
-      <app-quantity></app-quantity>
-    </div>
-    <div class="c-product-details__buttons">
-      <app-button
-        (click)="this.addToCart()"
-        [description]="'Añadir al carrito'"
-        [styles]="'c-button c-button--default'"></app-button>
-      <app-button
-        (click)="this.contactForWhatsapp()"
-        [isContact]="true"
-        [styles]="'c-button c-button--contact'"></app-button>
-    </div>
-  </div>
-</section>
-
-<ng-container *ngIf="this.productsSimilarity.length > 0">
-  <section class="c-cards">
-    <span class="c-cards__title o-font-f1-main"
-      >Ropa con estilos similares</span
-    >
-    <div class="c-cards__container">
-      <app-product-card
-        *ngFor="let productCard of this.productsSimilarity"
-        [productCard]="productCard"></app-product-card>
     </div>
   </section>
-</ng-container>
+  
+  <ng-container *ngIf="this.productsSimilarity.length > 0">
+    <section class="c-cards">
+      <span class="c-cards__title o-font-f1-main"
+        >Ropa con estilos similares</span
+      >
+      <div class="c-cards__container">
+        <app-product-card
+          *ngFor="let productCard of this.productsSimilarity"
+          [productCard]="productCard"></app-product-card>
+      </div>
+    </section>
+  </ng-container>
+
+</div>
+

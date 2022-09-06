@@ -1,27 +1,31 @@
 <div class="c-shopping-car-item">
-  <span class="c-shopping-car-item__title">
-    {{ this.productItemCart.description }}
-  </span>
-  <div class="c-shopping-car-item__tags">
-    <app-color [tagColor]="this.tagColor"> </app-color>
-    <app-tag
-      [isSelectable]="false"
-      [styles]="'c-tag--size'"
-      [tag]="tagSize"></app-tag>
-    <app-tag
-      [isSelectable]="false"
-      [styles]="'c-tag--price'"
-      [tag]="tagPrice"></app-tag>
-  </div>
-  <div class="c-shoppping-cart-item__footer">
-    <app-quantity
-      (valueChange)="this.setProductCartQuantity($event)"
-      [value]="this.productItemCart.quantity"></app-quantity>
-    <span
-      (click)="this.onRemoveProduct()"
-      class="c-shopping-car-item__remove o-font-f2-small"
-      >Remover</span
-    >
+  <div class="c-shopping-car-item__container">
+    <div class="c-shopping-car-item__information">
+      <span class="c-shopping-car-item__title o-font-f1-section">
+        {{ this.productItemCart.description }}
+      </span>
+      <div class="c-shopping-car-item__tags">
+        <app-color [tagColor]="this.tagColor"> </app-color>
+        <app-tag
+          [isSelectable]="false"
+          [styles]="'c-tag--size'"
+          [tag]="tagSize"></app-tag>
+        <app-tag
+          [isSelectable]="false"
+          [styles]="'c-tag--price'"
+          [tag]="tagPrice"></app-tag>
+      </div>
+    </div>
+    <div class="c-shopping-car-item__footer">
+      <app-quantity
+        (valueChange)="this.setProductCartQuantity($event)"
+        [value]="this.productItemCart.quantity"></app-quantity>
+      <span
+        (click)="this.onRemoveProduct()"
+        class="c-shopping-car-item__remove o-font-f1-small"
+        >Remover</span
+      >
+    </div>
   </div>
   <img [src]="this.productItemCart.image" class="c-shopping-car-item__image" />
 </div>

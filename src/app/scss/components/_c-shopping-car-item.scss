@@ -6,7 +6,11 @@
     gap: em(32);
     flex-direction: row-reverse;
     border-bottom: 0.5px solid #CCCCCC;
-
+    max-width: em(376);
+    margin: 0 auto;
+    @include md {
+        width: em(376);
+    }
     &__container{
         display: flex;
         flex-direction: column;
