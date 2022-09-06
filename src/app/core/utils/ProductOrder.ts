@@ -7,6 +7,6 @@ export interface ProductOrder {
   color: Color;
   size: Size;
   quantity: number;
-  price?: number;
-  clothingType?: ClothingType;
+  price: number;
+  // clothingType?: ClothingType;
 }

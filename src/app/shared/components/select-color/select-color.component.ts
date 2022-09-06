@@ -34,7 +34,7 @@ export class SelectColorComponent implements AfterContentInit {
       };
     });
 
-    if (this.selectedColors.length > 0) {
+    if (this.selectedColors && this.selectedColors.length > 0) {
       this.tagColors = this.tagColors.map((item: TagColor) => {
         if (this.selectedColors.includes(item.typeColor as Color)) {
           item.isSelected = true;

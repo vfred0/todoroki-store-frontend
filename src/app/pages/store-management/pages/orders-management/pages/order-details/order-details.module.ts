@@ -13,6 +13,7 @@ import { SelectOrderDatesComponent } from './components/select-order-dates/selec
 import { SelectModule } from '@shared/components/select/select.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BackMenuModule } from '@pages/store-management/components/back-menu/back-menu.module';
+import { EarningSummaryModule } from '../../components/earning-summary/earning-summary.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { BackMenuModule } from '@pages/store-management/components/back-menu/bac
     SelectModule,
     ReactiveFormsModule,
     BackMenuModule,
+    EarningSummaryModule,
   ],
 })
 export class OrderDetailsModule {}

@@ -31,7 +31,7 @@ export class SelectSizeComponent implements AfterContentInit {
         isSelected: false,
       };
     });
-    if (this.selectedSizes.length > 0) {
+    if (this.selectedSizes && this.selectedSizes.length > 0) {
       this.tagSizes = this.tagSizes.map((item: TagSize) => {
         if (this.selectedSizes.includes(item.description as Size)) {
           item.isSelected = true;

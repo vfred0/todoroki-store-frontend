@@ -3,7 +3,7 @@
   <section>
     <span>Listado de productos</span>
     <app-product-ordered
-      *ngFor="let productOrdered of this.productsOrdered"
+      *ngFor="let productOrdered of this.productOrders"
       [productOrdered]="productOrdered"></app-product-ordered>
   </section>
   <section>
@@ -21,9 +21,11 @@
       (updateDateInterval)="
         this.setOrderDates($event)
       "></app-select-order-dates>
-    <!-- <app-earning-summary
-      [earningSummaries]="this.earningSummaries"></app-earning-summary>
-    <span> Total </span>
+    <app-earning-summary
+      [earningSummaries]="
+        this.orderDetails.earningsSummary
+      "></app-earning-summary>
+    <!-- <span> Total </span>
     <app-tag
       [tag]="
         this.getTagFrom(
@@ -32,13 +34,13 @@
         )
       ">
       >
-    </app-tag> -->
+    </app-tag>
     <div *ngFor="let color of getColors()">
       <app-color
         [isSelected]="true"
         [tagColor]="getTagColorFrom(color)"></app-color>
       <span> {{ this.getTotalSummary(color) }} </span>
-    </div>
+    </div> -->
 
     <button (click)="this.updateOrderDetails()">
       Actualizar detalles del pedido

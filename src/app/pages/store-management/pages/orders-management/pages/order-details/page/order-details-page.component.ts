@@ -19,7 +19,7 @@ import { SelectPaymentTypeComponent } from '../components/select-payment-type/se
   templateUrl: './order-details-page.component.html',
 })
 export class OrderDetailsPageComponent implements OnInit {
-  productsOrdered: ProductOrdered[];
+  productOrders: ProductOrdered[];
   orderDetails: OrderDetails;
   orderUpdate: OrderUpdate;
   @ViewChild(SelectPaymentTypeComponent)
@@ -39,7 +39,7 @@ export class OrderDetailsPageComponent implements OnInit {
     private router: ActivatedRoute
   ) {
     this.earningSummaries = [];
-    this.productsOrdered = [];
+    this.productOrders = [];
     this.orderDetails = {} as OrderDetails;
     this.orderUpdate = {} as OrderUpdate;
     this.orderNumber = this.router.snapshot.params['orderNumber'];
@@ -49,9 +49,10 @@ export class OrderDetailsPageComponent implements OnInit {
     this.orderService
       .getDetailsOrderByNumber(this.orderNumber)
       .subscribe(orderDetails => {
+        console.log('ORDER DETAILS', orderDetails);
         this.orderDetails = orderDetails;
 
-        this.productsOrdered = orderDetails.productsOrdered;
+        this.productOrders = orderDetails.productOrders;
         this.selectPaymentTypeComponent.setOptionSelected(
           this.orderDetails.paymentType
         );

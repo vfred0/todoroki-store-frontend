@@ -4,7 +4,7 @@ import { EarningSummary } from './EarningSummary';
 import { ProductOrdered } from './ProductOrdered';
 
 export interface OrderDetails {
-  productsOrdered: ProductOrdered[];
+  productOrders: ProductOrdered[];
   earningsSummary: EarningSummary[];
   saleDate: string;
   orderDate: string;
