@@ -1,6 +1,8 @@
 .c-product-view{
     display: grid;
     gap: em(12);
+    max-width: em(685);
+    margin: 0 auto;
     &__image{
         margin: 0 auto;
     }
@@ -10,10 +12,12 @@
         justify-content: space-between;
         align-items: baseline;
         gap: em(12);
+        position: relative;
         @include md {
             justify-content: space-between;
             display: flex;
-          }
+        }
+        
         &__top{
             display: grid;
             gap: em(12);
@@ -26,6 +30,14 @@
         &__name-likes{
             display: flex;
             justify-content: space-between;
+            
+        }
+        &__likes{
+            position: absolute;
+            right: 0;
+            @include md {
+                position: static;
+              }
         }
         &__sizes{
             display: grid;

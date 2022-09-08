@@ -1,5 +1,15 @@
-<div class="c-modal" [class.is-active]="this.isActive">
-  <p>{{ this.getUserName() }}</p>
-
-  <button class="c-button" (click)="this.onLogout()">Cerrar sesión</button>
+<div class="c-modal c-modal--action-user" [class.is-active]="this.isActive">
+  <!-- <div class="c-modal--action-user"> -->
+    <app-button-with-icon
+    [description]= this.getUserName()
+    [icon]="'user2.svg'"
+    [styles]="'c-button__with-icon c-modal-action--user__button-user'">
+    </app-button-with-icon>
+    <app-button-with-icon
+    [description]="'Cerrar sesión'"
+    [icon]="'out.svg'"
+    [styles]="'c-button__with-icon c-modal-action--user__button-log-out'"
+    (click)="this.onLogout()">
+    </app-button-with-icon>
+  <!-- </div> -->
 </div>

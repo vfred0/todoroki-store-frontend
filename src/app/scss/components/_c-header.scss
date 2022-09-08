@@ -65,4 +65,31 @@
       width: em(48);
     }
   }
+  &__logo-admin{
+    width: em(32);
+    @include md {
+      width: em(40);
+      
+    }
+    @include lg {
+      width: em(48);
+    }
+  }
+  &__icon-container-admin{
+    background-color: $grey-100;
+    border-radius: 50%;
+    width: em(35);
+    height: em(35);
+    cursor: pointer;
+    position: relative;
+  }
+  &__icon-admin{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    fill: $grey-700;
+  }
 }

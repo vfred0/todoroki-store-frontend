@@ -6,6 +6,7 @@ import { StoreManagementComponent } from './pages/store-management.component';
 import { CardManagementModule } from '@pages/store-management/components/card-management/card-management.module';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ModalActionsForUserComponent } from './components/modal-actions-for-user/modal-actions-for-user.component';
+import { ButtonWithIconModule } from '@shared/components/button-with-icon/button-with-icon.module';
 
 @NgModule({
   declarations: [StoreManagementComponent, ModalActionsForUserComponent],
@@ -14,6 +15,7 @@ import { ModalActionsForUserComponent } from './components/modal-actions-for-use
     StoreManagementRoutingModule,
     CardManagementModule,
     AngularSvgIconModule.forRoot(),
+    ButtonWithIconModule
   ],
 })
 export class StoreManagementModule {}

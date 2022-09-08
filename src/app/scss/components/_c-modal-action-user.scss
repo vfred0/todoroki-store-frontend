@@ -1,0 +1,14 @@
+.c-modal-action--user{
+    &__button-user{
+        padding: em(4);
+        background-color: $grey-200;
+        border: none;
+        margin-bottom: em(12);
+    }
+    &__button-log-out{
+        padding: em(4);
+        border: none;
+        background-color: $red-200;
+        width: 100%;
+    }
+}

@@ -1,7 +1,20 @@
-<form class="c-login" [formGroup]="formGroup">
-  <input formControlName="username" type="text" class="c-login__username" />
-  <input formControlName="password" type="password" class="c-login__password" />
-  <button (click)="this.checkAccount()" class="c-login__button">
-    <a routerLink="/store-management">Ingresar</a>
-  </button>
-</form>
+<div class="c-login">
+  <div class="c-login__content">
+    <div class="c-login__content__header">
+      <img src="../../../../../assets/images/Logo.png" alt="" class="c-login__content__image">
+      <span class="o-font-f1-main">Sign in</span>
+    </div>
+    <form class="c-login__content__form" [formGroup]="formGroup">
+      <input formControlName="username" type="text" class="c-login__content__input c-login__content__username o-font-f1-section" />
+      <input formControlName="password" type="password" class="c-login__content__input c-login__content__password o-font-f1-section" />
+    </form>
+    <app-button
+            (click)="this.checkAccount()"
+            [isContact]="false"
+            [description]="'Login in'"
+            [styles]="'c-button c-button--contact c-login__content__button'"></app-button>
+  </div>
+</div>
+
+
+

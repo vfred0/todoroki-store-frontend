@@ -1,0 +1,10 @@
+.c-store-management{
+    display: grid;
+    gap: em(24);
+    justify-content: center;
+    padding-top: em(56);
+    position: relative;
+    @include md {
+        display: flex;
+      }
+}

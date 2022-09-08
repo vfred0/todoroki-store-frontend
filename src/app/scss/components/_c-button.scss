@@ -2,7 +2,9 @@
   padding: em(12) em(36);
   border-radius: em(6);
   font-weight: 600;
-
+  &:hover{
+    cursor: pointer;
+  }
   &--default {
     color: $grey-900;
     background-color: $neutral-white;
@@ -10,7 +12,7 @@
     &:hover {
       background-color: $neutral-black;
       color: $neutral-white;
-      cursor: pointer;
+      
     }
   }
   &--contact {
@@ -20,7 +22,7 @@
     gap: em(12);
     border: none;
     &:hover {
-      cursor: pointer;
+      
       background-color: $green-500;
     }
   }
@@ -28,5 +30,15 @@
   &__icon {
     fill: $neutral-white;
     display: grid;
+  }
+  &__with-icon{
+    display: flex;
+    align-items: center;
+    gap: em(6);
+    &__icon{
+      width: em(15);
+      height: em(15);
+      display: grid;
+    }
   }
 }

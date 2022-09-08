@@ -1,0 +1,49 @@
+.c-category{
+    background-color: $light-blue-100;
+    padding: em(16);
+    display: flex;
+    flex-direction: column;
+    gap: em(32);
+    align-items: center;
+    /* width: em(250); */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: em(6);
+    &__image{
+        width: em(150);
+        height: em(198);
+    }
+    &__footer{
+        display: flex;
+        gap: em(10);
+        padding: em(12);
+        align-items: center;
+    }
+    &__wrapper-texts{
+        color: $grey-800;   
+        max-width: em(139);
+    }
+    &__wrapper-icon{
+        background-color: $neutral-white;
+        width: em(45);
+        height: em(45);
+        border-radius: 50%;
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+        position: relative;
+        @include md {
+            /* width: em(53); */
+          }
+
+    }
+    &__icon{
+        position: absolute;
+        width: em(20);
+        height: em(20);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+}

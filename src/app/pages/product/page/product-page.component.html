@@ -9,7 +9,7 @@
             <div class="c-product-view__details__name o-font-f1-main">
               {{ this.product.description }}
             </div>
-            <app-tag [tag]="this.likes" [styles]="'c-tag--likes'"></app-tag>
+            <app-tag [tag]="this.likes" [styles]="'c-tag--likes'" class="c-product-view__details__likes"></app-tag>
           </div>
           <div class="c-product-view__details__price o-font-f1-section">
             ${{ this.product.price }}
