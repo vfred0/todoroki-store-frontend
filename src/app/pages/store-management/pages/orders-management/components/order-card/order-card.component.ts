@@ -30,7 +30,7 @@ export class OrderCardComponent implements OnInit {
     this.selectedColors = this.orderCard.colors;
   }
 
-  getTags(index: number): Tag {
+  getTags(index: number): Tag{
     let orderStatus =
       Object.values(OrderStatus)[
         Object.keys(OrderStatus).indexOf(this.orderCard.orderStatus)
@@ -60,4 +60,5 @@ export class OrderCardComponent implements OnInit {
     }
     return '/assets/icons/pending.svg';
   }
+  
 }

@@ -21,12 +21,13 @@
           <app-tag
             [tag]="
               this.getTagFrom(colorDetails.price.toString(), '/assets/icons/price.svg')
-            "></app-tag>
+            "
+            [styles]="'c-earning-summary__tag__subtotal'"></app-tag>
         </div>
         <app-tag
         [tag]="
-          this.getTagFrom(earningSummary.price.toString(), '/assets/icons/pricev2.svg')
-        ">
+          this.getTagFrom(earningSummary.price.toString(), '/assets/icons/pricev2.svg')"
+        [styles]="'c-earning-summary__tag__total'">
         </app-tag>
       </div>
       

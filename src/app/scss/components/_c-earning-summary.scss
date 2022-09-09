@@ -25,5 +25,12 @@
         gap: em(6);
         padding: em(4);
     }
-
+    &__tag{
+        &__subtotal{
+            background-color: $green-200;
+        }
+        &__total{
+            background-color: $green-500;
+        }
+    }
 }
