@@ -1,0 +1,31 @@
+.c-input-with-icon{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: em(8);
+    border: 0.8px solid $grey-900;
+    border-radius: 6px; 
+    &__input{
+        border: none;
+        outline: none;
+        color: $grey-900;
+        text-align: end;
+        width: 100%;
+        ::placeholder{
+            color: $grey-200;
+        }
+    }
+    &__contain-svg{
+        width: em(20);
+        height: em(20);
+        position: relative;
+    }
+    &__svg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+}

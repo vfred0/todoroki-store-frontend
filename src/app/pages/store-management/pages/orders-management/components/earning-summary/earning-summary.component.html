@@ -1,31 +1,36 @@
-<ng-container *ngFor="let earningSummary of earningSummaries">
-  <span>
-    {{ this.getDescription(earningSummary.clothingType) }}
-  </span>
-  <app-tag
-    [tag]="
-      this.getTagFrom(
-        earningSummary.quantity.toString(),
-        '/assets/icons/cart.svg'
-      )
-    ">
-    >
-  </app-tag>
-  <div *ngFor="let colorDetails of earningSummary.colorDetails">
-    <app-color
-      [isSelected]="true"
-      [tagColor]="this.getTagColorFrom(colorDetails.color)"></app-color>
-    <span>{{ colorDetails.quantity }}</span>
-    <app-tag
-      [tag]="
-        this.getTagFrom(colorDetails.price.toString(), '/assets/icons/cart.svg')
-      "></app-tag>
-  </div>
-  <app-tag
-    [tag]="
-      this.getTagFrom(earningSummary.price.toString(), '/assets/icons/cart.svg')
-    ">
-    >
-  </app-tag>
-  <\br>
-</ng-container>
+<div class="c-earning-summary">
+  <ng-container *ngFor="let earningSummary of earningSummaries">
+    <div class="c-earning-summary__type-clothing">
+      <span class="c-earning-summary__type-clothing__text o-font-f2-normal">
+        {{ this.getDescription(earningSummary.clothingType) }}
+      </span>
+      <div class="c-earning-summary__tags">
+        <app-tag
+        [tag]="
+          this.getTagFrom(
+            earningSummary.quantity.toString(),
+            '/assets/icons/cart.svg')">
+        </app-tag>
+        <div *ngFor="let colorDetails of earningSummary.colorDetails" class="c-earning-summary__tags-plus">
+          <div class="c-earning-summary__colors">
+            <app-color
+            [isSelected]="true"
+            [tagColor]="this.getTagColorFrom(colorDetails.color)"></app-color>
+            <span class="o-font-f2-small">{{ colorDetails.quantity }}</span>
+          </div>
+          <app-tag
+            [tag]="
+              this.getTagFrom(colorDetails.price.toString(), '/assets/icons/price.svg')
+            "></app-tag>
+        </div>
+        <app-tag
+        [tag]="
+          this.getTagFrom(earningSummary.price.toString(), '/assets/icons/pricev2.svg')
+        ">
+        </app-tag>
+      </div>
+      
+    </div>
+  </ng-container>
+</div>
+

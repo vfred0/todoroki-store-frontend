@@ -13,6 +13,8 @@ import { SelectSizeModule } from '@shared/components/select-size/select-size.mod
 
 import { SelectClothingTypeModule } from '@shared/components/select-clothing-type/select-clothing-type.module';
 import { BackMenuModule } from '@pages/store-management/components/back-menu/back-menu.module';
+import { InputWithIconModule } from '@shared/components/input-with-icon/input-with-icon.module';
+import { ButtonModule } from '@shared/components/button/button.module';
 
 @NgModule({
   declarations: [ClothingDetailsPageComponent],
@@ -27,6 +29,8 @@ import { BackMenuModule } from '@pages/store-management/components/back-menu/bac
     SelectClothingTypeModule,
     ReactiveFormsModule,
     BackMenuModule,
+    InputWithIconModule,
+    ButtonModule
   ],
 })
 export class ClothingDetailsModule {}

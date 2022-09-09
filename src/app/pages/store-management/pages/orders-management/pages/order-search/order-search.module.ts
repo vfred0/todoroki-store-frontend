@@ -6,6 +6,7 @@ import { OrderSearchPageComponent } from './page/order-search-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BackMenuModule } from '@pages/store-management/components/back-menu/back-menu.module';
 import { OrderCardModule } from '../../components/order-card/order-card.module';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @NgModule({
   declarations: [OrderSearchPageComponent],
@@ -15,6 +16,7 @@ import { OrderCardModule } from '../../components/order-card/order-card.module';
     ReactiveFormsModule,
     BackMenuModule,
     OrderCardModule,
+    AngularSvgIconModule.forRoot()
   ],
 })
 export class OrderSearchModule {}

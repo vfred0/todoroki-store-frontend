@@ -1,17 +1,24 @@
-<div>
-  <app-back-menu [description]="'Listado de pedidos'"></app-back-menu>
 
-  <app-select-order-status
-    (orderStatusSelected)="this.updateForOrderStatus($event)">
-    ></app-select-order-status
-  >
-  <app-select-order-date
-    [namesForOrderDate]="this.namesForOrderDate"
-    (updateDateInterval)="this.updateForOrderDate($event)">
-    ></app-select-order-date
-  >
-
-  <app-order-card
-    *ngFor="let orderCard of this.orderCards"
-    [orderCard]="orderCard"></app-order-card>
+<app-back-menu [description]="'Listado de pedidos'"></app-back-menu>
+<div class="o-layout-spacing">
+  <div class="c-order-list">
+    <div class="c-order-list__search-and-filter">
+      <app-select-order-status
+      (orderStatusSelected)="this.updateForOrderStatus($event)">
+      </app-select-order-status>
+      <app-select-order-date
+      [namesForOrderDate]="this.namesForOrderDate"
+      (updateDateInterval)="this.updateForOrderDate($event)">
+      </app-select-order-date>
+    </div>
+    <div class="c-order-list__orders">
+      <app-order-card
+      *ngFor="let orderCard of this.orderCards"
+      [orderCard]="orderCard"></app-order-card>
+    </div>
+    
+  </div>
 </div>
+  
+  
+

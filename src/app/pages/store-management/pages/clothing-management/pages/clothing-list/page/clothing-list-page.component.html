@@ -1,19 +1,40 @@
 <app-back-menu [description]="'Listado de ropa'"></app-back-menu>
-<app-select-anime
-  (updateProductsByAnimes)="
-    this.updateProductsByAnimes($event)
-  "></app-select-anime>
-<app-select-clothing-type
-  (clothingTypeChange)="
-    updateProductsByClothingType($event)
-  "></app-select-clothing-type>
-<app-select-color
-  (colorSelected)="this.updateProductsByColor($event)"></app-select-color>
-<app-product-card
-  *ngFor="let productCard of this.productsCard"
-  [productCard]="productCard"
-  [isForManagement]="true"
-  (updateProduct)="this.updateProduct(productCard)"
-  (deleteProductSelected)="
-    this.deleteProductSelected($event)
-  "></app-product-card>
+
+  <div class="c-clothing-list">
+    <div class="c-clothing-list__filter">
+      <div class="c-clothing-list__filter-item">
+        <span class="c-form__title o-font-f2-small"> Anime </span>
+        <app-select-anime
+          (updateProductsByAnimes)="
+            this.updateProductsByAnimes($event)
+          "></app-select-anime>
+      </div>
+      <div class="c-clothing-list__filter-item">
+        <span class="c-form__title o-font-f2-small"> Tipo de ropa </span>
+        <app-select-clothing-type
+        (clothingTypeChange)="
+          updateProductsByClothingType($event)
+        "></app-select-clothing-type>
+      </div>
+      <div class="c-clothing-list__filter-item">
+        <span class="c-form__title o-font-f2-small"> Color </span>
+        <app-select-color
+          (colorSelected)="this.updateProductsByColor($event)"></app-select-color>
+      </div>    
+    </div>
+    
+  </div>
+<div class="o-layout-spacing">
+  <div class="c-cards__container">
+    <app-product-card
+    *ngFor="let productCard of this.productsCard"
+    [productCard]="productCard"
+    [isForManagement]="true"
+    (updateProduct)="this.updateProduct(productCard)"
+    (deleteProductSelected)=" 
+      this.deleteProductSelected($event)
+    "></app-product-card>
+  </div>
+  
+</div>
+

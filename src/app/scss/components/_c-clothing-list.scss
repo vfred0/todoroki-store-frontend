@@ -1,0 +1,14 @@
+.c-clothing-list{
+    &__filter{
+        display: flex;
+        gap: em(24);
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: em(54);
+    }
+    &__filter-item{
+        display: grid;
+        gap: em(12);
+        justify-items: center;
+    }
+}

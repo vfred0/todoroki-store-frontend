@@ -1,0 +1,12 @@
+.c-orders-management{
+    display: grid;
+
+    justify-items: center;
+    gap: em(56);
+    margin-bottom: em(50);
+    &__abstract{
+        display: grid;
+        gap: em(28);
+        justify-items: center;
+    }
+}

@@ -1,11 +1,13 @@
+
 <div class="c-back-menu">
-  <a (click)="onBack()">
+  <a (click)="onBack()" class="c-back-menu__contain-icon">
     <svg-icon
       src="/assets/icons/arrow-back.svg"
-      [class]="'o-icon-size-lg'"
+      [class]="'c-back-menu__icon o-icon-size-lg'"
       [applyClass]="true">
     </svg-icon>
   </a>
 
-  <span class="o-font-main">{{ this.description }}</span>
+  <a class="c-back-menu__title o-font-f1-main">{{ this.description }}</a>
 </div>
+

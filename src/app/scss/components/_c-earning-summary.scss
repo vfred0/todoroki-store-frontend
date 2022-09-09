@@ -1,0 +1,29 @@
+.c-earning-summary{
+    display: grid;
+    gap: em(12);
+    &__type-clothing{
+        display: grid;
+        gap: em(12);
+        justify-items: center;
+        &__text{
+            color: $grey-700;
+        }
+    }
+    &__tags{
+        display: flex;
+        gap: em(12);
+    }
+    &__tags-plus{
+        display: flex;
+        gap: em(12);
+    }
+    &__colors{
+        background-color: $light-blue-100;
+        border-radius: em(6);
+        display: flex;
+        align-items: center;
+        gap: em(6);
+        padding: em(4);
+    }
+
+}

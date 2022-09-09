@@ -1,0 +1,17 @@
+.c-order-list{
+    display: grid;
+    gap: em(64);
+    &__search-and-filter{
+        display: grid;
+        gap: em(48);
+    }
+    &__orders{
+        display: grid;
+        gap: em(36);
+        justify-content: center;
+        @include md {
+            display: flex;
+            flex-wrap: wrap;
+          }
+    }
+}

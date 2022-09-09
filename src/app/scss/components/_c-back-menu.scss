@@ -1,0 +1,27 @@
+.c-back-menu{
+    margin-top: em(16);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: em(48);
+    &__title{
+        display: inline;
+        color: $grey-900;
+    }
+    &__contain-icon{
+        background-color: $grey-100;
+        width: em(35);
+        height: em(35);
+        border-radius: em(6);
+        position: relative;
+    }
+    &__icon{
+        fill: $grey-600;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+}

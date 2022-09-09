@@ -1,7 +1,11 @@
-<p>Estado del pedido</p>
-<app-tag
-  *ngFor="let tag of this.tags"
-  [styles]="'c-tag--size'"
-  [tag]="tag"
-  [isSelected]="tag.isSelected"
-  (selectionOfTag)="this.selectionOfTag(tag)"></app-tag>
+
+<div class="c-select-order-status">
+  <span class="o-font-f1-section">Estado del pedido</span>
+  <app-tag
+    *ngFor="let tag of this.tags"
+    [styles]="'c-tag--size'"
+    [tag]="tag"
+    [isSelected]="tag.isSelected"
+    (selectionOfTag)="this.selectionOfTag(tag)"></app-tag>
+</div>
+

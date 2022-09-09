@@ -1,5 +1,6 @@
 <app-back-menu [description]="'Gestión de la ropa'"></app-back-menu>
-<app-card-management
+<div class="c-clothing-management-page">
+  <app-card-management
   [description]="'Guardar ropa'"
   [icon]="'/assets/icons/insert.svg'"
   [redirectTo]="'/store-management/clothing-management/clothing-details/save'"
@@ -9,42 +10,66 @@
   [icon]="'/assets/icons/list.svg'"
   [redirectTo]="'/store-management/clothing-management/clothing-list'"
   [image]="'/assets/images/order-lists.png'"></app-card-management>
+  <div class="c-clothing-management-page__details">
+    <span class="o-font-f1-subtitle">Resumen de las ropas</span>
 
-<span class="o-font-f1-main">Resumen de las ropas</span>
-
-<ng-container *ngFor="let earningSummary of earningSummaries">
-  <span>
-    {{ this.getDescription(earningSummary.clothingType) }}
-  </span>
-  <app-tag
-    [tag]="
-      this.getTagFrom(
-        earningSummary.quantity.toString(),
-        '/assets/icons/cart.svg'
-      )
-    ">
-    >
-  </app-tag>
-  <div *ngFor="let colorDetails of earningSummary.colorDetails">
-    <app-color
-      [isSelected]="true"
-      [tagColor]="this.getTagColorFrom(colorDetails.color)"></app-color>
-    <span>{{ colorDetails.quantity }}</span>
+    <div class="c-clothing-management-page__sub-details">
+      
+        <ng-container *ngFor="let earningSummary of earningSummaries">
+          <div class="c-clothing-management-page__sub-details__contain">
+            <span class="o-font-f2-normal">
+              {{ this.getDescription(earningSummary.clothingType) }}
+            </span>
+            <div class="c-clothing-management-page__sub-details__tags">
+                <app-tag
+                [tag]="
+                  this.getTagFrom(
+                    earningSummary.quantity.toString(),
+                    '/assets/icons/cart.svg'
+                  )
+                ">
+                >
+              </app-tag>
+              <div *ngFor="let colorDetails of earningSummary.colorDetails">
+                <div class="c-clothing-management-page__sub-details__tags-color">
+                  <app-color
+                  [isSelected]="true"
+                  [tagColor]="this.getTagColorFrom(colorDetails.color)"></app-color>
+                  <span>{{ colorDetails.quantity }}</span>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </ng-container>
+      
+      <div class="c-clothing-management-page__sub-details__contain">
+        <span class="o-font-f2-normal"> Total </span>
+        <div class="c-clothing-management-page__sub-details__tags">
+          <app-tag
+            [tag]="
+              this.getTagFrom(
+                this.getTotalSummary('total').toString(),
+                '/assets/icons/cart.svg'
+              )
+            ">
+            >
+          </app-tag>
+          <div *ngFor="let color of getColors()">
+            <div class="c-clothing-management-page__sub-details__tags-color">
+              <app-color
+              [isSelected]="true"
+              [tagColor]="getTagColorFrom(color)"></app-color>
+              <span> {{ this.getTotalSummary(color) }} </span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+    
   </div>
-</ng-container>
-<span> Total </span>
-<app-tag
-  [tag]="
-    this.getTagFrom(
-      this.getTotalSummary('total').toString(),
-      '/assets/icons/cart.svg'
-    )
-  ">
-  >
-</app-tag>
-<div *ngFor="let color of getColors()">
-  <app-color
-    [isSelected]="true"
-    [tagColor]="getTagColorFrom(color)"></app-color>
-  <span> {{ this.getTotalSummary(color) }} </span>
 </div>
+
+

@@ -1,0 +1,18 @@
+.c-order-search{
+    &__form{
+        display: grid;
+        gap: em(36);
+        justify-items: center;
+    }
+    &__button-and-search{
+        display: flex;
+        gap: em(24);
+    }
+    &__svg{
+        fill: $grey-200;
+    }
+    &__bar-search{
+        gap: em(7);
+        min-width: em(250 );
+    }
+}
