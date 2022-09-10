@@ -1,26 +1,38 @@
-<div>
-  <app-back-menu [description]="'Pedido #' + this.orderNumber"> </app-back-menu>
-  <section>
-    <span>Listado de productos</span>
+<app-back-menu [description]="'Pedido #' + this.orderNumber"> </app-back-menu>
+<div class="c-order-details">
+  <section class="c-order-details__top">
+    <span class="o-font-f1-subtitle">Listado de productos</span>
     <app-product-ordered
       *ngFor="let productOrdered of this.productsOrdered"
       [productOrdered]="productOrdered"></app-product-ordered>
   </section>
-  <section>
-    <span>Detalles del pedido</span>
-    <app-select-payment-type
-      (updatePaymentType)="
-        this.setPaymentType($event)
-      "></app-select-payment-type>
-    <app-select-order-status
-      (updateOrderStatus)="
-        this.setOrderStatus($event)
-      "></app-select-order-status>
-    <app-select-order-dates
+  <section class="c-order-details__bottom">
+    <span class="o-font-f1-subtitle">Detalles del pedido</span>
+    <div class="c-order-details__payment-and-status">
+      <div class="c-order-details__payment-and-status--item">
+        <span class="o-font-f2-normal">Tipo de pago</span>
+        <app-select-payment-type
+        (updatePaymentType)="
+          this.setPaymentType($event)
+        "></app-select-payment-type>
+      </div>
+      <div class="c-order-details__payment-and-status--item">
+        <span class="o-font-f2-normal">Estado de la orden</span>
+        <app-select-order-status
+        (updateOrderStatus)="
+          this.setOrderStatus($event)
+        "></app-select-order-status>
+      </div>
+      
+    </div>
+    <div class="c-order-details__dates">
+      <app-select-order-dates
       [namesForOrderDate]="this.namesForOrderDate"
       (updateDateInterval)="
         this.setOrderDates($event)
       "></app-select-order-dates>
+    </div>  
+    
     <!-- <app-earning-summary
       [earningSummaries]="this.earningSummaries"></app-earning-summary>
     <span> Total </span>
@@ -39,9 +51,13 @@
         [tagColor]="getTagColorFrom(color)"></app-color>
       <span> {{ this.getTotalSummary(color) }} </span>
     </div>
-
-    <button (click)="this.updateOrderDetails()">
+    <app-button-with-icon
+    (click)="this.updateOrderDetails()"
+    [styles]="'c-order-details__button'"
+    [description]="'Actualizar pedido'"
+    [icon]="'cartv2.svg'"></app-button-with-icon>
+    <!-- <button (click)="this.updateOrderDetails()">
       Actualizar detalles del pedido
-    </button>
+    </button> -->
   </section>
 </div>

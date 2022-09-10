@@ -1,5 +1,5 @@
-<div class="c-category">
-  <img class="c-category__image" (click)="onRedirectTo()" [src]="this.image" />
+<div class="c-category" (click)="onRedirectTo()">
+  <img class="c-category__image" [src]="this.image" />
   <div class="c-category__footer">
     <div class="c-category__wrapper-texts">
       <span
@@ -8,7 +8,7 @@
         >{{ this.description }}</span
       >
     </div>
-    <div class="c-category__wrapper-icon" (click)="onRedirectTo()">
+    <div class="c-category__wrapper-icon">
       <svg-icon
         [src]="this.icon"
         [class]="'c-category__icon'"

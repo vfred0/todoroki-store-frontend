@@ -82,6 +82,13 @@
     height: em(35);
     cursor: pointer;
     position: relative;
+    transition: all .4s;
+    &:hover {
+      background-color: $grey-700;
+      .c-header__icon-admin{
+        fill: $light-blue-400;
+      }
+    }
   }
   &__icon-admin{
     position: absolute;
@@ -91,5 +98,9 @@
     bottom: 0;
     margin: auto;
     fill: $grey-700;
+    transition: all .4s;
+    /* &:hover{
+      fill: $light-blue-400;
+    }  */
   }
 }

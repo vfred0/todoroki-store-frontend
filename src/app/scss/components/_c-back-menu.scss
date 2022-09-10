@@ -14,6 +14,10 @@
         height: em(35);
         border-radius: em(6);
         position: relative;
+        transition: all 0.4s;
+        &:hover{
+            background-color: $grey-700;
+        }
     }
     &__icon{
         fill: $grey-600;
@@ -23,5 +27,9 @@
         right: 0;
         bottom: 0;
         margin: auto;
+        transition: all 0.4s;
+        &:hover{
+            fill: $grey-100;
+        }
     }
 }

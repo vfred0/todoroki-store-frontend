@@ -1,0 +1,29 @@
+.c-order-details{
+
+    &__bottom{
+        display: grid;
+        gap: em(28);
+        justify-items: center;
+    }
+    &__payment-and-status{
+        display: flex;
+        gap: em(48);
+        &--item{
+            display: grid;
+            gap: em(12);
+            justify-items: center;
+        }
+    }
+    &__button{
+        background-color: $green-400;
+        gap: em(10);
+        border: none;
+        
+        & span{
+            color: $neutral-white;
+        }
+        & svg-icon{
+            fill: $neutral-white;
+        }
+    }
+}

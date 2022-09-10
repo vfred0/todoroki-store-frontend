@@ -13,6 +13,9 @@ import { SelectOrderDatesComponent } from './components/select-order-dates/selec
 import { SelectModule } from '@shared/components/select/select.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BackMenuModule } from '@pages/store-management/components/back-menu/back-menu.module';
+import { AngularSvgIconModule } from 'angular-svg-icon';
+import { ButtonWithIconComponent } from '@shared/components/button-with-icon/button-with-icon.component';
+import { ButtonWithIconModule } from '@shared/components/button-with-icon/button-with-icon.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,8 @@ import { BackMenuModule } from '@pages/store-management/components/back-menu/bac
     SelectModule,
     ReactiveFormsModule,
     BackMenuModule,
+    ButtonWithIconModule,
+    AngularSvgIconModule.forRoot(),
   ],
 })
 export class OrderDetailsModule {}

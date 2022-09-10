@@ -52,4 +52,23 @@
             max-width: em(125);
         }
     }
+    &__tag-sold{
+        background-color: $green-300;
+        & svg-icon{
+            fill: $green-600;
+        }
+        & span {
+            color: $green-600;
+        }
+    }
+    &__tag-pending{
+        background-color: $red-100;
+        & svg-icon{
+            fill: $red-500;
+        }
+        & span{
+            color: $red-500;
+        }
+    }
 }
+    

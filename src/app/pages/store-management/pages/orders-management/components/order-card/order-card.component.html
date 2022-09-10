@@ -10,7 +10,7 @@
     <span class="c-order-card__number o-font-f1-subtitle"># {{ this.orderCard.orderNumber }}</span>
     <div class="c-order-card__status">
       <app-tag (selectionOfTag)="showOrder()" [tag]="getTags(1)"></app-tag>
-      <app-tag [isSelectable]="false" [tag]="getTags(0)"></app-tag>
+      <app-tag [isSelectable]="false" [tag]="getTags(0)" [styles]="getStyles()"></app-tag>
     </div>
     
   </div>

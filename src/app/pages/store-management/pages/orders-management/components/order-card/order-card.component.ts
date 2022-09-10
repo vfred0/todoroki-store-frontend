@@ -29,16 +29,23 @@ export class OrderCardComponent implements OnInit {
     this.selectedSizes = this.orderCard.sizes;
     this.selectedColors = this.orderCard.colors;
   }
-
-  getTags(index: number): Tag{
+  getOrderStatus(): OrderStatus {
     let orderStatus =
       Object.values(OrderStatus)[
         Object.keys(OrderStatus).indexOf(this.orderCard.orderStatus)
       ];
+    return orderStatus;
+  }
+  getTags(index: number): Tag{
+    /* let orderStatus =
+      Object.values(OrderStatus)[
+        Object.keys(OrderStatus).indexOf(this.orderCard.orderStatus)
+      ]; */
+    let statusOrder = this.getOrderStatus();
     return [
       {
-        description: orderStatus,
-        pathIcon: this.getIcon(orderStatus),
+        description: statusOrder,
+        pathIcon: this.getIcon(statusOrder),
       },
       {
         description: 'Ver pedido',
@@ -60,5 +67,10 @@ export class OrderCardComponent implements OnInit {
     }
     return '/assets/icons/pending.svg';
   }
-  
+  getStyles(): string {
+    if (this.getOrderStatus() == OrderStatus.Sold) {
+      return 'c-order-card__tag-sold';
+    } 
+    return 'c-order-card__tag-pending';
+  }
 }
