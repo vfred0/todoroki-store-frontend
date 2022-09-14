@@ -15,7 +15,7 @@ import { ButtonWithIconModule } from '@shared/components/button-with-icon/button
     StoreManagementRoutingModule,
     CardManagementModule,
     AngularSvgIconModule.forRoot(),
-    ButtonWithIconModule
+    ButtonWithIconModule,
   ],
 })
 export class StoreManagementModule {}

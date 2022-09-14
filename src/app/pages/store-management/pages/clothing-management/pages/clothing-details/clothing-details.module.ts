@@ -30,7 +30,7 @@ import { ButtonModule } from '@shared/components/button/button.module';
     ReactiveFormsModule,
     BackMenuModule,
     InputWithIconModule,
-    ButtonModule
+    ButtonModule,
   ],
 })
 export class ClothingDetailsModule {}

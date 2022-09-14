@@ -6,35 +6,46 @@
         [applyClass]="true"
         src="/assets/icons/cupon.svg"></svg-icon>
     </div>
-    
-    <span class="c-order-card__number o-font-f1-subtitle"># {{ this.orderCard.orderNumber }}</span>
+
+    <span class="c-order-card__number o-font-f1-subtitle"
+      ># {{ this.orderCard.orderNumber }}</span
+    >
     <div class="c-order-card__status">
       <app-tag (selectionOfTag)="showOrder()" [tag]="getTags(1)"></app-tag>
-      <app-tag [isSelectable]="false" [tag]="getTags(0)" [styles]="getStyles()"></app-tag>
+      <app-tag
+        [isSelectable]="false"
+        [tag]="getTags(0)"
+        [styles]="getStyles()"></app-tag>
     </div>
-    
   </div>
   <div class="c-order-card__details">
     <div class="c-order-card__details-item c-order-card__details-item--size">
-      <span class="c-order-card__details__description o-font-f2-small">Tallas</span>
+      <span class="c-order-card__details__description o-font-f2-small"
+        >Tallas</span
+      >
       <app-select-size
-      [selectedSizes]="selectedSizes"
-      [isSelectable]="false"></app-select-size>
+        [selectedSizes]="selectedSizes"
+        [isSelectable]="false"></app-select-size>
     </div>
     <div class="c-order-card__details-item">
-      <span class="c-order-card__details__description o-font-f2-small">Colores</span>
+      <span class="c-order-card__details__description o-font-f2-small"
+        >Colores</span
+      >
       <app-select-color
-      [isSelectable]="false"
-      [selectedColors]="selectedColors"></app-select-color>
-    </div >
+        [isSelectable]="false"
+        [selectedColors]="selectedColors"></app-select-color>
+    </div>
     <div class="c-order-card__details-item">
-      <span class="c-order-card__details__description o-font-f2-small">Cantidad</span>
+      <span class="c-order-card__details__description o-font-f2-small"
+        >Cantidad</span
+      >
       <app-tag [isSelectable]="false" [tag]="getTags(2)"></app-tag>
     </div>
     <div class="c-order-card__details-item">
-      <span class="c-order-card__details__description o-font-f2-small">Total</span>
+      <span class="c-order-card__details__description o-font-f2-small"
+        >Total</span
+      >
       <app-tag [isSelectable]="false" [tag]="getTags(3)"></app-tag>
     </div>
   </div>
-  
 </div>

@@ -6,32 +6,41 @@
       </span>
       <div class="c-earning-summary__tags">
         <app-tag
-        [tag]="
-          this.getTagFrom(
-            earningSummary.quantity.toString(),
-            '/assets/icons/cart.svg')">
+          [tag]="
+            this.getTagFrom(
+              earningSummary.quantity.toString(),
+              '/assets/icons/cart.svg'
+            )
+          ">
         </app-tag>
-        <div *ngFor="let colorDetails of earningSummary.colorDetails" class="c-earning-summary__tags-plus">
+        <div
+          *ngFor="let colorDetails of earningSummary.colorDetails"
+          class="c-earning-summary__tags-plus">
           <div class="c-earning-summary__colors">
             <app-color
-            [isSelected]="true"
-            [tagColor]="this.getTagColorFrom(colorDetails.color)"></app-color>
+              [isSelected]="true"
+              [tagColor]="this.getTagColorFrom(colorDetails.color)"></app-color>
             <span class="o-font-f2-small">{{ colorDetails.quantity }}</span>
           </div>
           <app-tag
             [tag]="
-              this.getTagFrom(colorDetails.price.toString(), '/assets/icons/price.svg')
+              this.getTagFrom(
+                colorDetails.price.toString(),
+                '/assets/icons/price.svg'
+              )
             "
             [styles]="'c-earning-summary__tag__subtotal'"></app-tag>
         </div>
         <app-tag
-        [tag]="
-          this.getTagFrom(earningSummary.price.toString(), '/assets/icons/pricev2.svg')"
-        [styles]="'c-earning-summary__tag__total'">
+          [tag]="
+            this.getTagFrom(
+              earningSummary.price.toString(),
+              '/assets/icons/pricev2.svg'
+            )
+          "
+          [styles]="'c-earning-summary__tag__total'">
         </app-tag>
       </div>
-      
     </div>
   </ng-container>
 </div>
-

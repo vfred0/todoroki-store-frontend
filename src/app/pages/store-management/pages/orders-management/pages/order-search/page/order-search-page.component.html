@@ -1,33 +1,42 @@
 <app-back-menu [description]="'Búsqueda de pedido'"></app-back-menu>
 <div class="c-order-search">
-  <form [formGroup]="this.formGroup" (ngSubmit)="onSubmit()" class="c-order-search__form">
+  <form
+    [formGroup]="this.formGroup"
+    (ngSubmit)="onSubmit()"
+    class="c-order-search__form">
     <div class="c-order-search__button-and-search">
       <div class="c-order-search__bar-search c-input-with-icon">
         <div class="c-input-with-icon__contain-svg">
-            <svg-icon
+          <svg-icon
             src="/assets/icons/cupon.svg"
-            [class]="'c-order-search__svg c-input-with-icon__svg o-icon-size-sm'"
+            [class]="
+              'c-order-search__svg c-input-with-icon__svg o-icon-size-sm'
+            "
             [applyClass]="true"></svg-icon>
         </div>
         <input
           class="c-input-with-icon__input o-font-f2-small"
-          type="number" 
+          type="number"
           formControlName="search"
-          placeholder="Ingrese el número de orden"/>
+          placeholder="Ingrese el número de orden" />
       </div>
       <!-- <input
         placeholder="Ingresa el número de la orden"
         formControlName="search"
         type="number" /> -->
-      <button [disabled]="!this.formGroup.valid" type="submit" class="c-button c-button--default">Buscar</button>
+      <button
+        [disabled]="!this.formGroup.valid"
+        type="submit"
+        class="c-button c-button--default">
+        Buscar
+      </button>
     </div>
     <app-order-card
       *ngFor="let orderCard of this.orderCards"
       [orderCard]="orderCard"></app-order-card>
-  
+
     <ng-container *ngIf="this.showEmptyResults()">
       No existe una orden con ese número
     </ng-container>
   </form>
 </div>
-

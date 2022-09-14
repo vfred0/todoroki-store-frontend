@@ -8,6 +8,11 @@ import { ButtonModule } from '@shared/components/button/button.module';
 
 @NgModule({
   declarations: [LoginPageComponent],
-  imports: [CommonModule, LoginRoutingModule, ReactiveFormsModule, ButtonModule],
+  imports: [
+    CommonModule,
+    LoginRoutingModule,
+    ReactiveFormsModule,
+    ButtonModule,
+  ],
 })
 export class LoginModule {}

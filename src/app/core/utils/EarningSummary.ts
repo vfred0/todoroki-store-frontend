@@ -3,7 +3,7 @@ import { ColorDetails } from './ColorDeatails';
 
 export interface EarningSummary {
   clothingType: ClothingType;
-  quantity: number;
   colorDetails: ColorDetails[];
+  quantity: number;
   price: number;
 }

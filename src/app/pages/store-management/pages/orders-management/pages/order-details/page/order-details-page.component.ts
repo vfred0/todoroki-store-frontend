@@ -50,8 +50,9 @@ export class OrderDetailsPageComponent implements OnInit {
       .getDetailsOrderByNumber(this.orderNumber)
       .subscribe(orderDetails => {
         this.orderDetails = orderDetails;
+        this.earningSummaries = orderDetails.earningsSummary;
 
-        this.productsOrdered = orderDetails.productsOrdered;
+        this.productsOrdered = orderDetails.productOrders;
         this.selectPaymentTypeComponent.setOptionSelected(
           this.orderDetails.paymentType
         );

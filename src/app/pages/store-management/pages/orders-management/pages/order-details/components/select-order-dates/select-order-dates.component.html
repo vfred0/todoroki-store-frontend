@@ -1,16 +1,18 @@
 <div [formGroup]="this.formGroup" class="c-order-dates">
   <div class="c-order-dates__item">
     <span class="o-font-f2-normal c-order-dates__text">Fecha del pedido</span>
-    <div class="c-order-dates__contain-input c-order-dates__contain-input--invalid">
+    <div
+      class="c-order-dates__contain-input c-order-dates__contain-input--invalid">
       <div class="c-order-dates__contain-svg">
         <svg-icon
-        src="/assets/icons/date.svg"
-        [class]="'c-order-dates__svg o-icon-size-sm'"
-        [applyClass]="true"></svg-icon>
-      
+          src="/assets/icons/date.svg"
+          [class]="'c-order-dates__svg o-icon-size-sm'"
+          [applyClass]="true"></svg-icon>
       </div>
-      <input formControlName="orderDate" type="date" class="c-order-dates__input o-font-f2-small" />
-
+      <input
+        formControlName="orderDate"
+        type="date"
+        class="c-order-dates__input o-font-f2-small" />
     </div>
   </div>
   <div class="c-order-dates__item">
@@ -18,12 +20,14 @@
     <div class="c-order-dates__contain-input">
       <div class="c-order-dates__contain-svg">
         <svg-icon
-        src="/assets/icons/date.svg"
-        [class]="'c-order-dates__svg o-icon-size-sm'"
-        [applyClass]="true"></svg-icon>
+          src="/assets/icons/date.svg"
+          [class]="'c-order-dates__svg o-icon-size-sm'"
+          [applyClass]="true"></svg-icon>
       </div>
-      <input formControlName="saleDate" type="date" class="c-order-dates__input o-font-f2-small" />
-
+      <input
+        formControlName="saleDate"
+        type="date"
+        class="c-order-dates__input o-font-f2-small" />
     </div>
   </div>
 </div>

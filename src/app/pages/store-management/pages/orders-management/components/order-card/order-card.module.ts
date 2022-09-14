@@ -8,7 +8,13 @@ import { OrderCardComponent } from './order-card.component';
 
 @NgModule({
   declarations: [OrderCardComponent],
-  imports: [CommonModule, TagModule, SelectColorModule, SelectSizeModule, AngularSvgIconModule.forRoot()],
+  imports: [
+    CommonModule,
+    TagModule,
+    SelectColorModule,
+    SelectSizeModule,
+    AngularSvgIconModule.forRoot(),
+  ],
   exports: [OrderCardComponent],
 })
 export class OrderCardModule {}

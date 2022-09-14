@@ -36,7 +36,7 @@ export class OrderCardComponent implements OnInit {
       ];
     return orderStatus;
   }
-  getTags(index: number): Tag{
+  getTags(index: number): Tag {
     /* let orderStatus =
       Object.values(OrderStatus)[
         Object.keys(OrderStatus).indexOf(this.orderCard.orderStatus)
@@ -70,7 +70,7 @@ export class OrderCardComponent implements OnInit {
   getStyles(): string {
     if (this.getOrderStatus() == OrderStatus.Sold) {
       return 'c-order-card__tag-sold';
-    } 
+    }
     return 'c-order-card__tag-pending';
   }
 }

@@ -1,8 +1,8 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button-with-icon',
-  templateUrl: './button-with-icon.component.html'
+  templateUrl: './button-with-icon.component.html',
 })
 export class ButtonWithIconComponent {
   @Input() styles: string = 'c-button--default';

@@ -2,7 +2,8 @@
 <swiper [speed]="600" [mousewheel]="true">
   <ng-container *ngFor="let productMostWanted of this.productsMostWanted">
     <ng-template swiperSlide>
-      <app-most-wanted-content [productMostWanted]="productMostWanted"></app-most-wanted-content>
-      </ng-template>
-</ng-container>
+      <app-most-wanted-content
+        [productMostWanted]="productMostWanted"></app-most-wanted-content>
+    </ng-template>
+  </ng-container>
 </swiper>

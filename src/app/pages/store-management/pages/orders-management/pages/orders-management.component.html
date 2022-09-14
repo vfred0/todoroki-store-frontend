@@ -1,23 +1,22 @@
 <app-back-menu [description]="'Gestión de pedidos'"></app-back-menu>
 <div class="c-orders-management">
   <app-card-management
-  [description]="'Búsqueda de pedidos'"
-  [icon]="'/assets/icons/search.svg'"
-  [redirectTo]="'/store-management/orders-management/order-search'"
-  [image]="'/assets/images/search-order.png'"></app-card-management>
-<app-card-management
-  [description]="'Listado de pedidos'"
-  [icon]="'/assets/icons/list.svg'"
-  [redirectTo]="'/store-management/orders-management/order-lists'"
-  [image]="'/assets/images/order-lists.png'"></app-card-management>
-<div class="c-orders-management__abstract">
-  <span class="o-font-f1-main">Resumen de ganancias</span>
+    [description]="'Búsqueda de pedidos'"
+    [icon]="'/assets/icons/search.svg'"
+    [redirectTo]="'/store-management/orders-management/order-search'"
+    [image]="'/assets/images/search-order.png'"></app-card-management>
+  <app-card-management
+    [description]="'Listado de pedidos'"
+    [icon]="'/assets/icons/list.svg'"
+    [redirectTo]="'/store-management/orders-management/order-lists'"
+    [image]="'/assets/images/order-lists.png'"></app-card-management>
+  <div class="c-orders-management__abstract">
+    <span class="o-font-f1-main">Resumen de ganancias</span>
 
-  <app-earning-summary
-    [earningSummaries]="this.earningSummaries"></app-earning-summary>
-  <!-- span> Total </span> -->
-</div>
-
+    <app-earning-summary
+      [earningSummaries]="this.earningSummaries"></app-earning-summary>
+    <!-- span> Total </span> -->
+  </div>
 </div>
 
 <!-- <app-tag

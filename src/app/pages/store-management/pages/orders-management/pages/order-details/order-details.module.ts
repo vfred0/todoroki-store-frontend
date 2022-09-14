@@ -16,6 +16,7 @@ import { BackMenuModule } from '@pages/store-management/components/back-menu/bac
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ButtonWithIconComponent } from '@shared/components/button-with-icon/button-with-icon.component';
 import { ButtonWithIconModule } from '@shared/components/button-with-icon/button-with-icon.module';
+import { EarningSummaryModule } from '../../components/earning-summary/earning-summary.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ButtonWithIconModule } from '@shared/components/button-with-icon/button
     SelectModule,
     ReactiveFormsModule,
     BackMenuModule,
+    EarningSummaryModule,
     ButtonWithIconModule,
     AngularSvgIconModule.forRoot(),
   ],

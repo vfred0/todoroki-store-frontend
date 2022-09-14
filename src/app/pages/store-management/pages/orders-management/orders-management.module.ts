@@ -9,15 +9,17 @@ import { CardManagementModule } from '@pages/store-management/components/card-ma
 import { EarningSummaryComponent } from './components/earning-summary/earning-summary.component';
 import { TagModule } from '@shared/components/tag/tag.module';
 import { ColorModule } from '@shared/components/color/color.module';
+import { EarningSummaryModule } from './components/earning-summary/earning-summary.module';
 
 @NgModule({
-  declarations: [OrdersManagementComponent, EarningSummaryComponent],
+  declarations: [OrdersManagementComponent],
   imports: [
     CommonModule,
     OrdersManagementRoutingModule,
     BackMenuModule,
     CardManagementModule,
     TagModule,
+    EarningSummaryModule,
     ColorModule,
   ],
 })

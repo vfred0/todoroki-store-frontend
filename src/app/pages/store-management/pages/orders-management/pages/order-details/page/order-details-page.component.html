@@ -12,50 +12,33 @@
       <div class="c-order-details__payment-and-status--item">
         <span class="o-font-f2-normal">Tipo de pago</span>
         <app-select-payment-type
-        (updatePaymentType)="
-          this.setPaymentType($event)
-        "></app-select-payment-type>
+          (updatePaymentType)="
+            this.setPaymentType($event)
+          "></app-select-payment-type>
       </div>
       <div class="c-order-details__payment-and-status--item">
         <span class="o-font-f2-normal">Estado de la orden</span>
         <app-select-order-status
-        (updateOrderStatus)="
-          this.setOrderStatus($event)
-        "></app-select-order-status>
+          (updateOrderStatus)="
+            this.setOrderStatus($event)
+          "></app-select-order-status>
       </div>
-      
     </div>
     <div class="c-order-details__dates">
       <app-select-order-dates
-      [namesForOrderDate]="this.namesForOrderDate"
-      (updateDateInterval)="
-        this.setOrderDates($event)
-      "></app-select-order-dates>
-    </div>  
-    
-    <!-- <app-earning-summary
-      [earningSummaries]="this.earningSummaries"></app-earning-summary>
-    <span> Total </span>
-    <app-tag
-      [tag]="
-        this.getTagFrom(
-          this.getTotalSummary('total').toString(),
-          '/assets/icons/cart.svg'
-        )
-      ">
-      >
-    </app-tag> -->
-    <div *ngFor="let color of getColors()">
-      <app-color
-        [isSelected]="true"
-        [tagColor]="getTagColorFrom(color)"></app-color>
-      <span> {{ this.getTotalSummary(color) }} </span>
+        [namesForOrderDate]="this.namesForOrderDate"
+        (updateDateInterval)="
+          this.setOrderDates($event)
+        "></app-select-order-dates>
     </div>
+    <app-earning-summary
+      [earningSummaries]="this.earningSummaries"></app-earning-summary>
+
     <app-button-with-icon
-    (click)="this.updateOrderDetails()"
-    [styles]="'c-order-details__button'"
-    [description]="'Actualizar pedido'"
-    [icon]="'cartv2.svg'"></app-button-with-icon>
+      (click)="this.updateOrderDetails()"
+      [styles]="'c-order-details__button'"
+      [description]="'Actualizar pedido'"
+      [icon]="'cartv2.svg'"></app-button-with-icon>
     <!-- <button (click)="this.updateOrderDetails()">
       Actualizar detalles del pedido
     </button> -->

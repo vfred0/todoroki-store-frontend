@@ -16,7 +16,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     ReactiveFormsModule,
     BackMenuModule,
     OrderCardModule,
-    AngularSvgIconModule.forRoot()
+    AngularSvgIconModule.forRoot(),
   ],
 })
 export class OrderSearchModule {}
