@@ -16,7 +16,7 @@
     }
   
     &-md {
-      $size: 300;
+      $size: 350;
   
       @include only-sm() {
         width: em($size);
@@ -32,7 +32,7 @@
     }
   
     &-lg {
-      $size: 500;
+      $size: 450;
   
       @include only-sm() {
         width: em($size);

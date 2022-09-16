@@ -18,13 +18,9 @@ import { EarningSummaryModule } from './components/earning-summary/earning-summa
     OrdersManagementRoutingModule,
     BackMenuModule,
     CardManagementModule,
-<<<<<<< HEAD
     TagModule,
     EarningSummaryModule,
     ColorModule,
-=======
-    EarningSummaryModule,
->>>>>>> develop
   ],
 })
 export class OrdersManagementModule {}

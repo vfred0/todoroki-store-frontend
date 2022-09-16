@@ -6,7 +6,6 @@
       *ngFor="let productOrdered of this.productOrders"
       [productOrdered]="productOrdered"></app-product-ordered>
   </section>
-<<<<<<< HEAD
   <section class="c-order-details__bottom">
     <span class="o-font-f1-subtitle">Detalles del pedido</span>
     <div class="c-order-details__payment-and-status">
@@ -34,44 +33,6 @@
     </div>
     <app-earning-summary
       [earningSummaries]="this.earningSummaries"></app-earning-summary>
-=======
-  <section>
-    <span>Detalles del pedido</span>
-    <app-select-payment-type
-      (updatePaymentType)="
-        this.setPaymentType($event)
-      "></app-select-payment-type>
-    <app-select-order-status
-      (updateOrderStatus)="
-        this.setOrderStatus($event)
-      "></app-select-order-status>
-    <app-select-order-dates
-      [namesForOrderDate]="this.namesForOrderDate"
-      (updateDateInterval)="
-        this.setOrderDates($event)
-      "></app-select-order-dates>
-    <app-earning-summary
-      [earningSummaries]="
-        this.orderDetails.earningsSummary
-      "></app-earning-summary>
-    <!-- <span> Total </span>
-    <app-tag
-      [tag]="
-        this.getTagFrom(
-          this.getTotalSummary('total').toString(),
-          '/assets/icons/cart.svg'
-        )
-      ">
-      >
-    </app-tag>
-    <div *ngFor="let color of getColors()">
-      <app-color
-        [isSelected]="true"
-        [tagColor]="getTagColorFrom(color)"></app-color>
-      <span> {{ this.getTotalSummary(color) }} </span>
-    </div> -->
->>>>>>> develop
-
     <app-button-with-icon
       (click)="this.updateOrderDetails()"
       [styles]="'c-order-details__button'"

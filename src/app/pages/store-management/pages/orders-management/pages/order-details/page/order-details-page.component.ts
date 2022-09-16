@@ -53,11 +53,8 @@ export class OrderDetailsPageComponent implements OnInit {
         this.orderDetails = orderDetails;
         this.earningSummaries = orderDetails.earningsSummary;
 
-<<<<<<< HEAD
-        this.productsOrdered = orderDetails.productOrders;
-=======
         this.productOrders = orderDetails.productOrders;
->>>>>>> develop
+
         this.selectPaymentTypeComponent.setOptionSelected(
           this.orderDetails.paymentType
         );
