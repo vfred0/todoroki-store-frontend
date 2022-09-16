@@ -1,7 +1,10 @@
 <app-header> </app-header>
 <div class="o-layout-spacing">
   <section class="c-product-view">
-    <img [src]="this.product.image" alt="" class="c-product-view__image" />
+    <img
+      [src]="this.product.image"
+      alt=""
+      class="c-product-view__image o-image-size-lg" />
     <div class="c-product-view__details">
       <div class="c-product-view__details__top">
         <div class="c-product-view__details__name-price">
@@ -16,7 +19,9 @@
           </div>
         </div>
         <div class="c-product-view__details__sizes">
-          <div class="c-product-view__details__title o-font-f1-section">Talla</div>
+          <div class="c-product-view__details__title o-font-f1-section">
+            Talla
+          </div>
           <div class="c-product-view__details__size-tags">
             <app-select-size (sizeSelected)="this.sizeSelected($event)">
             </app-select-size>
@@ -29,28 +34,28 @@
               (colorSelected)="this.colorSelected($event)"></app-select-c-product-view__details
         </div> -->
       </div>
-    
+
       <div class="c-product-view__details__bottom">
         <div class="c-product-view__details__quantity">
           <span>Cantidad</span>
           <div class="c-product-view__details__cart-quantity">
             <app-quantity></app-quantity>
             <app-button
-            (click)="this.addToCart()"
-            [description]="'Añadir al carrito'"
-            [styles]="'c-button c-button--default'"
-            class="c-product-view__button-add"></app-button>
+              (click)="this.addToCart()"
+              [description]="'Añadir al carrito'"
+              [styles]="'c-button c-button--default'"
+              class="c-product-view__button-add"></app-button>
           </div>
           <app-button
-          (click)="this.contactForWhatsapp()"
-          [isContact]="true"
-          [styles]="'c-button c-button--contact'"
-          class="c-product-view__button-wsp"></app-button>
-        </div> 
+            (click)="this.contactForWhatsapp()"
+            [isContact]="true"
+            [styles]="'c-button c-button--contact'"
+            class="c-product-view__button-wsp"></app-button>
+        </div>
       </div>
     </div>
   </section>
-  
+
   <ng-container *ngIf="this.productsSimilarity.length > 0">
     <section class="c-cards">
       <span class="c-cards__title o-font-f1-main"
@@ -63,6 +68,4 @@
       </div>
     </section>
   </ng-container>
-
 </div>
-
