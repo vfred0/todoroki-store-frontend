@@ -1,57 +1,43 @@
-.c-login{
-    width: em(272);
-    height: em(333);
-    background-color: $neutral-white;
-    position: relative;
+.c-login {
+  //   position: relative;
+
+  &__content {
+    padding: em(48);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin: em(59) auto;
-    @include md {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-        width: 50vw;
-        max-width: 450px;
-        height: 400px;
-      }
-    &__content{
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-        justify-items: center;
-        width: em(216);
-        &__header{
-            display: grid;
-            justify-items: center;
-            gap: em(7);
-            margin-bottom: em(30);
-        }
-        &__image{
-            width: em(70);
-            height: em(70);
-        }
-        &__form{
-            display: grid;
-            gap: em(7);
-            margin-bottom: em(30);
-        }
-        &__input{
-            background-color: $grey-200;
-            border-radius: em(5);
-            border: none;
-            height: em(31);
-        }
-        &__button{
-            width: 100%;
-            justify-content: space-around;
-        }
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &-header {
+      display: grid;
+      justify-items: center;
+      gap: em(7);
+      margin-bottom: em(30);
     }
+    &-image {
+      width: em(70);
+      height: em(70);
+    }
+    &-form {
+      display: grid;
+      gap: em(7);
+      margin-bottom: em(30);
+    }
+    &-input {
+      background-color: $grey-200;
+      border-radius: em(5);
+      border: none;
+      outline: $grey-500 solid em(1);
+      padding: em(8);
+    }
+    // &-button {
+    //   padding: em(8);
+    //   width: 100%;
+    //   justify-content: space-around;
+    // }
+  }
 }
-.c-login-background{
-    background-color: $grey-200;
+.c-login-background {
+  background-color: $grey-200;
 }

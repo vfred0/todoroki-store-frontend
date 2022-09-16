@@ -1,28 +1,26 @@
 <div class="c-login">
   <div class="c-login__content">
-    <div class="c-login__content__header">
+    <div class="c-login__content-header">
       <img
-        src="../../../../../assets/images/Logo.png"
-        alt=""
-        class="c-login__content__image" />
-      <span class="o-font-f1-main">Sign in</span>
+        routerLink="/"
+        src="/assets/images/Logo.png"
+        class="c-login__content-image" />
+      <span class="o-font-f1-main">Inicio de sesión</span>
     </div>
-    <form class="c-login__content__form" [formGroup]="formGroup">
+    <form class="c-login__content-form" [formGroup]="formGroup">
       <input
         formControlName="username"
         type="text"
-        class="c-login__content__input c-login__content__username o-font-f1-section" />
+        class="c-login__content-input o-font-f2-normal" />
       <input
         formControlName="password"
         type="password"
-        class="c-login__content__input c-login__content__password o-font-f1-section" />
+        class="c-login__content-input o-font-f2-normal" />
     </form>
     <app-button
       (click)="this.checkAccount()"
       [isContact]="false"
-      [description]="'Login in'"
-      [styles]="
-        'c-button c-button--contact c-login__content__button'
-      "></app-button>
+      [description]="'Iniciar sesión'"
+      [styles]="'c-button c-button--contact'"></app-button>
   </div>
 </div>
