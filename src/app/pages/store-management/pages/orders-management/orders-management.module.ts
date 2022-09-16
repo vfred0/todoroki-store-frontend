@@ -6,7 +6,7 @@ import { OrdersManagementComponent } from './pages/orders-management.component';
 
 import { BackMenuModule } from '@pages/store-management/components/back-menu/back-menu.module';
 import { CardManagementModule } from '@pages/store-management/components/card-management/card-management.module';
-import { EarningSummaryComponent } from './components/earning-summary/earning-summary.component';
+
 import { TagModule } from '@shared/components/tag/tag.module';
 import { ColorModule } from '@shared/components/color/color.module';
 import { EarningSummaryModule } from './components/earning-summary/earning-summary.module';
@@ -18,9 +18,13 @@ import { EarningSummaryModule } from './components/earning-summary/earning-summa
     OrdersManagementRoutingModule,
     BackMenuModule,
     CardManagementModule,
+<<<<<<< HEAD
     TagModule,
     EarningSummaryModule,
     ColorModule,
+=======
+    EarningSummaryModule,
+>>>>>>> develop
   ],
 })
 export class OrdersManagementModule {}

@@ -21,6 +21,7 @@ import { ShoppingCartService } from '@shared/services/shopping-cart.service';
 import { ProductItemCart } from '@core/utils/ProductItemCart';
 import { ProductCard } from '@core/utils/ProductCard';
 import { ProductFilter } from '@core/utils/ProductFilterd';
+import { OrderService } from '@shared/services/order.service';
 
 SwiperCore.use([Pagination, Navigation]);
 
@@ -42,7 +43,8 @@ export class ProductPageComponent implements OnDestroy {
     private router: ActivatedRoute,
     private productService: ProductService,
     private cd: ChangeDetectorRef,
-    private shoppingcartService: ShoppingCartService
+    private shoppingcartService: ShoppingCartService,
+    private orderService: OrderService
   ) {
     this.productOrder = {} as ProductOrder;
     this.subscription = new Subscription();
@@ -89,7 +91,31 @@ export class ProductPageComponent implements OnDestroy {
       color: this.productOrder.color,
       size: this.productOrder.size,
       quantity: this.quantity.getValue(),
+      price: this.quantity.getValue() * this.product.price,
     };
+
+    console.log(
+      'ORDen',
+      this.product.price,
+      JSON.stringify({
+        quantity: this.productOrder.quantity,
+        price: this.productOrder.price,
+        productOrders: [this.productOrder],
+      })
+    );
+
+    this.orderService
+      .save({
+        quantity: this.productOrder.quantity,
+        price: this.productOrder.price,
+        productOrders: [this.productOrder],
+      })
+      .subscribe((orderNumber: number) => {
+        let message: string = `Hola, mi número de orden es ${orderNumber}`;
+        window.open(
+          `https://api.whatsapp.com/send?phone=593939076291&text=${message}`
+        );
+      });
   }
 
   addToCart() {

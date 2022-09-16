@@ -16,8 +16,8 @@ export class OrderService {
 
   constructor(private client: HttpClient) {}
 
-  save(order: Order) {
-    this.client.post<Order>(`${this.API_URL}/save`, order).subscribe();
+  save(order: Order): Observable<number> {
+    return this.client.post<number>(`${this.API_URL}/save`, order);
   }
 
   searchOrderByNumber(orderNumber: number): Observable<OrderCard[]> {

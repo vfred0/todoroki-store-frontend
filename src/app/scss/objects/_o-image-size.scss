@@ -1,0 +1,49 @@
+.o-image-size{
+  &-sm {
+      $size: 250;
+  
+      @include only-sm() {
+        width: em($size);
+      }
+  
+      @include md() {
+        width: em($size + 2);
+      }
+  
+      @include lg() {
+        width: em($size + 4);
+      }
+    }
+  
+    &-md {
+      $size: 300;
+  
+      @include only-sm() {
+        width: em($size);
+      }
+  
+      @include md() {
+        width: em($size + 2);
+      }
+  
+      @include lg() {
+        width: em($size + 4);
+      }
+    }
+  
+    &-lg {
+      $size: 500;
+  
+      @include only-sm() {
+        width: em($size);
+      }
+  
+      @include md() {
+        width: em($size + 2);
+      }
+  
+      @include lg() {
+        width: em($size + 4);
+      }
+    }
+}
