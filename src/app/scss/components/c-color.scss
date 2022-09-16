@@ -6,10 +6,10 @@
   cursor: pointer;
   outline: none;
   border: none;
- 
+
   &--white {
-    background-color: $grey-100;
-    fill: $grey-100;
+    background-color: $neutral-white;
+    fill: $neutral-white;
 
     &.has-selected {
       #{$color}__icon {
@@ -19,16 +19,16 @@
   }
 
   &--black {
-    background-color: $grey-900;  
-    fill: $grey-900;  
+    background-color: $grey-900;
+    fill: $grey-900;
     &.has-selected {
       #{$color}__icon {
-        fill: $grey-100;
+        fill: $neutral-white;
       }
     }
   }
 
-  &__icon{
+  &__icon {
     display: grid;
   }
 }
