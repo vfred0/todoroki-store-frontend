@@ -6,42 +6,38 @@
       alt=""
       class="c-product-view__image o-image-size-lg" />
     <div class="c-product-view__details">
-      <div class="c-product-view__details__top">
+      <div class="c-product-view__details-top">
         <div class="c-product-view__details__name-price">
-          <div class="c-product-view__details__name-likes">
-            <div class="c-product-view__details__name o-font-f1-main">
+          <div class="c-product-view__details-name-likes">
+            <span class="c-product-view__details-name o-font-f1-main">
               {{ this.product.description }}
-            </div>
+            </span>
             <app-tag
               [tag]="this.likes"
               [styles]="'c-tag--likes'"
-              class="c-product-view__details__likes"></app-tag>
+              class="c-product-view__details-likes"></app-tag>
           </div>
-          <div class="c-product-view__details__price o-font-f1-section">
+          <span class="c-product-view__details-price o-font-f1-section">
             ${{ this.product.price }}
-          </div>
+          </span>
         </div>
-        <div class="c-product-view__details__sizes">
-          <div class="c-product-view__details__title o-font-f1-section">
+        <div class="c-product-view__details-sizes">
+          <span class="c-product-view__details-title o-font-f1-subtitle">
             Talla
-          </div>
-          <div class="c-product-view__details__size-tags">
+          </span>
+          <div class="c-product-view__details-size-tags">
             <app-select-size (sizeSelected)="this.sizeSelected($event)">
             </app-select-size>
           </div>
         </div>
-        <!-- <div class="c-product-details__colors">
-          <div class="c-product-details__title o-font-f1-section">Color</div>
-          <div class="c-product-details__color-tags">
-            <app-select-color
-              (colorSelected)="this.colorSelected($event)"></app-select-c-product-view__details
-        </div> -->
       </div>
 
-      <div class="c-product-view__details__bottom">
-        <div class="c-product-view__details__quantity">
-          <span>Cantidad</span>
-          <div class="c-product-view__details__cart-quantity">
+      <div class="c-product-view__details-bottom">
+        <div class="c-product-view__details-quantity">
+          <span class="c-product-view__details-title o-font-f1-subtitle">
+            Cantidad
+          </span>
+          <div class="c-product-view__details-cart-quantity">
             <app-quantity></app-quantity>
             <app-button
               (click)="this.addToCart()"
@@ -52,8 +48,7 @@
           <app-button
             (click)="this.contactForWhatsapp()"
             [isContact]="true"
-            [styles]="'c-button c-button--contact'"
-            class="c-product-view__button-wsp"></app-button>
+            [styles]="'c-button c-button--contact'"></app-button>
         </div>
       </div>
     </div>

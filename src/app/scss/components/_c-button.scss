@@ -1,5 +1,5 @@
 .c-button {
-  padding: em(12) em(36);
+  padding: em(12) em(24);
   border-radius: em(6);
   font-weight: 600;
   &:hover{
@@ -19,6 +19,8 @@
     color: $neutral-white;
     background-color: $green-400;
     display: flex;
+    justify-content: center;
+    width: 100%;
     gap: em(12);
     border: none;
     &:hover {

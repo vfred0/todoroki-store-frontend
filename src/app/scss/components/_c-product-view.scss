@@ -1,68 +1,50 @@
 .c-product-view{
     display: grid;
-    gap: em(12);
-    max-width: em(685);
-    margin: 0 auto;
+    gap: em(48);    
     &__image{
         margin: 0 auto;
     }
     &__details{
-        align-items: flex-end;
         display: grid;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: em(12);
-        position: relative;
-        @include md {
-            justify-content: space-between;
+        justify-content: center;
+        margin: 0 auto;        
+        gap: 2em;        
+        @include md {            
             display: flex;
         }
         
-        &__top{
+        &-top{
             display: grid;
-            gap: em(12);
+            gap: 2em;
         }
-        &__name-price{
+        &-name-price{
             display: grid;
             gap: em(4);
             
         }
-        &__name-likes{
+        &-name-likes{
             display: flex;
             justify-content: space-between;
             
-        }
-        &__likes{
-            position: absolute;
-            right: 0;
-            @include md {
-                position: static;
-              }
-        }
-        &__sizes{
+        }        
+        &-sizes{
             display: grid;
             gap: em(12);
         }
-        &__colors{
+        &-colors{
             
             display: grid;
             gap: em(12);
             justify-items: start;
         }
-        &__quantity{
+        &-quantity{
             display: grid;
             gap: em(12);
         }
-        &__cart-quantity{
+        &-cart-quantity{
             display: flex;
             align-items: center;
             gap: em(12);
         }
-    }
-    &__button-add{
-        
-    }
-    &__button-wsp{
-        
-    }
+    }    
 }
